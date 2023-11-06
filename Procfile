@@ -1,1 +1,1 @@
-web: gunicorn hugo-marquis.wsgi
+web: gunicorn HugoMarquisCoaching.wsgi
