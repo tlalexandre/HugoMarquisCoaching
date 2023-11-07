@@ -31,7 +31,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["hugo-marquis-297dbddc34dd.herokuapp.com", ""]
+ALLOWED_HOSTS = ["hugo-marquis-297dbddc34dd.herokuapp.com", "127.0.0.1"]
 
 
 # Application definition
@@ -45,7 +45,9 @@ INSTALLED_APPS = [
     'cloudinary_storage',
     'django.contrib.staticfiles',
     'cloudinary',
+    'django_summernote',
     'blog',
+    'calendarapp',
 ]
 
 MIDDLEWARE = [
