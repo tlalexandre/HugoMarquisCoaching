@@ -38,6 +38,8 @@ class Course(models.Model):
     actual_participants = models.IntegerField()
     location = models.TextField()
 
+    def __str__(self):
+        return self.name
 
 class PrivateSession(models.Model):
     coach = models.ForeignKey(Coach, on_delete=models.CASCADE)
