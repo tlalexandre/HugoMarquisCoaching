@@ -42,7 +42,7 @@ body{
     justify-content: space-between;
     height: 60vh;
     background: url(../images/salledesports.jpg)center center no-repeat ;
-    background-size: 1500px;
+    background-size: cover;
 }
 .title{
     display: flex;
@@ -50,7 +50,6 @@ body{
     justify-content: space-evenly;
     color: #fff;
     margin-left: 100px;
-    backdrop-filter:blur(4px);
     padding-top: 40px;
 }
 .title span{

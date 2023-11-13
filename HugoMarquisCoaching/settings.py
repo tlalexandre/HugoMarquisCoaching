@@ -10,9 +10,11 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
+from django.utils.translation import gettext_lazy as _
 from pathlib import Path
 import os
 import dj_database_url
+
 
 if os.path.isfile("env.py"):
     import env
@@ -130,6 +132,16 @@ USE_L10N = True
 USE_TZ = True
 
 
+LANGUAGES = [
+    ('en', _('English')),
+    ('fr', _('French')),
+]
+
+LOCALE_PATHS = [
+    os.path.join(BASE_DIR, 'locale'),  # Path to the directory containing your translation files
+]
+
+SITE_ID = 1  # Required for language selection
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
