@@ -33,9 +33,9 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["hugo-marquis-297dbddc34dd.herokuapp.com", "127.0.0.1"]
+ALLOWED_HOSTS = ["hugo-marquis-297dbddc34dd.herokuapp.com", "127.0.0.1","localhost"]
 
-
+HOME_URL='home'
 # Application definition
 
 INSTALLED_APPS = [
@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
+    'django.contrib.sites',
     'django.contrib.messages',
     'cloudinary_storage',
     'django.contrib.staticfiles',
@@ -56,6 +57,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -123,6 +125,12 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
+LOCALE_PATHS = [
+    os.path.join(BASE_DIR, 'locale'),  # Path to the directory containing your translation files
+]
+
+
+
 TIME_ZONE = 'UTC'
 
 USE_I18N = True
@@ -137,9 +145,6 @@ LANGUAGES = [
     ('fr', _('French')),
 ]
 
-LOCALE_PATHS = [
-    os.path.join(BASE_DIR, 'locale'),  # Path to the directory containing your translation files
-]
 
 SITE_ID = 1  # Required for language selection
 # Static files (CSS, JavaScript, Images)

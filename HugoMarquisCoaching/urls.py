@@ -15,10 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from blog.views import set_language
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('summernote/', include('django_summernote.urls')),
+    path('set-language/<str:language>/', set_language, name='set_language'), 
     path('',include("blog.urls")),
     path('bookings/',include("calendarapp.urls"))
 ]

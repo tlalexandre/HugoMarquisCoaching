@@ -1,10 +1,23 @@
-from django.shortcuts import render
+
+from django.shortcuts import render, HttpResponseRedirect
+from django.urls import reverse
 from django.views import generic
-from django.utils.translation import gettext_lazy as _
+from django.utils import translation
+from django.utils.translation import activate
 from django.views.generic import TemplateView
 from .models import Post
 
 # Create your views here.
+def set_language(request, language):
+    translation.activate(language)
+    print(f"Setting language to: {language}")
+    print(f"Current Language in View: {request.LANGUAGE_CODE}")
+    request.session['LANGUAGE_SESSION_KEY'] = language
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
+
+def my_view(request):
+    text = "Welcome to my website"
+    return render(request, "index.html", {"text": text})
 
 class HomeView(TemplateView):
     template_name='index.html'

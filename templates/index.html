@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% load i18n %}
+
 
 {% block header %}
 
@@ -19,6 +21,20 @@
             <img src="../static/images/ExampleHeader-removebg-preview.png" alt="">
         </div>
     </div>
+
+    <p>{% trans "Welcome to my Website !" %}</p>
+    <p>{% blocktrans %}Current Language: {{ LANGUAGE_CODE }}{% endblocktrans %}</p>
+
+    <form method="post" action="{% url 'set_language' language='en' %}">
+        {% csrf_token %}
+        <input type="submit" value="English">
+      </form>
+      
+      <form method="post" action="{% url 'set_language' language='fr' %}">
+        {% csrf_token %}
+        <input type="submit" value="French">
+      </form>
+    
 </header>
 
 {% endblock %}
