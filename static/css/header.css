@@ -1,0 +1,44 @@
+/* Header */
+.hero-container{
+    display: flex;
+    justify-content: space-between;
+    height: 60vh;
+    background: url(../images/salledesports.jpg)center center no-repeat ;
+    background-size: cover;
+}
+.title{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    color: #fff;
+    margin-left: 100px;
+    padding-top: 40px;
+}
+.title span{
+    font-size: 32px;
+}
+.title p{
+    font-size: 24px;
+}
+.hero-character{
+    height: 100%;
+    
+}
+.hero-character img{
+    height: 100%;
+}
+.hero-container h1, .hero-container h2{
+    font-size: 64px;
+    text-shadow: 0px 6px 1px black;;
+    font-weight: 900;
+}
+
+@media screen and (max-width:992px){
+    .title{
+        margin-left: 40px;
+    }
+    .hero-character{
+        display: none;
+    }
+}
+/* End Header */

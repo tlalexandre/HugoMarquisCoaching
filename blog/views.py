@@ -15,9 +15,6 @@ def set_language(request, language):
     request.session['LANGUAGE_SESSION_KEY'] = language
     return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
 
-def my_view(request):
-    text = "Welcome to my website"
-    return render(request, "index.html", {"text": text})
 
 class HomeView(TemplateView):
     template_name='index.html'

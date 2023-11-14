@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-13 16:15+0000\n"
+"POT-Creation-Date: 2023-11-14 10:23+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,14 +26,21 @@ msgstr ""
 msgid "French"
 msgstr ""
 
-#: .\templates\index.html:25
-msgid "Welcome to my Website !"
-msgstr "Bienvenue sur mon site web!"
+#: .\templates\index.html:16
+msgid "Sports Coach"
+msgstr "Coach Sportif"
 
-#: .\templates\index.html:26
-#, python-format
-msgid "Current Language: %(LANGUAGE_CODE)s"
+#: .\templates\index.html:17
+msgid ""
+"Since 2019, Im here to teach you how to use the full potential of your body "
+"through differents disciplines."
 msgstr ""
+"Depuis 2019, j'enseigne comment vous servir de votre corps a votre plein "
+"potentiel a travers differents disciplines."
+
+#: .\templates\news.html:9
+msgid "News"
+msgstr "Actus"
 
 #: .\venv\Lib\site-packages\cloudinary\forms.py:55
 #: .\venv\Lib\site-packages\cloudinary\forms.py:124
@@ -1266,6 +1273,9 @@ msgstr ""
 #: .\venv\Lib\site-packages\django_summernote\views.py:160
 msgid "Failed to save attachment"
 msgstr ""
+
+#~ msgid "Welcome to my Website !"
+#~ msgstr "Bienvenue sur mon site web!"
 
 #~ msgid "Welcome to my website"
 #~ msgstr "Bienvenue sur mon site web!"

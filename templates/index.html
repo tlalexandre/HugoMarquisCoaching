@@ -13,27 +13,13 @@
                 <h1>HUGO</h1>
                 <h2>MARQUIS</h2>
             </div>
-            <span>Sports Coach</span>
-            <p> Since 2019, I’m here to teach you how to use the full potential
-                of your body through differents disciplines.</p>
+            <span>{% trans "Sports Coach" %}</span>
+            <p>{% trans "Since 2019, Im here to teach you how to use the full potential of your body through differents disciplines." %}</p>
         </div>
         <div class="hero-character">
             <img src="../static/images/ExampleHeader-removebg-preview.png" alt="">
         </div>
     </div>
-
-    <p>{% trans "Welcome to my Website !" %}</p>
-    <p>{% blocktrans %}Current Language: {{ LANGUAGE_CODE }}{% endblocktrans %}</p>
-
-    <form method="post" action="{% url 'set_language' language='en' %}">
-        {% csrf_token %}
-        <input type="submit" value="English">
-      </form>
-      
-      <form method="post" action="{% url 'set_language' language='fr' %}">
-        {% csrf_token %}
-        <input type="submit" value="French">
-      </form>
     
 </header>
 
