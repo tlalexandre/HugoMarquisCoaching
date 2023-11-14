@@ -3,6 +3,7 @@ from django.urls import path
 
 urlpatterns = [
     path('news/', views.PostList.as_view(), name='news'),
+    path('news/<slug:slug>',views.PostDetails.as_view(),name="news_details"),
     path('', views.HomeView.as_view(), name='home'),
     path('set-language/<str:language>/', views.set_language, name='set_language'),
 ]

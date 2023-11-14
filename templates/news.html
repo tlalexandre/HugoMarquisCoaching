@@ -25,7 +25,7 @@
                         <div class="card-body d-flex flex-column-reverse p-0 {% if not post.image.url %}default-image{% endif %}" data-image-url="{{post.image.url}}">
                                 <div class="card-details">
 
-                                    <a href="" class="post-link ">
+                                    <a href="{% url 'news_details' post.slug %}" class="post-link ">
                                         <h2 class="card-title pl-2">{{post.title}}</h2>
                                         <p class="card-text">{{post.excerpt}}</p>
                                     </a>
