@@ -28,3 +28,21 @@
 .likes-container{
     border-radius: 5px 0 0 5px;
 }
+.masthead{
+    height: 400px;
+    border-bottom: 4px solid #fff;
+}
+.masthead.default-image{
+    background-image: url('https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg');
+    background-size: cover;
+}
+.masthead[data-image-url]{
+    background-image: url('{{ post.featured_image.url }}');
+}
+.comments-container{
+    background: #FFDF2B;
+}
+.comments-body{
+    background: #fff;
+    border-radius:10px 10px 10px 0
+}
