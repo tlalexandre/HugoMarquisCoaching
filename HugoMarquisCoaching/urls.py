@@ -22,5 +22,6 @@ urlpatterns = [
     path('summernote/', include('django_summernote.urls')),
     path('set-language/<str:language>/', set_language, name='set_language'), 
     path('',include("blog.urls")),
-    path('bookings/',include("calendarapp.urls"))
+    path('bookings/',include("calendarapp.urls")),
+    path('accounts/', include('allauth.urls')),
 ]

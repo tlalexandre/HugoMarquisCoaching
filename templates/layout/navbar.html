@@ -1,5 +1,5 @@
 
-
+{% load i18n %}
 <nav class="navbar navbar-expand-lg navbar-light bg-dark">
     <a class="navbar-brand" href="#">
         <img src="../../static/images/LogoNoText.png"  class="overlap" height="150" alt="">
@@ -10,27 +10,27 @@
     <div class="collapse navbar-collapse lg-10 justify-content-around" id="navbarNav">
       <ul class="navbar-nav col-lg-10 justify-content-around">
         <li class="nav-item">
-          <a class="nav-link {% if request.path == '/' %}active{% endif %}" aria-current="page" href="{% url 'home' %}">Home</a>
+          <a class="nav-link {% if request.path == '/' %}active{% endif %}" aria-current="page" href="{% url 'home' %}">{% trans 'Home' %}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link {% if request.path == '/news/' %}active{% endif %}" href="{% url 'news' %}">News</a>
+          <a class="nav-link {% if request.path == '/news/' %}active{% endif %}" href="{% url 'news' %}">{% trans 'News' %}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link {% if request.path == '/bookings/' %}active{% endif %}" href="{% url 'bookings' %}">Bookings</a>
+          <a class="nav-link {% if request.path == '/bookings/' %}active{% endif %}" href="{% url 'bookings' %}">{% trans 'Bookings' %}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Contact</a>
+          <a class="nav-link" href="#">{% trans 'Contact' %}</a>
         </li>
         {% if user.is_authenticated %}
         <li class="nav-item">
-            <a class="nav-link" href="#">Logout</a>
+            <a class="nav-link" href="{% url 'account_logout' %}">{% trans 'Logout' %}</a>
         </li>
         {% else %}
         <li class="nav-item">
-            <a class="nav-link" href="#">Register</a>
+            <a class="nav-link" href="{% url 'account_signup' %}">{% trans 'Sign Up' %}</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Login</a>
+            <a class="nav-link" href="{% url 'account_login' %}">{% trans 'Login' %}</a>
         </li>
         {% endif %}
       </ul>
