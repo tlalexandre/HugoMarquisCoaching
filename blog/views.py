@@ -9,6 +9,7 @@ from .models import Post
 from .forms import CommentForm
 
 # Create your views here.
+
 def set_language(request, language):
     translation.activate(language)
     print(f"Setting language to: {language}")

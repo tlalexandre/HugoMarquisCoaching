@@ -1,11 +1,8 @@
 from django.contrib import admin
-from .models import Coach, Course, PrivateSession, Availability
+from .models import Course, PrivateSession
 
 
-# Register your models here.
-@admin.register(Coach)
-class Coach(admin.ModelAdmin):
-    list_display = ("name", "email", "phone")
+
 
 
 @admin.register(Course)
@@ -15,7 +12,6 @@ class Course(admin.ModelAdmin):
         "description",
         "start_time",
         "end_time",
-        "coach",
         "user",
         "max_participants",
         "actual_participants",
@@ -26,7 +22,6 @@ class Course(admin.ModelAdmin):
 @admin.register(PrivateSession)
 class PrivateSession(admin.ModelAdmin):
     list_display = (
-        "coach",
         "start_time",
         "end_time",
         "day_of_the_week",
@@ -34,13 +29,3 @@ class PrivateSession(admin.ModelAdmin):
         "description",
     )
 
-
-@admin.register(Availability)
-class Availability(admin.ModelAdmin):
-    list_display = (
-        "coach",
-        "start_time",
-        "end_time",
-        "day_of_the_week",
-        "is_available",
-    )
