@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+  {% if course %}
+    <h2>{{ course.name }}</h2>
+    <p>{{ course.description }}</p>
+    <!-- Add other Course-specific details here -->
+  {% elif private_session %}
+    <h2>{{ private_session.name }}</h2>
+    <p>{{ private_session.description }}</p>
+    <!-- Add other PrivateSession-specific details here -->
+  {% else %}
+    <p>No event details found.</p>
+  {% endif %}
+{% endblock %}

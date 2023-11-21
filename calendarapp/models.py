@@ -29,6 +29,7 @@ OPTIONS = ((0, "Strength"), (1, "Running"), (2, "Stretch"))
 
 class Course(models.Model):
     name = models.CharField(max_length=100, unique=True)
+    slug = models.SlugField(max_length=255, unique=True)
     description = models.TextField()
     start_time = models.DateTimeField()
     end_time = models.DateTimeField()
@@ -42,6 +43,8 @@ class Course(models.Model):
         return self.name
 
 class PrivateSession(models.Model):
+    name=models.CharField(max_length=200,unique=True)
+    slug = models.SlugField(max_length=255, unique=True)
     start_time = models.DateTimeField()
     end_time = models.DateTimeField()
     day_of_the_week = models.DateTimeField()
