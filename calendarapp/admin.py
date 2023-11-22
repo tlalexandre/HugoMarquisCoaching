@@ -15,6 +15,7 @@ class Course(admin.ModelAdmin):
         "start_time",
         "end_time",
         "user",
+        "type",
         "max_participants",
         "actual_participants",
         "location",
@@ -29,8 +30,8 @@ class PrivateSession(admin.ModelAdmin):
         "slug",
         "start_time",
         "end_time",
-        "day_of_the_week",
         "user",
-        "description",
+        "location",
+        "type",
     )
 
