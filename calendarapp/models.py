@@ -16,21 +16,21 @@ class Course(models.Model):
     start_time = models.DateTimeField()
     end_time = models.DateTimeField()
     type=models.IntegerField(choices=OPTIONS, default=0)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='courses_created')
+    participants = models.ManyToManyField(User, related_name='courses_joined')
     max_participants = models.IntegerField()
-    actual_participants = models.IntegerField(default=0)
     location = models.TextField()
 
-    def add_participant(self):
-        if self.actual_participants < self.max_participants:
-            self.actual_participants += 1
+    def add_participant(self,user):
+        if self.participants.count() < self.max_participants:
+            self.participants.add(user)
             self.save()
         else:
             raise ValidationError("This course is full")
 
     def remove_participant(self):
-        if self.actual_participants > 0:
-            self.actual_participants -= 1
+        if self.participants > 0:
+            self.participants -= 1
             self.save()
         else:
             raise ValidationError("There are no participants to remove.")
@@ -69,6 +69,9 @@ class PrivateSession(models.Model):
     type = models.IntegerField(choices=OPTIONS, default=0)
     location = models.TextField()
     
+    def is_creator(self, user):
+        return self.user == user
+
     def hours(self):
         if end_time < start_time:
             raise ValidationError(

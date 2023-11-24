@@ -17,8 +17,8 @@ class Course(admin.ModelAdmin):
         "user",
         "type",
         "max_participants",
-        "actual_participants",
         "location",
+        "id",
     )
 
 

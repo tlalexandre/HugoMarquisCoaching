@@ -1,16 +1,51 @@
 {% extends 'base.html' %}
 {% load static %}
-
 {% block content %}
-  {% if course %}
-    <h2>{{ course.name }}</h2>
-    <p>{{ course.description }}</p>
-    <!-- Add other Course-specific details here -->
-  {% elif private_session %}
-    <h2>{{ private_session.name }}</h2>
-    <p>{{ private_session.description }}</p>
-    <!-- Add other PrivateSession-specific details here -->
-  {% else %}
-    <p>No event details found.</p>
-  {% endif %}
+  <div class="container mt-4">
+    {% if course %}
+      <div class="card mt-4">
+        <div class="d-flex flex-column m-4 ">
+            <h2 class="text-center m-2">{{ course.name }}</h2>
+            <p class="card-text text-center m-2">{{ course.description }}</p>
+          <div class="d-flex justify-content-between">
+            <div class="hours d-flex justify-content-between m-2">
+              <p class="px-2">Start: {{ course.start_time }}</p>
+              <p class="px-2">End: {{ course.end_time }}</p>
+            </div>
+            <p class="px-2">Number of Participants: {{ course.participants.count }} / {{ course.max_participants}}</p>
+            <p class="px-2">Location: {{ course.location }}</p>
+          </div>
+        </div>
+        <button class="w-25 mx-auto" id="join-button" data-course-id="{{course.id}}">Join</button>
+        {% if request.user.is_superuser %}
+    <p>Participants:</p>
+    <ul>
+    {% for participant in course.participants.all %}
+        <li>{{ participant.username }}</li>
+    {% endfor %}
+    </ul>
+{% endif %}
+      </div>
+    {% elif private_session %}
+      <div class="card mt-4">
+        <div class="card-body">
+          <h2 class="card-title">{{ private_session.name }}</h2>
+          <p class="card-text">{{ private_session.description }}</p>
+          <p>Start Time: {{ private_session.start_time }}</p>
+          <p>End Time: {{ private_session.end_time }}</p>
+          <p>Number of Participants: {{ private_session.participants.count }}</p>
+          <p>Maximum Participants: {{ private_session.max_participants }}</p>
+          <p>Location: {{ private_session.location }}</p>
+        </div>
+      </div>
+    {% else %}
+      <div class="alert alert-danger mt-4" role="alert">
+        You don't have permission to access this session.
+      </div>
+      <a href=" {% url 'bookings' %}" class="btn btn-primary mt-2">Return to Bookings.</a>
+    {% endif %}
+  </div>
+{% endblock %}
+{% block extra_js %}
+    <script src="{% static 'js/join_course.js' %}"></script>
 {% endblock %}
