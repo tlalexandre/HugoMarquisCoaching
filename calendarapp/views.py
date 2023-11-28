@@ -20,6 +20,21 @@ def join_course(request, course_id):
         except ValidationError:
             return JsonResponse({'message': 'This course is full.'}, status=400)
 
+def update_course(request,course_id):
+    course = get_object_or_404(Course, id=course_id)
+    if request.method == 'POST':
+        course.name = request.POST.get('name')
+        course.description = request.POST.get('description')
+        course.start_time = request.POST.get('start_time')
+        course.end_time = request.POST.get('end_time')
+        course.location = request.POST.get('location')
+        course.max_participants = request.POST.get('max_participants')
+        course.type = request.POST.get('type')
+        course.save()
+        return redirect("bookings")
+    else:
+        return render(request, 'event_update.html', {'event': course})
+
 # Create your views here.
 @login_required
 def event_create(request):

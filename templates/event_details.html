@@ -18,6 +18,7 @@
         </div>
         <button class="w-25 mx-auto" id="join-button" data-course-id="{{course.id}}">Join</button>
         {% if request.user.is_superuser %}
+        <a href="{% url 'update_course' course.id %}" class="btn btn-primary w-25 mx-auto">Update</a>
     <p>Participants:</p>
     <ul>
     {% for participant in course.participants.all %}
