@@ -59,6 +59,7 @@ window.onload = function() {
         window.location.href = '/bookings/event_detail/' + arg.event.extendedProps.slug + '/';
     },
     dateClick : function(info) {
+        var clickedDate = info.dateStr;
         window.location.href = '/bookings/event_create/?date=' + info.date.toISOString();
     },
 });
