@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<h1>Add Unavailable Period</h1>
+
+<form method="post">
+    {% csrf_token %}
+    <p>
+        <label for="start_time">Start time:</label>
+        <input type="datetime-local" name="start_time" id="start_time">
+    </p>
+    <p>
+        <label for="end_time">End time:</label>
+        <input type="datetime-local" name="end_time" id="end_time">
+    </p>
+    <button type="submit">Add</button>
+</form>
+
+
+{% endblock %}
+{% block extra_js %}
+<script src="{% static 'js/retrieve_date.js' %}"></script>
+{% endblock %}

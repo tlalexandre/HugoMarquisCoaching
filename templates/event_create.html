@@ -1,27 +1,18 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
+
 <form method="POST" action="{% url 'event_create' %}">
     {% csrf_token %}
-    <label for="name">Name:</label><br>
-    <input type="text" id="name" name="name" value="{{event.name}}"><br>
-    <label for="description">Description:</label><br>
-    <textarea id="description" name="description" value="{{event.description}}"></textarea><br>
-    <label for="start_time">Start Time:</label><br>
-    <input type="datetime-local" id="start_time" name="start_time" value={{event.start_time}}><br>
-    <label for="end_time">End Time:</label><br>
-    <input type="datetime-local" id="end_time" name="end_time" value="{{event.end_time}}"><br>
-    <label for="location">Location:</label><br>
-    <input type="text" id="location" name="location" value="{{event.location}}"><br>
-    <label for="type">Type:</label><br>
-    <select type="text" id="type" name="type" value="{{event.type}}">
-        <option value="0">Strength</option>
-        <option value="1">Running</option>
-        <option value="2">Stretch</option>
-    </select><br>
-    <label for="max_participants" >Max Participants:</label><br>
-    <input type="number" id="max_participants" name="max_participants" value="{{event.max_participants}}"><br>
-    <input type="submit" value="Submit">
+
+    {% if form.non_field_errors %}
+        {% for error in form.non_field_errors %}
+            <p class="error-message">{{ error }}</p>
+        {% endfor %}
+    {% endif %}
+{{ form.as_p }}
+    <button type="submit">Add</button>
+    
 </form>
 {% endblock %}
 {% block extra_js%}

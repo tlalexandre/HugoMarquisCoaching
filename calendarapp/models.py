@@ -9,6 +9,26 @@ from django.core.exceptions import ValidationError
 
 OPTIONS = ((0, "Strength"), (1, "Running"), (2, "Stretch"))
 
+class UnavailablePeriod(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='unavailable_periods')
+    start_time = models.DateTimeField()
+    end_time = models.DateTimeField()
+    
+    def clean(self):
+        # Check if there is any UnavailablePeriod that overlaps with this one
+        overlapping_periods = UnavailablePeriod.objects.filter(
+            start_time__lt=self.end_time,
+            end_time__gt=self.start_time,
+        )
+        if self.pk:  # If this is an existing instance, exclude it from the query
+            overlapping_periods = overlapping_periods.exclude(pk=self.pk)
+        if overlapping_periods.exists():
+            raise ValidationError('There is already an UnavailablePeriod in this time range.')
+
+    def save(self, *args, **kwargs):
+        self.clean()
+        return super().save(*args, **kwargs)
+
 class Course(models.Model):
     name = models.CharField(max_length=100, unique=True)
     slug = models.SlugField(max_length=255, unique=True)
@@ -94,5 +114,9 @@ class PrivateSession(models.Model):
 
         if overlapping_courses.exists() or overlapping_private_sessions.exists():
             raise ValidationError("Another event already exists within this time range.")
+
+        superuser = User.objects.get(is_superuser=True)
+        if UnavailablePeriod.objects.filter(user=superuser, start_time__lt=self.end_time, end_time__gt=self.start_time).exists():
+            raise ValidationError("The superuser is not available during this session time")
 
         super().save(*args, **kwargs)

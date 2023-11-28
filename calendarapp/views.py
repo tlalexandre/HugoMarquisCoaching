@@ -3,12 +3,32 @@ from django.views import View
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from django.http import JsonResponse,Http404
+from django.http import JsonResponse,Http404, HttpResponseBadRequest
 from django.utils.text import slugify
 from django.shortcuts import render, get_object_or_404, redirect
 from django.core.exceptions import ValidationError
-from .models import Course,PrivateSession
-from .forms import CourseForm, PrivateSessionForm
+from .models import Course,PrivateSession,UnavailablePeriod,User
+from .forms import CourseForm, PrivateSessionForm, UnavailablePeriodForm
+from itertools import chain
+
+def unavailable_period(request):
+    superuser = User.objects.get(is_superuser=True)
+    periods = UnavailablePeriod.objects.filter(user=superuser)
+    return render(request, 'unavailable_periods.html', {'periods': periods})
+
+def add_unavailable_period(request):
+    superuser = User.objects.get(is_superuser=True)
+    date = request.GET.get('date')
+    if request.method == 'POST':
+        form = UnavailablePeriodForm(request.POST)
+        if form.is_valid():
+            period = form.save(commit=False)
+            period.user = superuser
+            period.save()
+            return redirect('bookings')
+    else:
+        form = UnavailablePeriodForm(initial={'date': date})
+    return render(request, 'add_unavailable_period.html', {'form': form})
 
 @login_required
 def join_course(request, course_id):
@@ -20,28 +40,40 @@ def join_course(request, course_id):
         except ValidationError:
             return JsonResponse({'message': 'This course is full.'}, status=400)
 
-def update_course(request,course_id):
+def update_course(request, course_id):
     course = get_object_or_404(Course, id=course_id)
     if request.method == 'POST':
-        course.name = request.POST.get('name')
-        course.description = request.POST.get('description')
-        course.start_time = request.POST.get('start_time')
-        course.end_time = request.POST.get('end_time')
-        course.location = request.POST.get('location')
-        course.max_participants = request.POST.get('max_participants')
-        course.type = request.POST.get('type')
-        course.save()
-        return redirect("bookings")
+        form = CourseForm(request.POST, instance=course)
+        if form.is_valid():
+            form.save()
+            return redirect("bookings")
+        else:
+            return render(request, 'event_update.html', {'event': course, 'form': form})
     else:
-        return render(request, 'event_update.html', {'event': course})
+        form = CourseForm(instance=course)
+        return render(request, 'event_update.html', {'event': course, 'form': form})
+
+
+@login_required
+def delete_course(request, course_id):
+    course = get_object_or_404(Course, id=course_id)
+    if request.user.is_superuser:
+        course.delete()
+        return redirect('bookings')
+    else:
+        return HttpResponseForbidden()
 
 # Create your views here.
 @login_required
 def event_create(request):
-    if request.user.is_superuser:
+    event_type = request.GET.get('type')
+    print(event_type)
+    if event_type == 'course':
         Form = CourseForm
-    else:
+    elif event_type == 'private_session':
         Form = PrivateSessionForm
+    else:
+        return HttpResponseBadRequest('Invalid event type')
 
     if request.method == 'POST':
         print("POST request received")
@@ -93,44 +125,70 @@ def event_detail(request, slug):
         
 
 def bookings_view(request):
-    return render(request, 'bookings.html')
+    context = {
+        'is_superuser': request.user.is_superuser,
+    }
+    return render(request, 'bookings.html', context)
 
 def get_courses(request):
-    events = Course.objects.all()
-    event_list = []
-    for event in events:
-        event_list.append({
-            'title':event.name,
-            'start': event.start_time.strftime('%Y-%m-%dT%H:%M:%S'),
-            'end': event.end_time.strftime('%Y-%m-%dT%H:%M:%S'),
-            'description': event.description,
-            'participants':list(event.participants.values_list('id', flat=True)),
-            'maxParticipants': event.max_participants,
-            'location':event.location,
-            'slug':event.slug,
+    courses = Course.objects.all()
+    course_list = []
+    for course in courses:
+        course_list.append({
+            'title':course.name,
+            'start': course.start_time.strftime('%Y-%m-%dT%H:%M:%S'),
+            'end': course.end_time.strftime('%Y-%m-%dT%H:%M:%S'),
+            'description': course.description,
+            'participants':list(course.participants.values_list('id', flat=True)),
+            'maxParticipants': course.max_participants,
+            'location':course.location,
+            'slug':course.slug,
+            'color': 'blue',  # Or any color you want
         })
-    return JsonResponse(event_list, safe=False)
+    return course_list
 
 
 def get_private_sessions(request):
-    events = PrivateSession.objects.all()
-    event_list = []
-    for event in events:
-        if event.is_creator(request.user) or request.user.is_superuser:
-            event_list.append({
-                'title':event.name,
-                'start': event.start_time.strftime('%Y-%m-%dT%H:%M:%S'),
-                'end': event.end_time.strftime('%Y-%m-%dT%H:%M:%S'),
-                'location':event.location,
-                'slug':event.slug,
+    private_sessions = PrivateSession.objects.all()
+    private_session_list = []
+    for private_session in private_sessions:
+        if private_session.is_creator(request.user) or request.user.is_superuser:
+            private_session_list.append({
+                'title':private_session.name,
+                'start': private_session.start_time.strftime('%Y-%m-%dT%H:%M:%S'),
+                'end': private_session.end_time.strftime('%Y-%m-%dT%H:%M:%S'),
+                'location':private_session.location,
+                'slug':private_session.slug,
+                'color': 'green',  # Or any color you want
             })
         else:
-            event_list.append({
+            private_session_list.append({
                 'title':"Private Session",
-                'start': event.start_time.strftime('%Y-%m-%dT%H:%M:%S'),
-                'end': event.end_time.strftime('%Y-%m-%dT%H:%M:%S'),
+                'start': private_session.start_time.strftime('%Y-%m-%dT%H:%M:%S'),
+                'end': private_session.end_time.strftime('%Y-%m-%dT%H:%M:%S'),
+                'color':'yellow'
             })
-    return JsonResponse(event_list, safe=False)
+    return private_session_list
+
+def get_unavailable_periods(request):
+    superuser = User.objects.get(is_superuser=True)
+    periods = UnavailablePeriod.objects.filter(user=superuser)
+    period_list = []
+    for period in periods:
+        period_list.append({
+            'title': 'Unavailable',
+            'start': period.start_time.strftime('%Y-%m-%dT%H:%M:%S'),
+            'end': period.end_time.strftime('%Y-%m-%dT%H:%M:%S'),
+            'color': 'red',  # Or any color you want
+        })
+    return period_list
+
+def get_all_events(request):
+    courses = get_courses(request)
+    private_sessions = get_private_sessions(request)
+    unavailable_periods = get_unavailable_periods(request)
+    all_events = list(chain(courses, private_sessions, unavailable_periods))
+    return JsonResponse(all_events, safe=False)
 
 # def view_private_session(request, session_id):
 #     session = PrivateSession.objects.get(id=session_id)

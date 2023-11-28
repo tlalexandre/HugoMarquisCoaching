@@ -1,8 +1,16 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
+
 <form method="POST" action="{% url 'update_course' event.id %}">
     {% csrf_token %}
+
+    {% if form.non_field_errors %}
+        {% for error in form.non_field_errors %}
+            <p class="error-message">{{ error }}</p>
+        {% endfor %}
+    {% endif %}
+
     <label for="name">Name:</label><br>
     <input type="text" id="name" name="name" value="{{event.name}}"><br>
     <label for="description">Description:</label><br>

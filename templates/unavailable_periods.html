@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<h1>Superuser's Unavailable Periods</h1>
+
+<ul>
+{% for period in periods %}
+    <li>From {{ period.start_time }} to {{ period.end_time }}</li>
+{% empty %}
+    <li>No unavailable periods</li>
+{% endfor %}
+</ul>
+
+{% endblock %}
