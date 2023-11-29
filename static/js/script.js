@@ -6,11 +6,23 @@ window.onload = function() {
     if (calendarEl){
 
         var calendar = new FullCalendar.Calendar(calendarEl, {
+            locale:'fr',
             initialView: 'timeGridWeek',
             firstDay: 1,
+            slotLabelFormat: {
+                hour: '2-digit',
+                minute: '2-digit',
+                hour12: false
+            },
+            eventTimeFormat: {
+                hour: '2-digit',
+                minute: '2-digit',
+                hour12: false
+            },
             slotMinTime:"8:00:00",
             slotMaxTime:"18:00:00",
             nowIndicator:true,
+            themeSystem: 'bootstrap',
             events:
             function (info, successCallback, failureCallback) {
                 // Make AJAX request for all events

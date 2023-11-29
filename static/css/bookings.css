@@ -12,10 +12,11 @@
     opacity: 0;
     transition: visibility 0s, opacity 0.5s linear;
 }
-
-.calendar-cell:hover .tooltip {
-    visibility: visible;
-    opacity: 1;
+.calendar{
+    background-color: black;
+}
+.fc .fc-daygrid-day-frame {
+    border-color: yellow !important;
 }
 #choiceModal {
     position: fixed; /* Stay in place */
