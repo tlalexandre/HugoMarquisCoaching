@@ -20,6 +20,7 @@ window.onload = function() {
                     dataType: 'json',
                     success: function (data) {
                         // Call successCallback with the events
+                        console.log(data);
                         successCallback(data);
                     },
                     error: function () {
@@ -51,6 +52,7 @@ window.onload = function() {
                     <button id="createCourse">Create Course</button>
                     <button id="createUnavailablePeriod">Add Unavailable Period</button>
                     <span>on ${clickedDate}</span>
+                    <button id="closeModal">X</button>
                 </div>
             `;
             document.body.appendChild(modal);
@@ -62,12 +64,19 @@ window.onload = function() {
             document.getElementById('createUnavailablePeriod').addEventListener('click', function() {
                 window.location.href = '/bookings/unavailable_period/add/?date=' + clickedDate;
             });
+            document.getElementById('closeModal').addEventListener('click', function() {
+                var modal = document.getElementById('choiceModal');
+                var modalBackdrop = document.querySelector('.modal-backdrop');
+                modalBackdrop.parentNode.removeChild(modalBackdrop);
+                modal.parentNode.removeChild(modal);
+            });
         } else {
             modal.innerHTML = `
                 <div>
                     <h1>Choose an action</h1>
                     <button id="createPrivateSession">Create Private Session</button>
                     <span>on ${clickedDate}</span>
+                    <button id="closeModal">X</button>
                 </div>
             `;
             document.body.appendChild(modal);
@@ -75,6 +84,12 @@ window.onload = function() {
             // Add event listener to the button
             document.getElementById('createPrivateSession').addEventListener('click', function() {
                 window.location.href = '/bookings/event_create/?date=' + clickedDate  + '&type=private_session';
+            });
+            document.getElementById('closeModal').addEventListener('click', function() {
+                var modal = document.getElementById('choiceModal');
+                var modalBackdrop = document.querySelector('.modal-backdrop');
+                modalBackdrop.parentNode.removeChild(modalBackdrop);
+                modal.parentNode.removeChild(modal);
             });
         }
 

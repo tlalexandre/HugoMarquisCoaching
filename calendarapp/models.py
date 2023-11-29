@@ -2,6 +2,7 @@ from django.db.models.signals import pre_save
 from django.dispatch import receiver
 from django.db import models
 from django.db.models import Q
+from django.utils.text import slugify
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 
@@ -13,7 +14,8 @@ class UnavailablePeriod(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='unavailable_periods')
     start_time = models.DateTimeField()
     end_time = models.DateTimeField()
-    
+    slug = models.SlugField(max_length=255)
+
     def clean(self):
         # Check if there is any UnavailablePeriod that overlaps with this one
         overlapping_periods = UnavailablePeriod.objects.filter(
@@ -26,6 +28,7 @@ class UnavailablePeriod(models.Model):
             raise ValidationError('There is already an UnavailablePeriod in this time range.')
 
     def save(self, *args, **kwargs):
+        self.slug= slugify(f'{self.start_time}-{self.end_time}')
         self.clean()
         return super().save(*args, **kwargs)
 

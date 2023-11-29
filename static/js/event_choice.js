@@ -4,10 +4,11 @@ var modal = document.createElement('div');
 modal.id = 'choiceModal';
 modal.innerHTML = `
     <div>
-        <h1>Choose an action</h1>
-        <button id="createCourse">Create Course</button>
-        <button id="createUnavailablePeriod">Add Unavailable Period</button>
-        <span>on ${clickedDate}</span>
+    <h1>Choose an action</h1>
+    <button id="createCourse">Create Course</button>
+    <button id="createUnavailablePeriod">Add Unavailable Period</button>
+    <span>on ${clickedDate}</span>
+    <button id="closeModal">X</button>
     </div>
 `;
 document.body.appendChild(modal);
@@ -18,4 +19,8 @@ document.getElementById('createCourse').addEventListener('click', function() {
 });
 document.getElementById('createUnavailablePeriod').addEventListener('click', function() {
     window.location.href = '/bookings/unavailable_periods/add/?date=' + clickedDate;
+});
+document.getElementById('closeModal').addEventListener('click', function() {
+    var modal = document.getElementById('choiceModal');
+    modal.parentNode.removeChild(modal);
 });

@@ -1,15 +1,8 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load i18n %}  <!-- Load the internationalization tag library -->
 {% block content %}
 
-<h1>Superuser's Unavailable Periods</h1>
-
-<ul>
-{% for period in periods %}
-    <li>From {{ period.start_time }} to {{ period.end_time }}</li>
-{% empty %}
-    <li>No unavailable periods</li>
-{% endfor %}
-</ul>
-
+<h1>{% trans "Sorry, I won't be available" %}</h1>
+<p>{% trans "From" %} {{ unavailable_period.start_time|date:"F j, Y, P" }} {% trans "to" %} {{ unavailable_period.end_time|date:"F j, Y, P" }}</p>
 {% endblock %}

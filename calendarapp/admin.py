@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Course, PrivateSession
+from .models import Course, PrivateSession, UnavailablePeriod
 
 
 
@@ -35,3 +35,12 @@ class PrivateSession(admin.ModelAdmin):
         "type",
     )
 
+@admin.register(UnavailablePeriod)
+class UnavailablePeriod(admin.ModelAdmin):
+    prepopulated_fields = {"slug": ("start_time", "end_time")}
+    list_display = (
+        "slug",
+        "start_time",
+        "end_time",
+        "user",
+    )

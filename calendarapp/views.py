@@ -7,6 +7,7 @@ from django.http import JsonResponse,Http404, HttpResponseBadRequest
 from django.utils.text import slugify
 from django.shortcuts import render, get_object_or_404, redirect
 from django.core.exceptions import ValidationError
+from django.core.mail import send_mail
 from .models import Course,PrivateSession,UnavailablePeriod,User
 from .forms import CourseForm, PrivateSessionForm, UnavailablePeriodForm
 from itertools import chain
@@ -22,10 +23,18 @@ def add_unavailable_period(request):
     if request.method == 'POST':
         form = UnavailablePeriodForm(request.POST)
         if form.is_valid():
-            period = form.save(commit=False)
-            period.user = superuser
-            period.save()
-            return redirect('bookings')
+            start_time = form.cleaned_data.get('start_time')
+            end_time = form.cleaned_data.get('end_time')
+
+            if check_overlap(start_time, end_time, Course) or \
+               check_overlap(start_time, end_time, PrivateSession) or \
+               check_overlap(start_time, end_time, UnavailablePeriod):
+                form.add_error(None, 'An event already exists within this time period.')
+            else:
+                period = form.save(commit=False)
+                period.user = superuser
+                period.save()
+                return redirect('bookings')
     else:
         form = UnavailablePeriodForm(initial={'date': date})
     return render(request, 'add_unavailable_period.html', {'form': form})
@@ -45,19 +54,66 @@ def update_course(request, course_id):
     if request.method == 'POST':
         form = CourseForm(request.POST, instance=course)
         if form.is_valid():
-            form.save()
-            return redirect("bookings")
+            start_time = form.cleaned_data.get('start_time')
+            end_time = form.cleaned_data.get('end_time')
+
+            if check_overlap(start_time, end_time, Course, course_id) or \
+               check_overlap(start_time, end_time, PrivateSession) or \
+               check_overlap(start_time, end_time, UnavailablePeriod):
+                form.add_error(None, 'An event already exists within this time period.')
+            else:
+                form.save()
+                # Get the users who joined the course
+                users = course.participants.all()
+                # Send an email to each user
+                for user in users:
+                    message=(
+                        'The course you joined has been updated.'
+                        f' It is now starting at {course.start_time} and ending at {course.end_time}.'
+                        f' The location is {course.location}.'
+                    )
+                    send_mail(
+                        f'Course {course.name} Updated',
+                        message,
+                        'from@example.com',
+                        [user.email],
+                        fail_silently=False,
+                    )
+                return redirect("bookings")
         else:
             return render(request, 'event_update.html', {'event': course, 'form': form})
     else:
         form = CourseForm(instance=course)
         return render(request, 'event_update.html', {'event': course, 'form': form})
 
+def check_overlap(start_time, end_time, model, instance_id=None):
+    # If instance_id is provided, exclude it from the query
+    if instance_id:
+        return model.objects.exclude(id=instance_id).filter(start_time__lt=end_time, end_time__gt=start_time).exists()
+    else:
+        return model.objects.filter(start_time__lt=end_time, end_time__gt=start_time).exists()
 
 @login_required
 def delete_course(request, course_id):
     course = get_object_or_404(Course, id=course_id)
     if request.user.is_superuser:
+        # Get the users who joined the course
+        users = course.participants.all()
+        course_name=course.name
+        # Delete the course
+        # Send an email to each user
+        for user in users:
+            try:
+                send_mail(
+                    f'Course {course_name} Deleted',
+                    'The course you joined has been deleted.',
+                    'from@example.com',
+                    [user.email],
+                    fail_silently=False,
+                )
+                print(f"Email sent to {user.email}")
+            except Exception as e:
+                print(f"Failed to send email to {user.email}: {e}")
         course.delete()
         return redirect('bookings')
     else:
@@ -66,6 +122,7 @@ def delete_course(request, course_id):
 # Create your views here.
 @login_required
 def event_create(request):
+    print(request.GET)
     event_type = request.GET.get('type')
     print(event_type)
     if event_type == 'course':
@@ -76,14 +133,21 @@ def event_create(request):
         return HttpResponseBadRequest('Invalid event type')
 
     if request.method == 'POST':
-        print("POST request received")
         form = Form(request.POST)
         if form.is_valid():
-            instance = form.save(commit=False)
-            instance.user = request.user
-            instance.slug = slugify(instance.name)
-            instance.save()
-            return redirect('bookings')
+            start_time = form.cleaned_data.get('start_time')
+            end_time = form.cleaned_data.get('end_time')
+
+            if check_overlap(start_time, end_time, Course) or \
+               check_overlap(start_time, end_time, PrivateSession) or \
+               check_overlap(start_time, end_time, UnavailablePeriod):
+                form.add_error(None, 'An event already exists within this time period.')
+            else:
+                instance = form.save(commit=False)
+                instance.user = request.user
+                instance.slug = slugify(instance.name)
+                instance.save()
+                return redirect('bookings')
         else:
             for field, errors in form.errors.items():
                 for error in errors:
@@ -120,8 +184,17 @@ def event_detail(request, slug):
         return render(request, 'event_details.html', context)
     
     except Course.DoesNotExist:
-        # If neither Course nor PrivateSession is found, return a 404
-        raise Http404("No Course or PrivateSession matches the given query.")
+        pass  # Course not found, proceed to check for UnavailablePeriod
+
+    try:
+        # Try to get an UnavailablePeriod with the given slug
+        unavailable_period = UnavailablePeriod.objects.get(slug=slug)
+        context = {'unavailable_period': unavailable_period}
+        return render(request, 'unavailable_periods.html', context)
+
+    except UnavailablePeriod.DoesNotExist:
+        # If neither Course, PrivateSession, nor UnavailablePeriod is found, return a 404
+        raise Http404("No Course, PrivateSession, or UnavailablePeriod matches the given query.")
         
 
 def bookings_view(request):
@@ -179,6 +252,7 @@ def get_unavailable_periods(request):
             'title': 'Unavailable',
             'start': period.start_time.strftime('%Y-%m-%dT%H:%M:%S'),
             'end': period.end_time.strftime('%Y-%m-%dT%H:%M:%S'),
+            'slug': period.slug,
             'color': 'red',  # Or any color you want
         })
     return period_list
@@ -190,8 +264,3 @@ def get_all_events(request):
     all_events = list(chain(courses, private_sessions, unavailable_periods))
     return JsonResponse(all_events, safe=False)
 
-# def view_private_session(request, session_id):
-#     session = PrivateSession.objects.get(id=session_id)
-#     if not session.is_creator(request.user):
-#         messages.error(request, 'You do not have permission to view this session.')
-#         return redirect('bookings')
