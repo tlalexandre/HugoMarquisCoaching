@@ -3,7 +3,7 @@
 {% load i18n %}  <!-- Load the internationalization tag library -->
 {% block content %}
 
-<form method="POST" action="{% url 'event_create' %}?date={{ request.GET.date }}&type={{ request.GET.type }}">
+<form method="POST" class="form container d-flex flex-column justify-content-center align-items-center text-dark font-weight-bold mt-5 rounded-lg bg-dark" action="{% url 'event_create' %}?date={{ request.GET.date }}&type={{ request.GET.type }}">
     {% csrf_token %}
 
     {% if form.non_field_errors %}
@@ -11,8 +11,45 @@
             <p class="error-message">{{ error }}</p>
         {% endfor %}
     {% endif %}
-    {{ form.as_p }}
-    <button type="submit">{% trans "Add" %}</button>
+    {% if request.user.is_superuser %}
+    <h1 class="text-center bg-warning text-dark p-2 rounded">Create a Course</h1>
+    {% else %}
+    <h1 class="text-center bg-warning text-dark p-2 rounded">Create a Private Session</h1>
+    {% endif %}
+    <div class="form-container bg-warning rounded mb-5 p-3">
+
+        <div class="row">
+            <div class="col bg-warning px-2 ">
+                {{form.name.label_tag}}
+                {{form.name}}
+            </div>
+            <div class=" col bg-warning px-2">
+                {{form.description.label_tag}}
+                {{form.description}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col bg-warning px-2">
+                {{form.start_time.label_tag}}
+                {{form.start_time}}
+            </div>
+            <div class="col bg-warning px-2">
+                {{form.end_time.label_tag}}
+                {{form.end_time}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col bg-warning p-2">
+                {{form.location.label_tag}}
+                {{form.location}}
+            </div>
+            <div class="col bg-warning p-2">
+                {{form.max_participants.label_tag}}
+                {{form.max_participants}}
+            </div>
+        </div>
+    </div>
+    <button type="submit" class="bg-warning rounded w-25 mx-auto">{% trans "Add" %}</button>
     
 </form>
 {% endblock %}

@@ -2,24 +2,26 @@
 {% load static %}
 {% block content %}
 
-<h1>Add Unavailable Period</h1>
 
-<form method="post">
+<form method="post" class="mx-auto bg-dark text-dark font-weight-bold text-center w-75 mt-5">
     {% csrf_token %}
     {% if form.non_field_errors %}
-        {% for error in form.non_field_errors %}
-            <p class="error-message">{{ error }}</p>
-        {% endfor %}
+    {% for error in form.non_field_errors %}
+    <p class="error-message">{{ error }}</p>
+    {% endfor %}
     {% endif %}
-    <p>
-        <label for="start_time">Start time:</label>
-        <input type="datetime-local" name="start_time" id="start_time">
-    </p>
-    <p>
-        <label for="end_time">End time:</label>
-        <input type="datetime-local" name="end_time" id="end_time">
-    </p>
-    <button type="submit">Add</button>
+    <h1 class="bg-warning text-dark p-2 w-50 mx-auto my-4 rounded">Add Unavailable Period</h1>
+    <div class="bg-warning w-50 mx-auto rounded ">
+        <p class="pt-2">
+            <label for="start_time">Start time:</label>
+            <input type="datetime-local" name="start_time" id="start_time">
+        </p>
+        <p class="pb-2">
+            <label for="end_time">End time:</label>
+            <input type="datetime-local" name="end_time" id="end_time">
+        </p>
+    </div>
+    <button class="mb-2 bg-warning rounded" type="submit">Add</button>
 </form>
 
 

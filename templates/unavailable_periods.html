@@ -3,6 +3,11 @@
 {% load i18n %}  <!-- Load the internationalization tag library -->
 {% block content %}
 
-<h1>{% trans "Sorry, I won't be available" %}</h1>
-<p>{% trans "From" %} {{ unavailable_period.start_time|date:"F j, Y, P" }} {% trans "to" %} {{ unavailable_period.end_time|date:"F j, Y, P" }}</p>
+<div class="unavailable container d-flex flex-column justify-content-center bg-light text-light">
+    <h1 class="background-blur mx-auto shadow-lg">{% trans "Sorry, I won't be available" %}</h1>
+    <h2 class="background-blur mx-auto shadow-lg">
+        {% trans "From" %} {{ unavailable_period.start_time|date:"P l, F j" }} 
+        {% trans "to" %} {{ unavailable_period.end_time|date:"P l, F j" }}
+    </h2>
+</div>
 {% endblock %}

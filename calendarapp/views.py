@@ -216,8 +216,8 @@ def get_courses(request):
             'maxParticipants': course.max_participants,
             'location':course.location,
             'slug':course.slug,
-            'color': '#ffdf2b',  # Or any color you want
-            'textColor': '#000000',
+            'color': '#ffc107',  # Or any color you want
+            
         })
     return course_list
 
@@ -233,14 +233,14 @@ def get_private_sessions(request):
                 'end': private_session.end_time.strftime('%Y-%m-%dT%H:%M:%S'),
                 'location':private_session.location,
                 'slug':private_session.slug,
-                'color': '#0065b1',  # Or any color you want
+                'color': '#007bff!',  # Or any color you want
             })
         else:
             private_session_list.append({
                 'title':"Private Session",
                 'start': private_session.start_time.strftime('%Y-%m-%dT%H:%M:%S'),
                 'end': private_session.end_time.strftime('%Y-%m-%dT%H:%M:%S'),
-                'color':'yellow'
+                'color':'#dc3545'
             })
     return private_session_list
 
@@ -254,7 +254,7 @@ def get_unavailable_periods(request):
             'start': period.start_time.strftime('%Y-%m-%dT%H:%M:%S'),
             'end': period.end_time.strftime('%Y-%m-%dT%H:%M:%S'),
             'slug': period.slug,
-            'color': 'rgb(115 115 115 / 70%)',  # Or any color you want
+            'color': '#6c757d',  # Or any color you want
         })
     return period_list
 

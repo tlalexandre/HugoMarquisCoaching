@@ -1,13 +1,36 @@
 var clickedDate;
 var userIsSuperuser =window.userIsSuperuser;
-console.log(userIsSuperuser);
+
+function isSmallDevice() {
+    return window.innerWidth <= 768;
+  }
+var dayCount;
+  if (isSmallDevice()) {
+    dayCount=3;
+  } else {
+    dayCount=7;
+  }
+  
+function getVisibleRange(days) {
+    var start = new Date();
+    var end = new Date();
+    end.setDate(start.getDate() + days);
+    return { start: start, end: end };
+  }
+
 window.onload = function() {
     var calendarEl = document.getElementById('calendar');
     if (calendarEl){
 
         var calendar = new FullCalendar.Calendar(calendarEl, {
+            dayHeaderFormat: { weekday: 'long', month: 'long', day: 'numeric', omitCommas: true },
             locale:'fr',
-            initialView: 'timeGridWeek',
+            initialView:'timeGrid',
+            views: {
+                timeGrid: {
+                  dayCount: dayCount
+                }
+              },
             firstDay: 1,
             slotLabelFormat: {
                 hour: '2-digit',
@@ -20,7 +43,9 @@ window.onload = function() {
                 hour12: false
             },
             slotMinTime:"8:00:00",
-            slotMaxTime:"18:00:00",
+            slotMaxTime:"19:00:00",
+            expandRows:true,
+            height: 'auto',
             nowIndicator:true,
             themeSystem: 'bootstrap',
             events:
@@ -54,17 +79,33 @@ window.onload = function() {
     },
     dateClick : function(info) {
         clickedDate = info.dateStr;
+        clickedDate = info.dateStr;
+    var currentDate = new Date();  // Get the current date and time
+    var clickedDateTime = new Date(clickedDate);
+
+    // Check if the clicked date is in the past
+    if (clickedDateTime < currentDate) {
+        alert('Cannot create events in the past.');
+        return;
+    }
+        var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit'  };
+        var formattedDate = new Date(clickedDate).toLocaleDateString('fr-FR', options);
         // Create the modal
         var modal = document.createElement('div');
+        modal.classList.add('d-flex','flex-column');
         modal.id = 'choiceModal';
         if (userIsSuperuser) {  // Replace this with the actual condition
             modal.innerHTML = `
-                <div>
-                    <h1>Choose an action</h1>
-                    <button id="createCourse">Create Course</button>
-                    <button id="createUnavailablePeriod">Add Unavailable Period</button>
-                    <span>on ${clickedDate}</span>
-                    <button id="closeModal">X</button>
+                <div class="rounded-lg bg-dark">
+                <div class="modal-header text-light bg-dark w-100 border-0">
+                    <h1 class="modal-title">Choose an action</h1>
+                    <button id="closeModal" class="p-2 rounded bg-danger text-light">X</button>
+                </div>
+                <div class="modal-body rounded d-flex justify-content-around w-80 bg-warning mb-3">
+                    <button id="createCourse" class="rounded bg-dark text-light shadow-lg" >Create Course</button>
+                    <button id="createUnavailablePeriod" class="rounded bg-dark text-light shadow-lg" >Add Unavailable Period</button>
+                    </div>
+                    <span class="text-light">on ${formattedDate}</span>
                 </div>
             `;
             document.body.appendChild(modal);
@@ -79,17 +120,25 @@ window.onload = function() {
             document.getElementById('closeModal').addEventListener('click', function() {
                 var modal = document.getElementById('choiceModal');
                 var modalBackdrop = document.querySelector('.modal-backdrop');
-                modalBackdrop.parentNode.removeChild(modalBackdrop);
+                if(modalBackdrop){
+                    modalBackdrop.parentNode.removeChild(modalBackdrop);
+                }
                 modal.parentNode.removeChild(modal);
+                document.body.style.overflow = 'auto';
             });
         } else {
             modal.innerHTML = `
-                <div>
-                    <h1>Choose an action</h1>
-                    <button id="createPrivateSession">Create Private Session</button>
-                    <span>on ${clickedDate}</span>
-                    <button id="closeModal">X</button>
+            <div class="rounded-lg bg-dark">
+            <div class="modal-header text-light bg-dark w-100 border-0">
+                <h1 class="modal-title">Choose an action</h1>
+                <button id="closeModal" class="p-2 rounded bg-danger text-light">X</button>
+            </div>
+            <div class="modal-body rounded d-flex justify-content-around w-80 bg-warning mb-3">
+                <button id="createPrivateSession" class="rounded bg-dark text-light shadow-lg" >Create Private Session</button>
+                
                 </div>
+                <span class="text-light">on ${formattedDate}</span>
+            </div>
             `;
             document.body.appendChild(modal);
     
@@ -100,8 +149,11 @@ window.onload = function() {
             document.getElementById('closeModal').addEventListener('click', function() {
                 var modal = document.getElementById('choiceModal');
                 var modalBackdrop = document.querySelector('.modal-backdrop');
-                modalBackdrop.parentNode.removeChild(modalBackdrop);
+                if(modalBackdrop){
+                    modalBackdrop.parentNode.removeChild(modalBackdrop);
+                }
                 modal.parentNode.removeChild(modal);
+                document.body.style.overflow = 'auto';
             });
         }
 

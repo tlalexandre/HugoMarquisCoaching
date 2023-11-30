@@ -12,11 +12,26 @@
     opacity: 0;
     transition: visibility 0s, opacity 0.5s linear;
 }
-.calendar{
+#calendar{
     background-color: black;
+
+}
+.fc-view-harness.fc-view-harness-active {
+    height: 100%;
+}
+thead{
+    background-color: black;
+
 }
 .fc .fc-daygrid-day-frame {
     border-color: yellow !important;
+}
+.fc-timeline-event {
+    overflow: hidden;
+}
+.event-details{
+    overflow: hidden;
+    overflow-y: hidden;
 }
 #choiceModal {
     position: fixed; /* Stay in place */
@@ -40,4 +55,35 @@
     border: 1px solid #888;
     width: 80%;
     z-index: 1051; /* Sit on top of the modal background */
+}
+.img-container{
+    max-width: 600px;
+}
+.card-content{
+    background-image: url(../images/Yoga.jpg);
+    background-size: cover;
+    min-height: 400px;
+}
+.container{
+    height: 70vh;
+}
+.unavailable{
+    background-image: url(../images/unavailable.jpg);
+    background-size: cover;
+}
+.background-blur{
+    backdrop-filter: contrast(0.5) blur(5px);
+    border: 1px solid white;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+
+
+.form label{
+    display: block;
+}
+.noresize{
+    resize: none;
+    overflow: hidden;
 }

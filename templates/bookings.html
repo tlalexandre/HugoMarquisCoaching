@@ -2,15 +2,37 @@
 {% load static %}
 {% block header %}
 
-<header class="mt-5 d-flex justify-content-center">
-    <h1>BOOKINGS</h1>
+<header class="mt-5 text-center text-light d-flex flex-column align-items-end">
+    <div class="title-container">
+        <h1 class="mb-5 bg-dark pr-5 p-2">BOOKINGS</h1>
+    </div>
+    
 </header>
 
 {% endblock %}
 
 
 {% block content %}
-<div id="calendar" class="bg-dark text-warning m-5 p-5 rounded-lg"></div> 
+<div class="row mx-auto">
+
+    <div id="calendar" class="col-12 col-lg-8 bg-dark text-warning mx-auto p-5 rounded-lg"></div> 
+
+    <div class="mx-auto col-12 col-lg-3">
+
+        <ul class="list-group mt-3">
+            <li class="list-group-item bg-warning border-dark">Classes</li>
+            <li class="list-group-item bg-primary border-dark">Your Private Sessions</li>
+            <li class="list-group-item bg-danger border-dark">Other's Private Sessions</li>
+            <li class="list-group-item bg-secondary border-dark">Unavailabilities</li>
+        </ul>
+        <div class=" mt-5">
+            <h3 class="text-center">How to use the calendar</h3>
+                <p>To join a class, click on the class you want to join.</p>
+                <p>To book a private session, click on the time you wish to book your session.</p>
+                <p>You can check the details of an event , by clicking on it.</p>
+        </div>
+    </div>
+</div>
 {%endblock%}
 {% block extra_js %}
 <script type="text/javascript">

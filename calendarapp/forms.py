@@ -28,9 +28,13 @@ class UnavailablePeriodForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         self.helper = FormHelper(self)
 
+
+
 class CourseForm(forms.ModelForm):
     start_time = forms.DateTimeField(input_formats=['%Y-%m-%dT%H:%M'], widget=DateTimeInput())
     end_time = forms.DateTimeField(input_formats=['%Y-%m-%dT%H:%M'], widget=DateTimeInput())
+    description = forms.CharField(widget=forms.Textarea(attrs={'rows': 4, 'cols': 25, 'class': 'noresize','placeholder': 'Enter a description for the course here...'}))
+    location = forms.CharField()
 
     class Meta:
         model = Course
