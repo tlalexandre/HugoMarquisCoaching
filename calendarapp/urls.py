@@ -1,6 +1,6 @@
 from .  import views
 from django.urls import path
-from .views import get_all_events,get_courses, get_private_sessions, event_detail, event_create, join_course, update_course, delete_course,add_unavailable_period
+from .views import get_all_events,get_courses, get_private_sessions, event_detail, event_create, join_course, update_course, delete_course,add_unavailable_period,approve_private_session,delete_private_session
 
 urlpatterns=[
     path('',views.bookings_view,name='bookings'),
@@ -13,4 +13,6 @@ urlpatterns=[
     path('update_course/<int:course_id>/', update_course, name='update_course'),
     path('delete_course/<int:course_id>/', delete_course, name='delete_course'),
     path('unavailable_period/add/', add_unavailable_period, name='add_unavailable_period'),
+    path('private_session/<slug:slug>/approve', approve_private_session, name='approve_private_session'),
+    path('bookings/private_session/<slug:slug>/delete', delete_private_session, name='delete_private_session'),
 ]

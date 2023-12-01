@@ -5,6 +5,7 @@ from django.db.models import Q
 from django.utils.text import slugify
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
+from .utils import check_overlap
 
 # Create your models here.
 
@@ -33,7 +34,7 @@ class UnavailablePeriod(models.Model):
         return super().save(*args, **kwargs)
 
 class Course(models.Model):
-    name = models.CharField(max_length=100, unique=True)
+    name = models.CharField(max_length=100)
     slug = models.SlugField(max_length=255, unique=True)
     description = models.TextField()
     start_time = models.DateTimeField()
@@ -66,32 +67,27 @@ class Course(models.Model):
         return self.end_time - self.start_time
 
     def save(self, *args, **kwargs):
-        overlapping_courses = Course.objects.filter(
-            user=self.user,
-            start_time__lt=self.end_time,
-            end_time__gt=self.start_time,
-        ).exclude(pk=self.pk)  # Exclude the current instance if it's being updated
+        if not self.pk:  # If the object is not in the database yet
+            super().save(*args, **kwargs)  # Save it to get an ID
 
-        overlapping_private_sessions = PrivateSession.objects.filter(
-            user=self.user,
-            start_time__lt=self.end_time,
-            end_time__gt=self.start_time,
-        )
+        self.slug = slugify(f"{self.name}-{self.pk}")
 
-        if overlapping_courses.exists() or overlapping_private_sessions.exists():
-            raise ValidationError("Another event already exists within this time range.")
+        if self._state.adding:  # Only perform the check when creating a new instance
+            if check_overlap(self.start_time, self.end_time, Course, self.pk) or \
+            check_overlap(self.start_time, self.end_time, PrivateSession):
+                raise ValidationError('Another event already exists within this time range.')
 
         super().save(*args, **kwargs)
 
 class PrivateSession(models.Model):
-    name=models.CharField(max_length=200,unique=True)
+    name=models.CharField(max_length=200)
     slug = models.SlugField(max_length=255, unique=True)
     start_time = models.DateTimeField()
     end_time = models.DateTimeField()
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     type = models.IntegerField(choices=OPTIONS, default=0)
     location = models.TextField()
-    
+    is_approved = models.BooleanField(default=False)
     def is_creator(self, user):
         return self.user == user
 
@@ -102,24 +98,20 @@ class PrivateSession(models.Model):
             )
         return self.end_time - self.start_time
 
+    def approve(self):
+        self.is_approved = True
+        super().save(force_update=True)
+
     def save(self, *args, **kwargs):
-        overlapping_courses = Course.objects.filter(
-            user=self.user,
-            start_time__lt=self.end_time,
-            end_time__gt=self.start_time,
-        ).exclude(pk=self.pk)  # Exclude the current instance if it's being updated
+        if not self.pk:  # If the object is not in the database yet
+            super().save(*args, **kwargs)  # Save it to get an ID
 
-        overlapping_private_sessions = PrivateSession.objects.filter(
-            user=self.user,
-            start_time__lt=self.end_time,
-            end_time__gt=self.start_time,
-        )
+        self.slug = slugify(f"{self.name}-{self.pk}")
 
-        if overlapping_courses.exists() or overlapping_private_sessions.exists():
-            raise ValidationError("Another event already exists within this time range.")
-
-        superuser = User.objects.get(is_superuser=True)
-        if UnavailablePeriod.objects.filter(user=superuser, start_time__lt=self.end_time, end_time__gt=self.start_time).exists():
-            raise ValidationError("The superuser is not available during this session time")
+        if self._state.adding:  # Only perform the check when creating a new instance
+            if check_overlap(self.start_time, self.end_time, Course) or \
+            check_overlap(self.start_time, self.end_time, PrivateSession, self.pk) or \
+            check_overlap(self.start_time, self.end_time, UnavailablePeriod):
+                raise ValidationError('Another event already exists within this time range.')
 
         super().save(*args, **kwargs)

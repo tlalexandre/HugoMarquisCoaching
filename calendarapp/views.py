@@ -1,4 +1,5 @@
 from django.views.generic import TemplateView
+from django.views.decorators.http import require_POST
 from django.views import View
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -10,6 +11,7 @@ from django.core.exceptions import ValidationError
 from django.core.mail import send_mail
 from .models import Course,PrivateSession,UnavailablePeriod,User
 from .forms import CourseForm, PrivateSessionForm, UnavailablePeriodForm
+from .utils import check_overlap
 from itertools import chain
 
 def unavailable_period(request):
@@ -86,12 +88,6 @@ def update_course(request, course_id):
         form = CourseForm(instance=course)
         return render(request, 'event_update.html', {'event': course, 'form': form})
 
-def check_overlap(start_time, end_time, model, instance_id=None):
-    # If instance_id is provided, exclude it from the query
-    if instance_id:
-        return model.objects.exclude(id=instance_id).filter(start_time__lt=end_time, end_time__gt=start_time).exists()
-    else:
-        return model.objects.filter(start_time__lt=end_time, end_time__gt=start_time).exists()
 
 @login_required
 def delete_course(request, course_id):
@@ -147,6 +143,8 @@ def event_create(request):
                 instance.user = request.user
                 instance.slug = slugify(instance.name)
                 instance.save()
+                if isinstance(instance,PrivateSession):
+                    messages.success(request, 'Your private session has been created and is pending approval.')
                 return redirect('bookings')
         else:
             for field, errors in form.errors.items():
@@ -222,25 +220,63 @@ def get_courses(request):
     return course_list
 
 
+@require_POST
+def approve_private_session(request,slug):
+    private_session = PrivateSession.objects.get(slug=slug)
+    if request.user.is_superuser:
+        private_session.approve()
+        try:
+            send_mail(
+                    'Your private session has been approved',
+                    'Your private session titled "{}" has been approved.'.format(private_session.name),
+                    'from@example.com',
+                    [private_session.user.email],
+                    fail_silently=False,
+                )
+            print(f"Email sent to {private_session.user.email}")
+        except Exception as e:
+            print(f"Failed to send email to {private_session.user.email}: {e}")
+    return redirect('event_detail', slug=slug)
+
+
+@require_POST
+def delete_private_session(request, slug):
+    private_session = get_object_or_404(PrivateSession, slug=slug)
+    if request.user.is_superuser or request.user == private_session.user:
+        try:
+            send_mail(
+                'Your private session has been deleted',
+                'Your private session titled "{}" has been deleted.'.format(private_session.name),
+                'from@example.com',
+                [private_session.user.email],
+                fail_silently=False,
+            )
+            print(f"Email sent to {private_session.user.email}")
+        except Exception as e:
+                print(f"Failed to send email to {private_session.user.email}: {e}")
+        private_session.delete()
+    return redirect('bookings')
+
+
 def get_private_sessions(request):
     private_sessions = PrivateSession.objects.all()
     private_session_list = []
     for private_session in private_sessions:
         if private_session.is_creator(request.user) or request.user.is_superuser:
             private_session_list.append({
-                'title':private_session.name,
+                'title': private_session.name,
                 'start': private_session.start_time.strftime('%Y-%m-%dT%H:%M:%S'),
                 'end': private_session.end_time.strftime('%Y-%m-%dT%H:%M:%S'),
-                'location':private_session.location,
-                'slug':private_session.slug,
-                'color': '#007bff!',  # Or any color you want
+                'location': private_session.location,
+                'slug': private_session.slug,
+                'color': '#28a745' if private_session.is_approved else '#007bff',
             })
         else:
             private_session_list.append({
-                'title':"Private Session",
+                'title': "Private Session",
                 'start': private_session.start_time.strftime('%Y-%m-%dT%H:%M:%S'),
                 'end': private_session.end_time.strftime('%Y-%m-%dT%H:%M:%S'),
-                'color':'#dc3545'
+                'color':'#dc3545',
             })
     return private_session_list
 

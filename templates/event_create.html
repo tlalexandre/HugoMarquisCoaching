@@ -13,11 +13,8 @@
     {% endif %}
     {% if request.user.is_superuser %}
     <h1 class="text-center bg-warning text-dark p-2 rounded">Create a Course</h1>
-    {% else %}
-    <h1 class="text-center bg-warning text-dark p-2 rounded">Create a Private Session</h1>
-    {% endif %}
     <div class="form-container bg-warning rounded mb-5 p-3">
-
+        
         <div class="row">
             <div class="col bg-warning px-2 ">
                 {{form.name.label_tag}}
@@ -51,6 +48,39 @@
     </div>
     <button type="submit" class="bg-warning rounded w-25 mx-auto">{% trans "Add" %}</button>
     
+    {% else %}
+    <h1 class="text-center bg-warning text-dark p-2 rounded">Create a Private Session</h1>
+    <div class="form-container bg-warning rounded mb-5 p-3">
+        
+        <div class="row">
+            <div class="col bg-warning px-2 ">
+                {{form.name.label_tag}}
+                {{form.name}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col bg-warning px-2">
+                {{form.start_time.label_tag}}
+                {{form.start_time}}
+            </div>
+            <div class="col bg-warning px-2">
+                {{form.end_time.label_tag}}
+                {{form.end_time}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col bg-warning p-2">
+                {{form.location.label_tag}}
+                {{form.location}}
+            </div>
+            <div class="col bg-warning p-2">
+                {{form.type.label_tag}}
+                {{form.type}}
+            </div>
+        </div>
+    </div>
+    <button type="submit" class="bg-warning rounded w-25 mx-auto">{% trans "Add" %}</button>
+    {% endif %}
 </form>
 {% endblock %}
 {% block extra_js %}

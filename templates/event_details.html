@@ -60,6 +60,16 @@
           </div>
         </div>
     </div>
+    {% if request.user.is_superuser and not private_session.is_approved %}
+    <form method="POST" action="{% url 'approve_private_session' private_session.slug %}">
+        {% csrf_token %}
+        <input type="submit" value="Approve">
+    </form>
+    <form method="POST" action="{% url 'delete_private_session' private_session.slug %}">
+        {% csrf_token %}
+        <input type="submit" value="Delete">
+    </form>
+{% endif %}
 </div>
 {% else %}
 <div class="alert alert-danger mt-4" role="alert">
