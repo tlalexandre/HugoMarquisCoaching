@@ -20,7 +20,7 @@
           <a class="nav-link {% if request.path == '/bookings/' %}active{% endif %}" href="{% url 'bookings' %}">{% trans 'Bookings' %}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">{% trans 'Contact' %}</a>
+          <a class="nav-link" href="{% url 'contact' %}">{% trans 'Contact' %}</a>
         </li>
         {% if user.is_authenticated %}
         <li class="nav-item">

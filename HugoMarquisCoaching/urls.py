@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from blog.views import set_language
+from .views import contact
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -24,4 +25,5 @@ urlpatterns = [
     path('',include("blog.urls")),
     path('bookings/',include("calendarapp.urls")),
     path('accounts/', include('allauth.urls')),
+    path('contact/', contact, name='contact'),
 ]

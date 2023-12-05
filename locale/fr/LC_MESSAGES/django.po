@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-16 12:19+0000\n"
+"POT-Creation-Date: 2023-12-05 14:14+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,11 +18,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: .\HugoMarquisCoaching\settings.py:151
+#: .\HugoMarquisCoaching\settings.py:154
 msgid "English"
 msgstr ""
 
-#: .\HugoMarquisCoaching\settings.py:152
+#: .\HugoMarquisCoaching\settings.py:155
 msgid "French"
 msgstr ""
 
@@ -367,7 +367,7 @@ msgid "Signup"
 msgstr "S'inscrire"
 
 #: .\templates\account\signup.html:11 .\templates\account\signup.html:30
-#: .\templates\allauth\layouts\base.html:39 .\templates\layout\navbar.html:30
+#: .\templates\allauth\layouts\base.html:39 .\templates\layout\navbar.html:31
 #: .\templates\socialaccount\signup.html:9
 #: .\templates\socialaccount\signup.html:29
 msgid "Sign Up"
@@ -449,12 +449,67 @@ msgid ""
 "email address</a>."
 msgstr ""
 
+#: .\templates\add_news.html:10
+#, fuzzy
+#| msgid "News"
+msgid "Add News"
+msgstr "Actus"
+
 #: .\templates\allauth\layouts\base.html:18
 msgid "Messages:"
 msgstr ""
 
 #: .\templates\allauth\layouts\base.html:25
 msgid "Menu:"
+msgstr ""
+
+#: .\templates\event_create.html:49 .\templates\event_create.html:82
+msgid "Add"
+msgstr ""
+
+#: .\templates\event_details.html:24 .\templates\event_details.html:87
+msgid "Start Time"
+msgstr ""
+
+#: .\templates\event_details.html:25 .\templates\event_details.html:88
+msgid "End Time"
+msgstr ""
+
+#: .\templates\event_details.html:28 .\templates\event_details.html:91
+msgid "Location"
+msgstr ""
+
+#: .\templates\event_details.html:29 .\templates\event_details.html:92
+msgid "Created by"
+msgstr ""
+
+#: .\templates\event_details.html:39
+msgid "Join"
+msgstr ""
+
+#: .\templates\event_details.html:43
+msgid "Update"
+msgstr ""
+
+#: .\templates\event_details.html:44
+#: .\venv\Lib\site-packages\django\forms\formsets.py:417
+msgid "Delete"
+msgstr ""
+
+#: .\templates\event_details.html:70
+msgid "Participants"
+msgstr ""
+
+#: .\templates\event_details.html:83
+msgid "Private Session "
+msgstr ""
+
+#: .\templates\event_details.html:110
+msgid "You don't have permission to access this session."
+msgstr ""
+
+#: .\templates\event_details.html:112
+msgid "Return to Bookings."
 msgstr ""
 
 #: .\templates\index.html:16
@@ -469,27 +524,27 @@ msgstr ""
 "Depuis 2019, j'enseigne comment vous servir de votre corps a votre plein "
 "potentiel a travers differents disciplines."
 
-#: .\templates\layout\navbar.html:13
+#: .\templates\layout\navbar.html:14
 msgid "Home"
 msgstr ""
 
-#: .\templates\layout\navbar.html:16 .\templates\news.html:9
+#: .\templates\layout\navbar.html:17 .\templates\news.html:9
 msgid "News"
 msgstr "Actus"
 
-#: .\templates\layout\navbar.html:19
+#: .\templates\layout\navbar.html:20
 msgid "Bookings"
 msgstr "Réservations"
 
-#: .\templates\layout\navbar.html:22
+#: .\templates\layout\navbar.html:23
 msgid "Contact"
 msgstr "Contact"
 
-#: .\templates\layout\navbar.html:26
+#: .\templates\layout\navbar.html:27
 msgid "Logout"
 msgstr "Se déconnecter"
 
-#: .\templates\layout\navbar.html:33
+#: .\templates\layout\navbar.html:34
 msgid "Login"
 msgstr "Se connecter"
 
@@ -619,21 +674,21 @@ msgstr ""
 msgid "wrote :"
 msgstr " a écrit :"
 
-#: .\templates\news_details.html:68
-msgid "Your comment is awaiting approval"
-msgstr ""
-
-#: .\templates\news_details.html:74
+#: .\templates\news_details.html:69
 msgid "Leave a comment:"
 msgstr "Laissez un commentaire:"
 
-#: .\templates\news_details.html:75
+#: .\templates\news_details.html:70
 msgid "Posting as :"
 msgstr "Publié en tant que:"
 
-#: .\templates\news_details.html:79
+#: .\templates\news_details.html:74
 msgid "Submit"
 msgstr "Envoyer"
+
+#: .\templates\news_details.html:77
+msgid "You need to be logged in to comment this post."
+msgstr ""
 
 #: .\templates\socialaccount\authentication_error.html:5
 #: .\templates\socialaccount\authentication_error.html:9
@@ -723,6 +778,18 @@ msgstr ""
 
 #: .\templates\socialaccount\snippets\login.html:8
 msgid "Or use a third-party"
+msgstr ""
+
+#: .\templates\unavailable_periods.html:7
+msgid "Sorry, I won't be available"
+msgstr ""
+
+#: .\templates\unavailable_periods.html:9
+msgid "From"
+msgstr ""
+
+#: .\templates\unavailable_periods.html:10
+msgid "to"
 msgstr ""
 
 #: .\venv\Lib\site-packages\cloudinary\forms.py:55
@@ -1299,10 +1366,6 @@ msgstr[1] ""
 #: .\venv\Lib\site-packages\django\forms\formsets.py:405
 #: .\venv\Lib\site-packages\django\forms\formsets.py:412
 msgid "Order"
-msgstr ""
-
-#: .\venv\Lib\site-packages\django\forms\formsets.py:417
-msgid "Delete"
 msgstr ""
 
 #: .\venv\Lib\site-packages\django\forms\models.py:763
