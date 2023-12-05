@@ -57,7 +57,6 @@ window.onload = function() {
                     dataType: 'json',
                     success: function (data) {
                         // Call successCallback with the events
-                        console.log(data);
                         successCallback(data);
                     },
                     error: function () {

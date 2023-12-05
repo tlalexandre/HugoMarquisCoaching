@@ -22,13 +22,13 @@ $('#join-button').click(function() {
         type: 'POST',
         datatype: 'json',
         success: function(response) {
-            alert(response.message);
+            $('#message').text(response.message);  // Change this line
         },
         error: function(response) {
             if (response.responseJSON) {
-                alert(response.responseJSON.message);
+                $('#message').text(response.responseJSON.error);  // And this line
             } else {
-                alert('An error occurred');
+                $('#message').text('An error occurred');  // And this line
             }
         }
     });

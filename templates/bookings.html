@@ -16,8 +16,10 @@
 {% if messages %}
     <div class="messages">
         {% for message in messages %}
-            <div{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</div>
-        {% endfor %}
+            {% if forloop.last %}
+            <div{% if message.tags %} class="{{ message.tags }} bg-info text-light w-50 ml-5 rounded mb-3 p-2"{% endif %}>{{ message }}</div>
+          {% endif %}
+    {% endfor %}
     </div>
 {% endif %}
 <div class="row mx-auto">
@@ -44,7 +46,6 @@
 {% block extra_js %}
 <script type="text/javascript">
    window.userIsSuperuser = {{ is_superuser|yesno:"true,false" }};
-    console.log(userIsSuperuser);
 </script>
 <script src="{% static 'js/script.js' %}"></script>
 {% endblock %}

@@ -53,18 +53,9 @@
 
 .title {
     opacity: 0;
-    animation: slide-in 2s 2s forwards;  /* Starts after 2 seconds */
+    animation: slide-in 2s forwards;
+    animation-fill-mode: forwards;
 }
-
-@keyframes slide-in {
-    100% {
-        opacity: 1;
-    }
-}
-
-
-
-
 
 @media screen and (max-width:992px){
     .title{

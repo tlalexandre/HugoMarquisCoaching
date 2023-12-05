@@ -42,14 +42,19 @@ def add_unavailable_period(request):
     return render(request, 'add_unavailable_period.html', {'form': form})
 
 @login_required
-def join_course(request, course_id):
+def join_course(request, slug):
     if request.method == 'POST':
-        course = get_object_or_404(Course, id=course_id)
+        course = get_object_or_404(Course, slug=slug)
+        if course.participants.filter(id=request.user.id).exists():
+            messages.info(request, 'You have already joined this course.')
+            return redirect('event_detail', slug=course.slug)
         try:
             course.add_participant(request.user)
-            return JsonResponse({'message': 'You have successfully joined the course.'})
+            messages.success(request, 'You have successfully joined the course.')
+            return redirect('event_detail', slug=course.slug)
         except ValidationError:
-            return JsonResponse({'message': 'This course is full.'}, status=400)
+            messages.error(request, 'This course is full.')
+            return redirect('event_detail', slug=course.slug)
 
 def update_course(request, course_id):
     course = get_object_or_404(Course, id=course_id)
