@@ -1,14 +1,30 @@
 
-from django.shortcuts import render, HttpResponseRedirect, get_object_or_404
+from django.shortcuts import render, HttpResponseRedirect, get_object_or_404, redirect
 from django.urls import reverse
 from django.views import generic, View
 from django.utils import translation
+from django.utils.text import slugify
 from django.utils.translation import activate
 from django.views.generic import TemplateView
 from .models import Post
-from .forms import CommentForm
+from .forms import CommentForm, NewsForm
 
 # Create your views here.
+
+def add_news(request):
+    if request.method=='POST':
+        form=NewsForm(request.POST, request.FILES)
+        if form.is_valid():
+            news_item = form.save(commit=False)  # save the form without committing
+            news_item.author = request.user
+            news_item.save()  # save the object to generate an ID
+            news_item.slug = slugify(f"{news_item.title}-{news_item.id}")  # generate a slug using the title and ID
+            news_item.save()  # save the object again to save the slug
+            return redirect('news')
+    else:
+        form=NewsForm()
+    return render(request, 'add_news.html', {'form':form})
+
 
 def set_language(request, language):
     translation.activate(language)
@@ -32,7 +48,7 @@ class PostDetails(View):
     def get(self, request, slug, *args, **kwargs):
         queryset=Post.objects.filter(status=1)
         post= get_object_or_404(queryset,slug=slug)
-        comments= post.comments.filter(approved=True).order_by('created_on')
+        comments= post.comments.order_by('created_on')
         liked=False
         if post.likes.filter(id=self.request.user.id).exists():
             liked=True
@@ -42,7 +58,7 @@ class PostDetails(View):
     def post(self, request, slug, *args, **kwargs):
         queryset=Post.objects.filter(status=1)
         post= get_object_or_404(queryset,slug=slug)
-        comments= post.comments.filter(approved=True).order_by('created_on')
+        comments= post.comments.order_by('created_on')
         liked=False
         if post.likes.filter(id=self.request.user.id).exists():
             liked=True

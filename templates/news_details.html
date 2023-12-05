@@ -4,12 +4,12 @@
 {% block content %}
 
 {% load crispy_forms_tags %}
-
 <div class="masthead-container">
     <div class="container">
-        <div class="masthead col-12 d-flex flex-column justify-content-end {% if not post.image.url %}default-image{% endif %} data-image-url="{{post.image.url}}">
-                <h1 class="post-title card-title">{{ post.title }}</h1>
-                <p class="post-subtitle card-text">{{ post.author }} | {{ post.created_on }}</p>
+        <div class="masthead col-12 d-flex flex-column justify-content-end post-image{% if not post.featured_image.url %}default-image{% endif %}"
+             style="background-image: url('{{ post.featured_image.url }}');">
+            <h1 class="post-title card-title">{{ post.title }}</h1>
+            <p class="post-subtitle card-text">{{ post.author }} | {{ post.created_on }}</p>
         </div>
     </div>
 </div>
@@ -17,10 +17,10 @@
 <div class="container">
     <div class="row">
         <div class="col card ml-3 mr-3 mt-3">
-            <div class="card-content">
+            <div class="card-details">
                 <!-- The post content goes inside the card-text. -->
                 <!-- Use the | safe filter inside the template tags -->
-                <p class="card-text ">
+                <p class="card-text text-dark ">
                     {{ post.content | safe }}
                 </p>
                 <div class="row">
@@ -53,8 +53,8 @@
                 {% for comment in comments %}
                 <div class="comments" style="padding: 10px;">
                     <p class="font-weight-bold">{{ comment.name }}
-                        <span class=" text-muted font-weight-normal">{{ comment.created_on }} </span>{% trans "wrote :" %}</p>
-                    <!-- The body of the comment goes before the | -->
+                        {% trans "wrote :" %} <span class=" text-muted font-weight-normal">{{ comment.created_on }} </span></p>
+                        <!-- The body of the comment goes before the | -->
                     {{ comment.body | linebreaks }}
                 </div>
                 <!-- Our for loop ends here -->
@@ -63,11 +63,6 @@
         </div>
         <div class="col-md-4 card mb-4  mt-3 ">
             <div class="">
-                {% if commented %}
-                <div class="alert alert-success" role="alert">
-                    {% trans "Your comment is awaiting approval" %}
-                </div>
-                {% else %}
                 
                 {% if user.is_authenticated %}
 
@@ -78,7 +73,8 @@
                     {% csrf_token %}
                     <button class="btn btn-signup btn-lg">{% trans "Submit"%}</button>
                 </form>
-                {% endif %}
+                {% else %}
+                <p>{% trans "You need to be logged in to comment this post." %}</p>
                 {% endif %}
             </div>
         </div>

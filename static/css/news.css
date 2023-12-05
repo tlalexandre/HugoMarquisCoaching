@@ -32,12 +32,10 @@
     height: 400px;
     border-bottom: 4px solid #fff;
 }
-.masthead.default-image{
-    background-image: url('https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg');
-    background-size: cover;
-}
-.masthead[data-image-url]{
-    background-image: url('{{ post.featured_image.url }}');
+.post-image {
+    width: 100%; /* or any other value */
+    background-size: cover; /* this will scale the image to cover the div */
+    background-position: center; /* this will center the image in the div */
 }
 .comments-container{
     background: #FFDF2B;
@@ -45,4 +43,7 @@
 .comments-body{
     background: #fff;
     border-radius:10px 10px 10px 0
+}
+textarea{
+    resize: none;
 }

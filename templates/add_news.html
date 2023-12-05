@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+{% block header %}
+{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="d-flex mt-5 justify-content-end">
+        <h1 class="h1 slide-in">
+            <span class="text-light bg-dark shadow-lg px-2 rounded-bottom text-uppercase pr-5">{% trans "Add News" %}</span>
+        </h1>
+    </div>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group d-flex flex-column">
+            <label for="{{ form.title.id_for_label }}" class="bg-dark text-light mr-auto px-2 text-uppercase">Title</label>
+            {{ form.title }}  <!-- Renders the field -->
+        </div>
+        <div class="form-group d-flex flex-column">
+            <label for="{{ form.content.id_for_label }}" class="bg-dark text-light mr-auto px-2 text-uppercase">Content</label>
+            {{ form.content }}
+        </div>
+        <div class="form-group d-flex flex-column">
+            <label for="{{ form.featured_image.id_for_label }}" class="bg-dark text-light mr-auto px-2 text-uppercase">Image</label>
+            {{ form.featured_image }}
+        </div>
+        <div class="form-group d-flex flex-column">
+            <label for="{{ form.status.id_for_label }}" class="bg-dark text-light mr-auto px-2 text-uppercase">Status</label>
+            {{ form.status }}
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+{% endblock %}
