@@ -35,10 +35,11 @@ class CourseForm(forms.ModelForm):
     end_time = forms.DateTimeField(input_formats=['%Y-%m-%dT%H:%M'], widget=DateTimeInput())
     description = forms.CharField(widget=forms.Textarea(attrs={'rows': 4, 'cols': 25, 'class': 'noresize','placeholder': 'Enter a description for the course here...'}))
     location = forms.CharField()
+    max_participants = forms.IntegerField(min_value=1, max_value=100,widget=forms.NumberInput())
 
     class Meta:
         model = Course
-        fields = ['name', 'description', 'start_time', 'end_time', 'location', 'type', 'max_participants']
+        fields = ['name', 'description', 'start_time', 'end_time', 'location', 'max_participants']
     
     def clean(self):
         cleaned_data = super().clean()

@@ -27,6 +27,29 @@
 
 
 {% block content %}
+<div class="col-md-4 mx-auto">
+                    <h2>Last Article</h2>
+                    <div class="card mb-4">
+                        <div class="card-body d-flex flex-column-reverse p-0 post-image" style ="{% if last_post.featured_image %}background-image: url('{{ last_post.featured_image.url }}');{% endif %}">
+                                <div class="card-details">
+
+                                    <a href="{% url 'news_details' last_post.slug %}" class="post-link ">
+                                        <h2 class="card-title pl-2">{{last_post.title}}</h2>
+                                        <p class="card-text">{{last_post.excerpt}}</p>
+                                    </a>
+                                    <div class="d-flex justify-content-between">
+                                        <p class="card-text h6 pl-2">{{last_post.created_on}} </p>
+                                        <p class="bg-light pr-5 pl-2 likes-container"><i class="fas fa-heart likes"></i>{{last_post.number_of_likes}}</p>
+                                    </div>
+                                        <div class="image-flash">
+                                            <p class="author pl-2">Author: {{last_post.author}}</p>
+                                        </div>
+                                    </div> 
+                        </div>
+                    </div>
+                </div>
+
+
 {% endblock %}
 {% block extra_js %}
 <script src="{% static 'js/animation.js' %}"></script>

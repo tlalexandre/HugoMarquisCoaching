@@ -33,9 +33,21 @@ def set_language(request, language):
     request.session['LANGUAGE_SESSION_KEY'] = language
     return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
 
+def like_post(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    if request.user in post.likes.all():
+        post.likes.remove(request.user)
+    else:
+        post.likes.add(request.user)
+    return redirect('news_details', slug=post.slug)
 
 class HomeView(TemplateView):
-    template_name='index.html'
+    template_name = 'index.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['last_post'] = Post.objects.filter(status=1).order_by('-created_on').first()
+        return context
 
 class PostList(generic.ListView):
     model=Post

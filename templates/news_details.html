@@ -26,8 +26,13 @@
                 <div class="row">
 
                     <div class="col-1">
-                        <!-- The number of likes goes before the closing strong tag -->
-                        <strong class="text-secondary"><i class="far fa-heart"></i> {{ post.number_of_likes }} </strong>
+                        <form action="{% url 'like_post' post.pk %}" method="POST">
+                            {% csrf_token %}
+                            <button type="submit" name="post_id" value="{{ post.id }}" class="btn btn-link p-0">
+                                <!-- The number of likes goes before the closing strong tag -->
+                                <strong class="text-secondary"><i class="{% if request.user in post.likes.all %}fas fa-heart{% else %}far fa-heart{% endif %}"></i> {{ post.likes.count }} </strong>
+                            </button>
+                        </form>
                     </div>
                     <div class="col-1">
                         {% with comments.count as total_comments %}
