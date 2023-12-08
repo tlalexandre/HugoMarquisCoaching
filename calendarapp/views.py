@@ -284,7 +284,7 @@ def get_private_sessions(request):
             })
         else:
             private_session_list.append({
-                'title': "Private Session",
+                'title': gettext("Private Session"),
                 'start': private_session.start_time.strftime('%Y-%m-%dT%H:%M:%S'),
                 'end': private_session.end_time.strftime('%Y-%m-%dT%H:%M:%S'),
                 'color':'#dc3545',
