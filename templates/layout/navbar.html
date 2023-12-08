@@ -35,6 +35,25 @@
         </li>
         {% endif %}
       </ul>
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          {%trans "Language" %}
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <form action="{% url 'set_language' %}" method="post" id="language-form">
+            {% csrf_token %}
+            <input name="next" type="hidden" value="{{ request.get_full_path }}">
+            {% get_current_language as LANGUAGE_CODE %}
+            {% get_available_languages as LANGUAGES %}
+            {% get_language_info_list for LANGUAGES as languages %}
+            {% for language in languages %}
+            <button class="dropdown-item" type="submit" name="language" value="{{ language.code }}">
+              <img src="{% static 'flags/'|add:language.code|add:'.png' %}" style="width: 40px;" alt="{{ language.name_local }}"> {{ language.name_local }}
+            </button>
+            {% endfor %}
+          </form>
+        </div>
+      </div>
     </div>
   </nav>
         

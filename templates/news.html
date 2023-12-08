@@ -12,7 +12,15 @@
 </header>
 {% endblock %}
 {% block content %}
-
+{% if messages %}
+    <div class="messages">
+        {% for message in messages %}
+            {% if forloop.last %}
+            <div{% if message.tags %} class="{{ message.tags }} bg-info text-light w-50 ml-5 rounded mb-3 p-2"{% endif %}>{{ message }}</div>
+          {% endif %}
+    {% endfor %}
+    </div>
+{% endif %}
 <div class="container-fluid">
     <div class="row">
 
@@ -34,7 +42,7 @@
                                         <p class="bg-light pr-5 pl-2 likes-container"><i class="fas fa-heart likes"></i>{{post.number_of_likes}}</p>
                                     </div>
                                         <div class="image-flash">
-                                            <p class="author pl-2">Author: {{post.author}}</p>
+                                            <p class="author pl-2">{%trans "Author:" %} {{post.author}}</p>
                                         </div>
                                     </div>
                                 
@@ -55,10 +63,10 @@
     <nav aria-label="Page navigation">
         <ul class="pagination justify-content-center">
             {% if page_obj.has_previous %}
-            <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV </a></li>
+            <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo;{% trans " PREV " %}</a></li>
             {% endif %}
             {% if page_obj.has_next %}
-            <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
+            <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> {% trans "NEXT"%} &raquo;</a></li>
 
             {% endif %}
         </ul>
@@ -67,7 +75,7 @@
     <div class="row">
         {% if user.is_superuser %}
         <a href="{% url 'add_news' %}" class="mx-auto">
-            <button class="btn btn-primary ">Add News</button>
+            <button class="btn btn-primary ">{%trans "Add News" %}</button>
         </a>
         {% endif %}
     </div>

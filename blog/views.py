@@ -1,10 +1,11 @@
 
 from django.shortcuts import render, HttpResponseRedirect, get_object_or_404, redirect
+from django.contrib.auth.decorators import login_required
 from django.urls import reverse
 from django.views import generic, View
 from django.utils import translation
 from django.utils.text import slugify
-from django.utils.translation import activate
+from django.utils.translation import activate, gettext
 from django.views.generic import TemplateView
 from .models import Post
 from .forms import CommentForm, NewsForm
@@ -20,6 +21,7 @@ def add_news(request):
             news_item.save()  # save the object to generate an ID
             news_item.slug = slugify(f"{news_item.title}-{news_item.id}")  # generate a slug using the title and ID
             news_item.save()  # save the object again to save the slug
+            messages.success(request, gettext('Your news item was successfully added.'))
             return redirect('news')
     else:
         form=NewsForm()
@@ -33,6 +35,7 @@ def set_language(request, language):
     request.session['LANGUAGE_SESSION_KEY'] = language
     return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
 
+@login_required
 def like_post(request, pk):
     post = get_object_or_404(Post, pk=pk)
     if request.user in post.likes.all():

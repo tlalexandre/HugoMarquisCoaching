@@ -2,6 +2,7 @@ from django.views.generic import TemplateView
 from django.views.decorators.http import require_POST
 from django.views import View
 from django.contrib import messages
+from django.utils.translation import gettext
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.http import JsonResponse,Http404, HttpResponseBadRequest
@@ -31,11 +32,12 @@ def add_unavailable_period(request):
             if check_overlap(start_time, end_time, Course) or \
                check_overlap(start_time, end_time, PrivateSession) or \
                check_overlap(start_time, end_time, UnavailablePeriod):
-                form.add_error(None, 'An event already exists within this time period.')
+                form.add_error(None, gettext('An event already exists within this time period.'))
             else:
                 period = form.save(commit=False)
                 period.user = superuser
                 period.save()
+                messages.success(request, gettext('Your unavailable period was successfully added.'))
                 return redirect('bookings')
     else:
         form = UnavailablePeriodForm(initial={'date': date})
@@ -46,14 +48,14 @@ def join_course(request, slug):
     if request.method == 'POST':
         course = get_object_or_404(Course, slug=slug)
         if course.participants.filter(id=request.user.id).exists():
-            messages.info(request, 'You have already joined this course.')
+            messages.info(request, gettext('You have already joined this course.'))
             return redirect('event_detail', slug=course.slug)
         try:
             course.add_participant(request.user)
-            messages.success(request, 'You have successfully joined the course.')
+            messages.success(request, gettext('You have successfully joined the course.'))
             return redirect('event_detail', slug=course.slug)
         except ValidationError:
-            messages.error(request, 'This course is full.')
+            messages.error(request, gettext('This course is full.'))
             return redirect('event_detail', slug=course.slug)
 
 def update_course(request, course_id):
@@ -67,20 +69,21 @@ def update_course(request, course_id):
             if check_overlap(start_time, end_time, Course, course_id) or \
                check_overlap(start_time, end_time, PrivateSession) or \
                check_overlap(start_time, end_time, UnavailablePeriod):
-                form.add_error(None, 'An event already exists within this time period.')
+                form.add_error(None, gettext('An event already exists within this time period.'))
             else:
                 form.save()
+                messages.success(request, gettext('The course has been successfully updated.'))
                 # Get the users who joined the course
                 users = course.participants.all()
                 # Send an email to each user
                 for user in users:
                     message=(
-                        'The course you joined has been updated.'
+                        gettext('The course you joined has been updated.'
                         f' It is now starting at {course.start_time} and ending at {course.end_time}.'
-                        f' The location is {course.location}.'
+                        f' The location is {course.location}.')
                     )
                     send_mail(
-                        f'Course {course.name} Updated',
+                       gettext( f'Course {course.name} Updated'),
                         message,
                         'from@example.com',
                         [user.email],
@@ -106,8 +109,8 @@ def delete_course(request, course_id):
         for user in users:
             try:
                 send_mail(
-                    f'Course {course_name} Deleted',
-                    'The course you joined has been deleted.',
+                    gettext(f'Course {course_name} Deleted'),
+                    gettext('The course you joined has been deleted.'),
                     'from@example.com',
                     [user.email],
                     fail_silently=False,
@@ -116,6 +119,7 @@ def delete_course(request, course_id):
             except Exception as e:
                 print(f"Failed to send email to {user.email}: {e}")
         course.delete()
+        messages.success(request, gettext('The course has been successfully deleted.'))
         return redirect('bookings')
     else:
         return HttpResponseForbidden()
@@ -142,14 +146,16 @@ def event_create(request):
             if check_overlap(start_time, end_time, Course) or \
                check_overlap(start_time, end_time, PrivateSession) or \
                check_overlap(start_time, end_time, UnavailablePeriod):
-                form.add_error(None, 'An event already exists within this time period.')
+                form.add_error(None, gettext('An event already exists within this time period.'))
             else:
                 instance = form.save(commit=False)
                 instance.user = request.user
                 instance.slug = slugify(instance.name)
                 instance.save()
                 if isinstance(instance,PrivateSession):
-                    messages.success(request, 'Your private session has been created and is pending approval.')
+                    messages.success(request, gettext('Your private session has been created and is pending approval.'))
+                else:
+                    messages.success(request, gettext('Your course has been created.'))
                 return redirect('bookings')
         else:
             for field, errors in form.errors.items():
@@ -232,8 +238,8 @@ def approve_private_session(request,slug):
         private_session.approve()
         try:
             send_mail(
-                    'Your private session has been approved',
-                    'Your private session titled "{}" has been approved.'.format(private_session.name),
+                    gettext('Your private session has been approved'),
+                    gettext('Your private session titled "{}" has been approved.').format(private_session.name),
                     'from@example.com',
                     [private_session.user.email],
                     fail_silently=False,
@@ -250,8 +256,8 @@ def delete_private_session(request, slug):
     if request.user.is_superuser or request.user == private_session.user:
         try:
             send_mail(
-                'Your private session has been deleted',
-                'Your private session titled "{}" has been deleted.'.format(private_session.name),
+                gettext('Your private session has been deleted'),
+                gettext('Your private session titled "{}" has been deleted.').format(private_session.name),
                 'from@example.com',
                 [private_session.user.email],
                 fail_silently=False,

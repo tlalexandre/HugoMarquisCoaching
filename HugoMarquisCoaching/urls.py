@@ -15,13 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from blog.views import set_language
+from django.conf.urls import url
+from django.views.i18n import set_language
 from .views import contact
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('summernote/', include('django_summernote.urls')),
-    path('set-language/<str:language>/', set_language, name='set_language'), 
+    url(r'^i18n/', include('django.conf.urls.i18n')),
     path('',include("blog.urls")),
     path('bookings/',include("calendarapp.urls")),
     path('accounts/', include('allauth.urls')),

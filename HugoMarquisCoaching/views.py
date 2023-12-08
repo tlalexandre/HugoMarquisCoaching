@@ -1,4 +1,5 @@
 from django.core.mail import EmailMessage
+from django.contrib import messages
 from django.shortcuts import render, redirect
 from .forms import ContactForm
 
@@ -12,6 +13,7 @@ def contact(request):
             message = form.cleaned_data['message']
             email = EmailMessage(subject, message, from_email, ['hugomarquiswebsite@gmail.com'], reply_to=[from_email])
             email.send()
+            messages.success(request, gettext('Your message was successfully sent.'))
             return redirect('home')
     else:
         form = ContactForm()

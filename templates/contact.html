@@ -11,30 +11,39 @@
         <span class="text-light bg-dark shadow-lg px-2 rounded-bottom text-uppercase pr-3">{% trans "Contact me " %}</span>
     </h1>
 </div>
+{% if messages %}
+    <div class="messages">
+        {% for message in messages %}
+            {% if forloop.last %}
+            <div{% if message.tags %} class="{{ message.tags }} bg-info text-light w-50 ml-5 rounded mb-3 p-2"{% endif %}>{{ message }}</div>
+          {% endif %}
+    {% endfor %}
+    </div>
+{% endif %}
 <div class="row">
     <div class="col-lg-3 mt-3 ml-5 pr-0 bg-dark text-light h-25 rounded">
-        <h2 class="py-5">Feel free to contact me</h2>
-        <p>If you have any questions regarding the courses, the private sessions or anything else! </p>
+        <h2 class="py-5">{%trans "Feel free to contact me" %}</h2>
+        <p>{%trans "If you have any questions regarding the courses, the private sessions or anything else! " %}</p>
     </div>
     <form method="post" class="mx-auto mt-5 col-10 col-lg-6 col-md-6 p-0">
         {% csrf_token %}
         <div class="form-group d-flex flex-column">
-            <label for="{{ form.name.id_for_label }}" class="bg-dark text-light mr-auto px-2 text-uppercase">Name</label>
+            <label for="{{ form.name.id_for_label }}" class="bg-dark text-light mr-auto px-2 text-uppercase">{%trans "Name" %}</label>
             {{ form.name }}  <!-- Renders the field -->
         </div>
         <div class="form-group d-flex flex-column">
-            <label for="{{ form.email.id_for_label }}" class="bg-dark text-light mr-auto px-2 text-uppercase">Email</label>
+            <label for="{{ form.email.id_for_label }}" class="bg-dark text-light mr-auto px-2 text-uppercase">{% trans "Email" %}</label>
             {{ form.email }}  <!-- Renders the field -->
         </div>
         <div class="form-group d-flex flex-column">
-            <label for="{{ form.subject.id_for_label }}" class="bg-dark text-light mr-auto px-2 text-uppercase">Subject</label>
+            <label for="{{ form.subject.id_for_label }}" class="bg-dark text-light mr-auto px-2 text-uppercase">{% trans "Subject"%}</label>
             {{ form.subject }}  <!-- Renders the field -->
         </div>
         <div class="form-group d-flex flex-column">
-            <label for="{{ form.message.id_for_label }}" class="bg-dark text-light mr-auto px-2 text-uppercase">Message</label>
+            <label for="{{ form.message.id_for_label }}" class="bg-dark text-light mr-auto px-2 text-uppercase">{% trans "Message" %}</label>
             {{ form.message }}  <!-- Renders the field -->
         </div>
-        <button type="submit">Send</button>
+        <button type="submit">{% trans "Send" %}</button>
     </form>
 </div>
     

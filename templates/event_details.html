@@ -48,19 +48,19 @@
               <div class="modal-dialog" role="document">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h5 class="modal-title" id="deleteModalLabel">Delete Course</h5>
+                    <h5 class="modal-title" id="deleteModalLabel">{% trans "Delete Course" %}</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
                   </div>
                   <div class="modal-body">
-                    Are you sure you want to delete this course?
+                    {% trans "Are you sure you want to delete this course ?" %}
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                     <form method="POST" action="{% url 'delete_course' course.id %}">
                       {% csrf_token %}
-                      <input type="submit" value="Delete" class="btn btn-danger">
+                      <input type="submit" value="{% trans 'Delete' %}" class="btn btn-danger">
                     </form>
                   </div>
                 </div>
@@ -95,14 +95,16 @@
         </div>
     </div>
     {% if request.user.is_superuser and not private_session.is_approved %}
+    <div class="d-flex justify-content-center bg-dark p-2">
     <form method="POST" action="{% url 'approve_private_session' private_session.slug %}">
         {% csrf_token %}
-        <input type="submit" value="Approve">
+        <input type="submit" value="{%trans 'Approve' %}">
     </form>
     <form method="POST" action="{% url 'delete_private_session' private_session.slug %}">
         {% csrf_token %}
-        <input type="submit" value="Delete">
+        <input type="submit" value="{% trans 'Delete' %}">
     </form>
+    </div>
 {% endif %}
 </div>
 {% else %}

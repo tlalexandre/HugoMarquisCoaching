@@ -1,10 +1,11 @@
 {% extends 'base.html' %}
+{% load i18n %}
 {% load static %}
 {% block header %}
 
 <header class="mt-5 text-center text-light d-flex flex-column align-items-end">
     <div class="title-container">
-        <h1 class="mb-5 bg-dark pr-5 p-2 slide-in">BOOKINGS</h1>
+        <h1 class="mb-5 bg-dark pr-5 p-2 slide-in text-uppercase">{% trans "Bookings" %}</h1>
     </div>
     
 </header>
@@ -27,17 +28,17 @@
     <div class="mx-auto col-12 col-lg-3">
         
         <ul class="list-group mt-3">
-            <li class="list-group-item bg-warning border-dark">Classes</li>
-            <li class="list-group-item bg-primary border-dark">Your Private Sessions awaiting approval</li>
-            <li class="list-group-item bg-success border-dark">Your Approved Private Sessions</li>
-            <li class="list-group-item bg-danger border-dark">Other's Private Sessions</li>
-            <li class="list-group-item bg-secondary border-dark">Unavailabilities</li>
+            <li class="list-group-item bg-warning border-dark">{%trans "Classes" %}</li>
+            <li class="list-group-item bg-primary border-dark">{%trans "Your Private Sessions awaiting approval"%}</li>
+            <li class="list-group-item bg-success border-dark">{%trans "Your Approved Private Sessions" %}</li>
+            <li class="list-group-item bg-danger border-dark">{% trans "Other's Private Sessions" %}</li>
+            <li class="list-group-item bg-secondary border-dark">{%trans "Unavailabilities" %}</li>
         </ul>
         <div class=" mt-5">
-            <h3 class="text-center">How to use the calendar</h3>
-            <p>To join a class, click on the class you want to join.</p>
-            <p>To book a private session, click on the time you wish to book your session.</p>
-            <p>You can check the details of an event , by clicking on it.</p>
+            <h3 class="text-center">{%trans "How to use the calendar" %}</h3>
+            <p>{% trans "To join a class, click on the class you want to join." %}</p>
+            <p>{% trans "To book a private session, click on the time you wish to book your session." %}</p>
+            <p>{% trans "You can check the details of an event , by clicking on it." %}</p>
         </div>
     </div>
     <div id="calendar" class="col-12 col-lg-8 bg-dark text-warning mx-auto p-5 rounded-lg"></div> 

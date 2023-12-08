@@ -27,8 +27,17 @@
 
 
 {% block content %}
+{% if messages %}
+    <div class="messages">
+        {% for message in messages %}
+            {% if forloop.last %}
+            <div{% if message.tags %} class="{{ message.tags }} bg-info text-light w-50 ml-5 rounded mb-3 p-2"{% endif %}>{{ message }}</div>
+          {% endif %}
+    {% endfor %}
+    </div>
+{% endif %}
 <div class="col-md-4 mx-auto">
-                    <h2>Last Article</h2>
+                    <h2>{%trans "Last Article" %}</h2>
                     <div class="card mb-4">
                         <div class="card-body d-flex flex-column-reverse p-0 post-image" style ="{% if last_post.featured_image %}background-image: url('{{ last_post.featured_image.url }}');{% endif %}">
                                 <div class="card-details">
@@ -42,7 +51,7 @@
                                         <p class="bg-light pr-5 pl-2 likes-container"><i class="fas fa-heart likes"></i>{{last_post.number_of_likes}}</p>
                                     </div>
                                         <div class="image-flash">
-                                            <p class="author pl-2">Author: {{last_post.author}}</p>
+                                            <p class="author pl-2">{%trans "Author: "%}{{last_post.author}}</p>
                                         </div>
                                     </div> 
                         </div>
