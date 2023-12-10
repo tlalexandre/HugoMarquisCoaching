@@ -1,11 +1,12 @@
 {% extends "base.html" %}
 
 {% load i18n %}
+{% load static %}
 
 {% block header %}
 <header> 
     <div class="d-flex mt-5 justify-content-end">
-        <h1 class="h1 slide-in">
+        <h1 class="h1 slide-in outfit-bold">
             <span class="text-light bg-dark shadow-lg px-2 rounded-bottom text-uppercase pr-5">{% trans "News" %}</span>
         </h1>
     </div>
@@ -30,11 +31,13 @@
                 {% for post in post_list%}
                 <div class="col-md-4">
                     <div class="card mb-4">
-                        <div class="card-body d-flex flex-column-reverse p-0 post-image" style ="{% if post.featured_image %}background-image: url('{{ post.featured_image.url }}');{% endif %}">
+                        <div class="card-body d-flex flex-column-reverse p-0 post-image" style="{% if post.featured_image %}background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.9)), url('{{ post.featured_image.url }}'); background-position: center; background-size: cover;{% endif %}">
                                 <div class="card-details">
 
                                     <a href="{% url 'news_details' post.slug %}" class="post-link ">
-                                        <h2 class="card-title pl-2">{{post.title}}</h2>
+                                        {% if post.title %} <!-- Add this line -->
+                                        <h2 class="card-title pl-2 outfit-bold text-uppercase dynamic-font-size">{{post.title}}</h2>
+                                        {% endif %}
                                         <p class="card-text">{{post.excerpt}}</p>
                                     </a>
                                     <div class="d-flex justify-content-between">
@@ -82,3 +85,7 @@
 </div>
 
 {%endblock%}
+{% block extra_js %}
+<script src="{% static 'js/dynamicFont.js' %}"></script>
+{% endblock %}
+```

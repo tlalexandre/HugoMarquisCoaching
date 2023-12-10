@@ -104,3 +104,26 @@ thead{
 .slide-in {
     animation: slide-in 2s ease-out;
 }
+.outfit{
+    font-family: 'Outfit', sans-serif;
+}
+.outfit-bold{
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+}
+.zilla-bold{
+    font-family: 'Zilla Slab', serif;
+    font-weight: 700;
+}
+.letter-spacing{
+    letter-spacing: 5px;
+}
+.dynamic-font-size {
+        line-height: 1px;
+        text-align: center;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: rgba(255, 255, 255, 0.4);
+        background-size: cover;
+        background-position: center center;
+        
+    }
