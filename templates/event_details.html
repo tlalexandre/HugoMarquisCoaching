@@ -19,6 +19,8 @@
           <div class="d-flex justify-content-end">
             <h1 class="text-uppercase"><span class="text-light bg-dark shadow-lg px-2 rounded-bottom">{{ course.name }}</span></h1>
           </div>
+          <div>
+
             <div class="d-flex justify-content-between mt-5">
               <div>
                 <p class="bg-dark text-light pl-1 pr-3 ">{% trans "Start Time" %}: {{ course.start_time }}</p>
@@ -28,6 +30,10 @@
                 <p class="bg-dark text-light pl-1 pr-3">{% trans "Location" %}: {{ course.location }}</p>
                 <p class="bg-dark text-light pl-1 pr-3">{% trans "Created by" %}: {{course.user}}</p>
               </div>
+            </div>
+            <div>
+              <p class="bg-dark text-light pl-1 pr-3">{% trans "Description" %}: {{ course.description }}</p>
+            </div>
             </div>
           </div>
       </div>
@@ -82,6 +88,8 @@
         <div class="d-flex justify-content-end">
           <h1 class="text-uppercase"><span class="text-light bg-dark shadow-lg px-2 rounded-bottom">{% trans "Private Session " %}:{{ private_session.name }}</span></h1>
         </div>
+        <div>
+
           <div class="d-flex justify-content-between mt-5">
             <div>
               <p class="bg-dark text-light pl-1 pr-3 ">{% trans "Start Time" %}: {{ private_session.start_time }}</p>
@@ -92,6 +100,10 @@
               <p class="bg-dark text-light pl-1 pr-3 ">{% trans "Created by" %}: {{private_session.user}}</p>
             </div>
           </div>
+          <div>
+            <p class="bg-dark text-light pl-1 pr-3">{% trans "Description" %}: {{ private_session.description }}</p>
+          </div>
+        </div>
         </div>
     </div>
     {% if request.user.is_superuser and not private_session.is_approved %}
@@ -100,12 +112,34 @@
         {% csrf_token %}
         <input type="submit" value="{%trans 'Approve' %}">
     </form>
-    <form method="POST" action="{% url 'delete_private_session' private_session.slug %}">
-        {% csrf_token %}
-        <input type="submit" value="{% trans 'Delete' %}">
-    </form>
+    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">
+      {% trans 'Delete' %}
+    </button>
     </div>
 {% endif %}
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="deleteModalLabel">{% trans 'Delete Private Session' %}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form method="POST" action="{% url 'delete_private_session' private_session.slug %}">
+        {% csrf_token %}
+        <div class="modal-body">
+          <p>{% trans 'Are you sure you want to delete this private session?' %}</p>
+          <textarea name="message" class="form-control" placeholder="{% trans 'Enter your custom message here' %}"></textarea>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">{% trans 'Close' %}</button>
+          <input type="submit" class="btn btn-danger" value="{% trans 'Delete' %}">
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
 </div>
 {% else %}
 <div class="alert alert-danger mt-4" role="alert">

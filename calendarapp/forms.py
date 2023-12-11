@@ -1,6 +1,6 @@
 from django import forms
 from crispy_forms.helper import FormHelper
-from .models import Course, PrivateSession, UnavailablePeriod
+from .models import Course, PrivateSession, UnavailablePeriod, DAYS_OF_WEEK
 
 class DateTimeInput(forms.DateTimeInput):
     input_type = 'datetime-local'
@@ -36,10 +36,12 @@ class CourseForm(forms.ModelForm):
     description = forms.CharField(widget=forms.Textarea(attrs={'rows': 4, 'cols': 25, 'class': 'noresize','placeholder': 'Enter a description for the course here...'}))
     location = forms.CharField()
     max_participants = forms.IntegerField(min_value=1, max_value=100,widget=forms.NumberInput())
+    is_recurrent = forms.BooleanField(required=False)
+    day_of_week = forms.ChoiceField(choices=DAYS_OF_WEEK, required=False)
 
     class Meta:
         model = Course
-        fields = ['name', 'description', 'start_time', 'end_time', 'location', 'max_participants']
+        fields = ['name', 'description', 'start_time', 'end_time', 'location', 'max_participants','is_recurrent', 'day_of_week']
     
     def clean(self):
         cleaned_data = super().clean()
@@ -60,7 +62,7 @@ class PrivateSessionForm(forms.ModelForm):
     end_time = forms.DateTimeField(input_formats=['%Y-%m-%dT%H:%M'], widget=DateTimeInput())
     class Meta:
         model = PrivateSession
-        fields = ['name', 'start_time', 'end_time', 'location', 'type']
+        fields = ['name', 'start_time', 'end_time', 'location','description', 'type']
 
     def clean(self):
         cleaned_data = super().clean()

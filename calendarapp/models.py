@@ -1,16 +1,32 @@
 from django.db.models.signals import pre_save
 from django.dispatch import receiver
 from django.db import models
+from datetime import timedelta
 from django.db.models import Q
 from django.utils.text import slugify
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
+from django.utils.translation import gettext as _
 from .utils import check_overlap
 
 # Create your models here.
-
-OPTIONS = ((0, "Strength"), (1, "Running"), (2, "Stretch"))
-
+DAYS_OF_WEEK = [
+    (0, 'Monday'),
+    (1, 'Tuesday'),
+    (2, 'Wednesday'),
+    (3, 'Thursday'),
+    (4, 'Friday'),
+    (5, 'Saturday'),
+    (6, 'Sunday'),
+]
+OPTIONS = ((0, _("Strength")), (1, _("Running")), (2, _("Stretch")))
+LOCATION_CHOICES = [
+    ('location1', _('Salle de sport(partenaire)')),
+    ('location2', _('A domicile')),
+    ('location3', _('En extérieur')),
+    ('location4',_('Autre')),
+    # add more locations as needed
+]
 class UnavailablePeriod(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='unavailable_periods')
     start_time = models.DateTimeField()
@@ -39,6 +55,8 @@ class Course(models.Model):
     description = models.TextField()
     start_time = models.DateTimeField()
     end_time = models.DateTimeField()
+    is_recurrent = models.BooleanField(default=False)
+    day_of_week = models.IntegerField(choices=DAYS_OF_WEEK, null=True, blank=True)
     type=models.IntegerField(choices=OPTIONS, default=0)
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='courses_created')
     participants = models.ManyToManyField(User, related_name='courses_joined')
@@ -84,9 +102,10 @@ class PrivateSession(models.Model):
     slug = models.SlugField(max_length=255, unique=True)
     start_time = models.DateTimeField()
     end_time = models.DateTimeField()
+    description = models.TextField()
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     type = models.IntegerField(choices=OPTIONS, default=0)
-    location = models.TextField()
+    location = models.CharField(max_length=255, choices=LOCATION_CHOICES)
     is_approved = models.BooleanField(default=False)
     def is_creator(self, user):
         return self.user == user
@@ -96,7 +115,13 @@ class PrivateSession(models.Model):
             raise ValidationError(
                 "End time must be greater than or equal to start time"
             )
-        return self.end_time - self.start_time
+        return duration
+        
+    def clean(self):
+        super().clean()
+        duration = self.end_time - self.start_time
+        if duration > timedelta(hours=1):
+            raise ValidationError("The duration of a private session cannot exceed one hour.")
 
     def approve(self):
         self.is_approved = True

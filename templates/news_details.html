@@ -1,14 +1,14 @@
 {% extends 'base.html' %} 
 {% load i18n %}
-
+{% load static %}
 {% block content %}
 
 {% load crispy_forms_tags %}
 <div class="masthead-container">
     <div class="container">
         <div class="masthead col-12 d-flex flex-column justify-content-end post-image{% if not post.featured_image.url %}default-image{% endif %}"
-             style="background-image: url('{{ post.featured_image.url }}');">
-            <h1 class="post-title card-title">{{ post.title }}</h1>
+             style="{% if post.featured_image %}background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.9)), url('{{ post.featured_image.url }}'); background-position: center; background-size: cover;{% endif %}">
+            <h1 class="post-title card-title pl-2 outfit-bold text-uppercase dynamic-font-size">{{ post.title }}</h1>
             <p class="post-subtitle card-text">{{ post.author }} | {{ post.created_on }}</p>
         </div>
     </div>
@@ -87,3 +87,6 @@
 </div>
 
 {% endblock content %}
+{% block extra_js %}
+<script src="{% static 'js/dynamicFont.js' %}"></script>
+{%endblock%}

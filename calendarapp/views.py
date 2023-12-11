@@ -7,13 +7,16 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.http import JsonResponse,Http404, HttpResponseBadRequest
 from django.utils.text import slugify
+from django.utils import timezone
 from django.shortcuts import render, get_object_or_404, redirect
 from django.core.exceptions import ValidationError
 from django.core.mail import send_mail
 from .models import Course,PrivateSession,UnavailablePeriod,User
 from .forms import CourseForm, PrivateSessionForm, UnavailablePeriodForm
 from .utils import check_overlap
+from datetime import timedelta, datetime
 from itertools import chain
+import logging
 
 def unavailable_period(request):
     superuser = User.objects.get(is_superuser=True)
@@ -124,9 +127,14 @@ def delete_course(request, course_id):
     else:
         return HttpResponseForbidden()
 
+
+logger = logging.getLogger(__name__)
+
+
 # Create your views here.
 @login_required
 def event_create(request):
+    logger.info(f"Received request: {request.GET}")
     print(request.GET)
     event_type = request.GET.get('type')
     print(event_type)
@@ -142,6 +150,11 @@ def event_create(request):
         if form.is_valid():
             start_time = form.cleaned_data.get('start_time')
             end_time = form.cleaned_data.get('end_time')
+            start_time_time = start_time.time() if start_time else None
+            end_time_time = end_time.time() if end_time else None
+            is_recurrent = form.cleaned_data.get('is_recurrent')
+            day_of_week = form.cleaned_data.get('day_of_week')
+            
 
             if check_overlap(start_time, end_time, Course) or \
                check_overlap(start_time, end_time, PrivateSession) or \
@@ -151,12 +164,75 @@ def event_create(request):
                 instance = form.save(commit=False)
                 instance.user = request.user
                 instance.slug = slugify(instance.name)
-                instance.save()
-                if isinstance(instance,PrivateSession):
-                    messages.success(request, gettext('Your private session has been created and is pending approval.'))
-                else:
+
+                if is_recurrent:
+                    print(f"is_recurrent: {is_recurrent}")  # Print is_recurrent
+                    print(f"day_of_week: {day_of_week}")  # Print day_of_week
+                    print(f"start_time: {start_time}, type: {type(start_time)}")  # Print start_time and its type
+                    print(f"end_time: {end_time}, type: {type(end_time)}")
+                    instance.day_of_week = day_of_week
+
+                    start_date = start_time.date()
+                    end_date = start_date + timedelta(weeks=4)  # for example, create courses for the next 4 weeks
+
+                    print(f"start_date: {start_date}")  # Print start_date
+                    print(f"end_date: {end_date}")  # Print end_date
+
+                    # For each week within the range...
+                    current_date = start_date
+                    while current_date <= end_date:
+                        print(f"current_date: {current_date}")  # Print current_date
+                        print(f"current_date.weekday(): {current_date.weekday()}")  # Print current_date's weekday
+                        print(f"day_of_week: {day_of_week}")  # Print day_of_week
+                        print(f"Type of current_date.weekday(): {type(current_date.weekday())}")
+                        print(f"Type of day_of_week: {type(day_of_week)}")
+                        day_of_week = int(day_of_week)
+                        # If current_date's weekday is the same as day_of_week...
+                        if current_date.weekday() == day_of_week:
+                            start_time = timezone.make_aware(datetime.combine(current_date, start_time_time))
+                            end_time = timezone.make_aware(datetime.combine(current_date, end_time_time))
+                            # Create a new Course instance for this date
+                            print("Match found between current_date.weekday() and day_of_week")
+                            try:  # Print a message indicating a match
+                                new_instance = Course(
+                                    user=request.user,
+                                    slug=slugify(instance.name),
+                                    name=instance.name,
+                                    description=instance.description,
+                                    start_time=start_time,
+                                    end_time=end_time,
+                                    location=instance.location,
+                                    max_participants=instance.max_participants,
+                                )
+                                print("New instance created") 
+                                # Save the new instance
+                                new_instance.save()
+                                print("New instance saved")  # Print a message indicating that the new instance has been saved
+
+                                print(f"start_time: {new_instance.start_time}")  # Print new_instance's start_time
+                                print(f"end_time: {new_instance.end_time}")  # Print new_instance's end_time
+                            except Exception as e:
+                                print(f"Error: {e}") 
+                            # Move to the next day
+                        current_date +=timedelta(days=7)
                     messages.success(request, gettext('Your course has been created.'))
-                return redirect('bookings')
+                    return redirect('bookings')
+                else:  
+    # existing code...
+                
+                    if isinstance(instance, PrivateSession):
+                        try:
+                            instance.full_clean()  # this will run the clean method and raise ValidationError if the duration exceeds one hour
+                        except ValidationError as e:
+                            form.add_error(None, str(e))
+                            return render(request, 'bookings', {'form': form})
+
+                    instance.save()
+                    if isinstance(instance,PrivateSession):
+                        messages.success(request, gettext('Your private session has been created and is pending approval.'))
+                    else:
+                        messages.success(request, gettext('Your course has been created.'))
+                    return redirect('bookings')
         else:
             for field, errors in form.errors.items():
                 for error in errors:
@@ -254,10 +330,11 @@ def approve_private_session(request,slug):
 def delete_private_session(request, slug):
     private_session = get_object_or_404(PrivateSession, slug=slug)
     if request.user.is_superuser or request.user == private_session.user:
+        custom_message = request.POST.get('message')
         try:
             send_mail(
-                gettext('Your private session has been deleted'),
-                gettext('Your private session titled "{}" has been deleted.').format(private_session.name),
+               gettext('Your private session has been deleted'),
+                gettext('Dear {}, your private session titled "{}" has been deleted. {}').format(request.user.first_name, private_session.name, custom_message),
                 'from@example.com',
                 [private_session.user.email],
                 fail_silently=False,
@@ -266,6 +343,7 @@ def delete_private_session(request, slug):
         except Exception as e:
                 print(f"Failed to send email to {private_session.user.email}: {e}")
         private_session.delete()
+        messages.success(request, 'The private session has been deleted successfully')
     return redirect('bookings')
 
 
