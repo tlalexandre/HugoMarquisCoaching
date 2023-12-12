@@ -1,11 +1,19 @@
 /* Header */
+.body{
+    overflow: hidden;
+}
+.row{
+    margin: 0;
+}
+.col{
+    padding: 0;
+}
 .hero-container{
     display: flex;
     justify-content: space-between;
     background: url(../images/salledesports.jpg)center center no-repeat ;
     background-size: cover;
-    width: 100vw;
-    height: 100vh;
+    height: 75vh;
 }
 .hero-container.shrink{
     animation: shrink2 2s ease-in-out forwards;
@@ -27,6 +35,7 @@
 }
 .hero-character{
     height: 100%;
+    width: 50%;
     
 }
 .hero-character img{
@@ -67,3 +76,52 @@
 }
 
 /* End Header */
+a{
+    text-decoration: none;
+    color: #fff;
+}
+li{
+    list-style: none;
+}
+i{
+    font-size: 24px;
+}
+.title-font-size{
+    font-size: 50px;
+}
+.content-font-size{
+    font-size: 24px;
+}
+.border-radius{
+    border-radius: 50%;
+}
+.border-radius-left{
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 20%;
+}
+.border-radius-left-easy{
+    border-radius: 20px 0 0 20px;
+}
+.border-radius-right{
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+    border-bottom-left-radius: 20%;
+}
+.height-section{
+    height: 30vh;
+}
+.background-size{
+    background-size: cover;
+    background-position: right;
+    width: 100%;
+}
+.partner-logo {
+    height: 100px; /* Adjust as needed */
+    width: auto; /* Adjust as needed */
+    object-fit: cover;
+  }
+
+  .partner-font-size{
+        font-size: 16px;
+  }
