@@ -2,15 +2,6 @@
 {% load static %}
 {% load i18n %}  <!-- Load the internationalization tag library -->
 {% block content %}
-
-  {% if messages %}
-    <ul class="messages">
-      {% for message in messages %}
-        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-      {% endfor %}
-    </ul>
-  {% endif %}
-
   <div class="event-container d-flex flex-column justify-content-center ">
     {% if course %}
     <div class="card">
@@ -146,6 +137,16 @@
     {% trans "You don't have permission to access this session." %}
 </div>
 <a href=" {% url 'bookings' %}" class="btn btn-primary mt-2">{% trans "Return to Bookings." %}</a>
+{% endif %}
+
+{% if messages %}
+<div class="messages mt-5">
+    {% for message in messages %}
+        {% if forloop.last %}
+        <div{% if message.tags %} class="{{ message.tags }} bg-info text-light w-50 mx-auto text-center mt-5 rounded mb-3 p-2"{% endif %}>{{ message }}</div>
+      {% endif %}
+{% endfor %}
+</div>
 {% endif %}
 </div>
 {% endblock %}

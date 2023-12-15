@@ -13,7 +13,7 @@
                 <h1 class="display-1"><span class="text-light bg-dark shadow-lg pl-4 pr-2 rounded-bottom">HUGO</span></h1>
                 <h2 class="display-2"><span class="text-light bg-dark shadow-lg pl-4 pr-2 rounded-bottom">MARQUIS</span></h2>
             </div>
-            <span class="display-4 bg-dark w-50 pl-4 zilla-bold">{% trans "Sports Coach" %}</span>
+            <span class="display-4 bg-dark w-75 pl-4 zilla-bold">{% trans "Sports Coach" %}</span>
             <p class="pl-4 bg-dark pr-2">{% trans "Since 2019, Im here to teach you how to use the full potential of your body through differents disciplines." %}</p>
         </div>
         <div class="hero-character">
@@ -38,14 +38,12 @@
 {% endif %}
 <h2 class="outfit-bold ml-5 mt-3 title-font-size">{%trans "About me" %}</h2>
 <div class="row mr-0 my-5">
-        <div class="row">
-            <p class="col-9 content-font-size pl-5">{% trans "Hello everyone, I am Hugo Marquis, educator, facilitator and sports coach. Based in Haute-Normandie, near Le Havre. I now practice for just over two years, I have been fortunate enough to work invarious gyms, I also work with children in extracurricular, as well as in many associations" %}</p>
-            <img class="col-2 border-radius-left p-0 mr-2" src="{% static 'images/ProfilePic.svg' %}"  alt="Description of image">
-        </div>
+            <img class="col-md-3 border-radius-left p-0" src="{% static 'images/ProfilePic.svg' %}"  alt="Description of image">
+            <p class="col-md-9 content-font-size pl-5">{% trans "Hello everyone, I am Hugo Marquis, educator, facilitator and sports coach. Based in Haute-Normandie, near Le Havre. I now practice for just over two years, I have been fortunate enough to work invarious gyms, I also work with children in extracurricular, as well as in many associations" %}</p>
 </div>
 <div class="row mr-0 my-5 ">
     <div class="col-md-4">
-        <img class=" bg-warning" src="{% static 'images/GettingObjectives.svg'%}" height="400px" alt="">
+        <img class=" bg-warning" src="{% static 'images/GettingObjectives.svg'%}" height="400" alt="">
     </div>
     <div class="col-md-8 border-radius-left-easy bg-light">
         <h2 class="outfit-bold text-right">{% trans "I created my company in order to be able to accompany you at best in your projects:"%}</h2>
@@ -64,28 +62,25 @@
         <p class="content-font-size">{% trans "Personalized, adapted and complete sessions, with you to achieve your goals!"%}</p>
         <p class="content-font-size"><strong>{% trans "Choose the length of your sessions, from 30min to 1h30, decide the amount of sessions by week, and we'll create you a programme 100% personalized so you can reach your objectives." %}</strong></p>
     </div>
-    <!-- <div class="col-4 mr-0 pr-0">
-        <img class="border-radius-left background-size" src="{% static 'images/GettingObjectives.png' %}" alt="">
-    </div> -->
 </div>
 
 <div class="row mr-0 my-5 d-flex justify-content-around bg-light py-4">
     <div class="col-md-3 d-flex flex-column justify-content-center">
-        <img src="{% static 'images/yoga.svg' %}" height="200px" alt="">
+        <img src="{% static 'images/yoga.svg' %}" height="200" alt="">
         <div>
             <h3 class="mt-2"><strong>{%trans "Do you want effective and sustainable weight loss? " %}</strong></h3>
             <p class="content-font-size">{%trans "Refine your waist or simply tone your body, opt for the loss of fat mass."%}</p>
         </div>
     </div>
     <div class="col-md-3 d-flex flex-column justify-content-center">
-        <img src="{% static 'images/Weightlifting.svg' %}" height="200px" alt="">
+        <img src="{% static 'images/Weightlifting.svg' %}" height="200" alt="">
         <div>
             <h3 class="mt-2"><strong>{%trans "Want to become more massive?" %}</strong></h3>
             <p class="content-font-size">{%trans "Increase your body volume, or work on the size of a muscle precise, choose the mass gain."%}</p>
         </div>
      </div>
     <div class="col-md-3 d-flex flex-column justify-content-center">
-        <img src="{% static 'images/JoggingIllu.svg' %}" height="200px" alt="">
+        <img src="{% static 'images/JoggingIllu.svg' %}" height="200" alt="">
         <div>
             <h3 class="mt-2"><strong>{%trans "Did you have an operation or quit sports for a while? " %}</strong></h3>
             <p class="content-font-size">{%trans "Resume at your own pace and restart the machine, adapting to your physical constraints, reahletization is possible."%}</p>

@@ -51,6 +51,15 @@
         </div>
     </div>
     <div class="row ml-2 mr-2">
+        {% if messages %}
+<div class="messages mt-5">
+    {% for message in messages %}
+        {% if forloop.last %}
+        <div{% if message.tags %} class="{{ message.tags }} bg-info text-light w-75 mx-auto text-center mt-5 rounded mb-3 p-2"{% endif %}>{{ message }}</div>
+      {% endif %}
+{% endfor %}
+</div>
+{% endif %}
         <div class="comments-container col-md-8 card mb-4  mt-3 ">
             <h3>{% trans "Comments:" %}</h3>
             <div class="comments-body mb-3">

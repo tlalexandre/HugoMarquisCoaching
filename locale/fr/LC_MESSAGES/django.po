@@ -611,7 +611,7 @@ msgstr ""
 msgid ""
 "Before booking a private session, please make sure to contact the coach "
 "first."
-msgstr ""
+msgstr "Avant de réserver une session privée, merci de contacter le coach en premier lieu."
 
 #: .\templates\bookings.html:40
 msgid "To join a class, click on the class you want to join."
