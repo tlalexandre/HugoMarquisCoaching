@@ -58,10 +58,6 @@
             <label for="{{ form.is_recurrent.id_for_label }}" class="bg-dark text-light mr-auto text-left px-2 text-uppercase">Is Recurrent</label>
             {{ form.is_recurrent }}  <!-- Renders the field -->
         </div>
-        <div class="form-group d-flex flex-column">
-            <label for="{{ form.day_of_week.id_for_label }}" class="bg-dark text-light mr-auto px-2 text-uppercase">Day of Week</label>
-            {{ form.day_of_week }}  <!-- Renders the field -->
-        </div>
     <button type="submit" class="bg-warning rounded w-25 mx-auto">{% trans "Add" %}</button>
     
     {% else %}

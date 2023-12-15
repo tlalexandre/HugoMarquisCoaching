@@ -203,7 +203,7 @@ The UnavailablePeriod model allows the coach to setup periods where he will not 
 ### Fonts
 
 The fonts used in this project are Outfit and ZillaSlab , which compliments the sports design of the website. <br>
-![Font](./documentation/images/Outfit.png)
+![Font](./documentation/images/OutfitFont.png)
 ![Font](./documentation/images/ZillaSlab.png)
 
 ### Wireframes
@@ -228,6 +228,8 @@ The fonts used in this project are Outfit and ZillaSlab , which compliments the 
 
 ### Final Result of the website
 #### Desktop
+##### HomePage
+ <video src="./documentation/videos/Hugo Marquis HomePage.mp4" controls title="Title"></video>
 
 ### Agile Methodology
 

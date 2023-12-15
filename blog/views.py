@@ -43,8 +43,10 @@ def like_post(request, pk):
         post.likes.remove(request.user)
     else:
         post.likes.add(request.user)
-    return redirect('news_details', slug=post.slug)
-
+    if post:
+        return redirect('news_details', slug=post.slug)
+    else:
+        return redirect('news')
 class HomeView(TemplateView):
     template_name = 'index.html'
 

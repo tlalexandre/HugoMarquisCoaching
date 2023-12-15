@@ -150,10 +150,7 @@ def event_create(request):
         if form.is_valid():
             start_time = form.cleaned_data.get('start_time')
             end_time = form.cleaned_data.get('end_time')
-            start_time_time = start_time.time() if start_time else None
-            end_time_time = end_time.time() if end_time else None
             is_recurrent = form.cleaned_data.get('is_recurrent')
-            day_of_week = form.cleaned_data.get('day_of_week')
             
 
             if check_overlap(start_time, end_time, Course) or \
@@ -166,11 +163,9 @@ def event_create(request):
                 instance.slug = slugify(instance.name)
 
                 if is_recurrent:
-                    print(f"is_recurrent: {is_recurrent}")  # Print is_recurrent
-                    print(f"day_of_week: {day_of_week}")  # Print day_of_week
-                    print(f"start_time: {start_time}, type: {type(start_time)}")  # Print start_time and its type
-                    print(f"end_time: {end_time}, type: {type(end_time)}")
-                    instance.day_of_week = day_of_week
+                    start_time_time = start_time.time() if start_time else None
+                    end_time_time = end_time.time() if end_time else None
+                    day_of_week = start_time.weekday() if start_time else None
 
                     start_date = start_time.date()
                     end_date = start_date + timedelta(weeks=4)  # for example, create courses for the next 4 weeks

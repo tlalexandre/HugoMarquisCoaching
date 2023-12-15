@@ -46,7 +46,7 @@
 </div>
 {%endblock%}
 {% block extra_js %}
-<script type="text/javascript">
+<script>
    window.userIsSuperuser = {{ is_superuser|yesno:"true,false" }};
 </script>
 <script src="{% static 'js/script.js' %}"></script>

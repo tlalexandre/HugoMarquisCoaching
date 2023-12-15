@@ -33,7 +33,7 @@
   {% if not request.user.is_superuser %}
   <form method="POST" action="{% url 'join_course' slug=course.slug %}">
         {% csrf_token %}
-        <button type="submit" class="btn btn-primary mx-auto" id="join-button" data-course-id="{{ course.slug }}"">{% trans "Join" %}</button>
+        <button type="submit" class="btn btn-primary mx-auto" id="join-button" data-course-id="{{ course.slug }}">{% trans "Join" %}</button>
     </form>
   {% endif %}
         {% if request.user.is_superuser %}
@@ -148,7 +148,6 @@
 {% endfor %}
 </div>
 {% endif %}
-</div>
 {% endblock %}
 {% block extra_js %}
 <script src="{% static 'js/join_course.js' %}"></script>

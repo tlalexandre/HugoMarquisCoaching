@@ -37,11 +37,10 @@ class CourseForm(forms.ModelForm):
     location = forms.CharField()
     max_participants = forms.IntegerField(min_value=1, max_value=100,widget=forms.NumberInput())
     is_recurrent = forms.BooleanField(required=False)
-    day_of_week = forms.ChoiceField(choices=DAYS_OF_WEEK, required=False)
 
     class Meta:
         model = Course
-        fields = ['name', 'description', 'start_time', 'end_time', 'location', 'max_participants','is_recurrent', 'day_of_week']
+        fields = ['name', 'description', 'start_time', 'end_time', 'location', 'max_participants','is_recurrent']
     
     def clean(self):
         cleaned_data = super().clean()
