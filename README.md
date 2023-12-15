@@ -167,7 +167,7 @@ I wanted to minimize page transitions and streamline actions by introducing a ve
 
 The website adopts a simple and efficient colour theme, remembering sports , and motion. I used 4 colors over the whole website, black , dark gray and yellow. Those colors were chosen with the client beforehand , to bring an energetic , clear and simple interface to the users.
 
-![Colour Scheme](./documentation/images/theme/ColorPalette.png)
+![Colour Scheme](./documentation/images/ColorPalette.png)
 
 ### Database Schema
 
