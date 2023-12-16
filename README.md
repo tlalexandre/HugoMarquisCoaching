@@ -1,13 +1,13 @@
 # Hugo-Marquis-Coaching-PP4
 
-[(Developer: Darrach Barneveld)](https://github.com/tlalexandre)
+[(Developer: Tanguy L'Alexandre)](https://github.com/tlalexandre)
 
 [Link to deployed site](https://hugo-marquis-297dbddc34dd.herokuapp.com/)
 
 <hr>
 Hugo Marquis Coaching is a website for a french sports coach, to allow him to post articles, let people know when he holds classes, and allow clients to book sessions with him.
 
-![CoolCoders Image](./documentation/images/HomePage.png)
+![Hugo Marquis Image](./documentation/images/websiteScreenshots/desktop/HomePage.png)
 
 # Table Of Content
 
@@ -167,11 +167,11 @@ I wanted to minimize page transitions and streamline actions by introducing a ve
 
 The website adopts a simple and efficient colour theme, remembering sports , and motion. I used 4 colors over the whole website, black , dark gray and yellow. Those colors were chosen with the client beforehand , to bring an energetic , clear and simple interface to the users.
 
-![Colour Scheme](./documentation/images/ColorPalette.png)
+![Colour Scheme](./documentation/images/misc/ColorPalette.png)
 
 ### Database Schema
 
-![Database schema](./documentation/images/DatabaseDiagram.png)
+![Database schema](./documentation/images/misc/DatabaseDiagram.png)
 
 ### Models
 
@@ -203,27 +203,27 @@ The UnavailablePeriod model allows the coach to setup periods where he will not 
 ### Fonts
 
 The fonts used in this project are Outfit and ZillaSlab , which compliments the sports design of the website. <br>
-![Font](./documentation/images/OutfitFont.png)
-![Font](./documentation/images/ZillaSlab.png)
+![Font](./documentation/images/misc/OutfitFont.png)
+![Font](./documentation/images/misc/ZillaSlab.png)
 
 ### Wireframes
 
 #### Desktop
 
 <details><summary>Home</summary>
-<img src="./documentation/images/HomePageWireframe.png">
+<img src="./documentation/images/wireframes/HomePageWireframe.png">
 </details>
 <details><summary>News</summary>
-<img src="./documentation/images/NewsPageWireframe.png">
+<img src="./documentation/images/wireframes/NewsPageWireframe.png">
 </details>
 <details><summary>News Details</summary>
-<img src="./documentation/images/NewsDetailsWireframe.png">
+<img src="./documentation/images/wireframes/NewsDetailsWireframe.png">
 </details>
 <details><summary>Calendar</summary>
-<img src="./documentation/images/CalendarWireframe.png">
+<img src="./documentation/images/wireframes/CalendarWireframe.png">
 </details>
 <details><summary>Contact</summary>
-<img src="./documentation/images/ContactWireframe.png">
+<img src="./documentation/images/wireframes/ContactWireframe.png">
 </details>
 
 ### Agile Methodology
@@ -249,7 +249,7 @@ The user story issue format consists of the user story itself, as well as accept
 The project adopted a basic Kanban Board structure, which was divided into columns such as Backlog, Todo, In Progress, Testing and Done. This setup provided a clear and organized way to track the progress of tasks, making it easier to visualize and manage the workflow throughout the development process. The GitHub project Kanban was linked to the repo for consistant reference.
 
 <details><summary>Kanban</summary>
-<img src="./documentation/images/projectboard.png">
+<img src="./documentation/images/misc/projectboard.png">
 </details>
 
 ## Features
