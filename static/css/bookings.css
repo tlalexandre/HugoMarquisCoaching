@@ -70,6 +70,7 @@ thead{
 .unavailable{
     background-image: url(../images/unavailable.jpg);
     background-size: cover;
+    min-height: 500px;
 }
 .background-blur{
     backdrop-filter: contrast(0.5) blur(5px);
