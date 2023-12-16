@@ -19,6 +19,8 @@ from django.conf.urls import url
 from django.views.i18n import set_language
 from .views import contact
 
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('summernote/', include('django_summernote.urls')),

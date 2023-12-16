@@ -11,7 +11,7 @@
 .hero-container{
     display: flex;
     justify-content: space-between;
-    background: url(../images/salledesports.jpg)center center no-repeat ;
+    background: url(https://res.cloudinary.com/dyjmwwdzv/image/upload/v1701952429/static/images/salledesports.dd45abdd65e6.jpg)center center no-repeat ;
     background-size: cover;
     height: 75vh;
 }

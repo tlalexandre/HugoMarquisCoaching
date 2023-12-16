@@ -12,6 +12,9 @@ from .models import Post
 from .forms import CommentForm, NewsForm
 
 # Create your views here.
+def error_404_view(request, exception):
+    return render(request, '404.html', {}, status=404)
+
 
 def add_news(request):
     if request.method=='POST':
