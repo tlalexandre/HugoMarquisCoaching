@@ -1,17 +1,4 @@
 
-body{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    background: #FFDF2B;
-    font-family: 'Outfit', sans-serif;
-    font-family: 'Zilla Slab', serif;
-    font-weight: 400
-}
-
-.bg-dark{
-    background-color: black !important;
-}
 .overlap{
     border-radius: 0px 20px 20px 20px;
     margin-top: 50px;
@@ -31,12 +18,16 @@ body{
     background-color:#FFDF2B;
 }
 .navbar-light .navbar-nav .nav-link:hover {
-    color: #737373;
+    background-color: #FFDF2B;
+    color: black;
 }
 .navbar-light .navbar-toggler {
     border-color: #FFDF2B;
 }
-
+.fas.fa-bars{
+    color: #FFDF2B;
+    font-size: 1.9rem;
+}
 
 
 

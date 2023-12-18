@@ -1,19 +1,12 @@
 /* Header */
-.body{
+/* .body{
     overflow: hidden;
-}
-.row{
-    margin: 0;
-}
-.col{
-    padding: 0;
-}
+} */
+
 .hero-container{
-    display: flex;
-    justify-content: space-between;
     background: url(https://res.cloudinary.com/dyjmwwdzv/image/upload/v1701952429/static/images/salledesports.dd45abdd65e6.jpg)center center no-repeat ;
     background-size: cover;
-    height: 75vh;
+    height: 80vh;
 }
 .hero-container.shrink{
     animation: shrink2 2s ease-in-out forwards;
@@ -25,39 +18,22 @@
 .title{
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: center;
     color: #fff;
     padding-top: 40px;
 }
 
-.title p{
-    font-size: 24px;
+.headline{
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-top: 10rem;
+
 }
-.hero-character{
-    height: 100%;
-    width: 50%;
-    
+.main-title h1, .main-title h2{
+    font-size: 3.7rem;
 }
 .hero-character img{
-    height: 100%;
-    /* animation: shrink 2s forwards; */
-}
-.hero-container h1, .hero-container h2{
-    font-size: 64px;
-    text-shadow: 0px 6px 1px black;;
-    font-weight: 900;
-}
-@keyframes shrink2 {
-    100% {
-        width: auto;  /* Replace with the normal width */
-        height: 60vh;  /* Replace with the normal height */
-    }
-}
-
-@keyframes shrink {
-    100% {
-        height: 100%;  /* Replace with the normal height */
-    }
+    height:87%;
 }
 
 .title {
@@ -73,16 +49,7 @@
 }
 
 /* End Header */
-a{
-    text-decoration: none;
-    color: #fff;
-}
-li{
-    list-style: none;
-}
-i{
-    font-size: 24px;
-}
+
 .title-font-size{
     font-size: 50px;
 }
@@ -118,7 +85,6 @@ i{
     width: auto; /* Adjust as needed */
     object-fit: cover;
   }
-
-  .partner-font-size{
+.partner-font-size{
         font-size: 16px;
   }

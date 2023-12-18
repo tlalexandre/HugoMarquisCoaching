@@ -1,13 +1,14 @@
 {% extends "base.html" %}
 {% load i18n %}
+{% load static %}
 {% load allauth account socialaccount %}
 {% block head_title %}
     {% trans "Sign In" %}
 {% endblock head_title %}
 {% block content %}
-<div class="d-flex mt-5 justify-content-center">
-
-    <div class="d-flex flex-column justify-content-center">
+<div class="mt-5 row">
+    <img src="{% static 'images/SignIn.svg' %}" class="img-fluid mt-5 col-md-6" alt="">
+    <div class="d-flex flex-column justify-content-center col-md-6">
         
         {% element h1 %}
         {% trans "Sign In" %}

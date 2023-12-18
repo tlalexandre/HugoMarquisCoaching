@@ -1,11 +1,13 @@
 {% extends "base.html" %}
 {% load allauth i18n %}
+{% load static %}
 {% block head_title %}
     {% trans "Sign Out" %}
 {% endblock head_title %}
 {% block content %}
-<div class="d-flex mt-5 justify-content-center">
-    <div class="d-flex flex-column justify-content-center">
+<div class="row mt-5">
+    <img src="{% static 'images/SignOut.svg' %}" class="img-fluid mt-5 col-md-6" alt="">
+    <div class="d-flex flex-column justify-content-center col-md-6">
 
         {% element h1 %}
         {% trans "Sign Out" %}

@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&family=Zilla+Slab&display=swap');
+
+:root{
+    --black: #1B1212;
+    --yellow: #FFDF2B;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background:var(--yellow);
+    font-family: 'Zilla Slab', 'Outfit', serif;
+    font-weight: 400
+}
+
+thead{
+    background-color: black;
+
+}
+
+textarea{
+    resize: none;
+}
+
+a{
+    text-decoration: none;
+    color: #fff;
+}
+li{
+    list-style: none;
+}
+i{
+    font-size: 24px;
+}
+.row{
+    margin: 0;
+}
+.col{
+    padding: 0;
+}
+.bg-dark{
+    background-color: var(--black)!important;
+}
+.slide-in {
+    animation: slide-in 2s ease-out;
+}
+.outfit{
+    font-family: 'Outfit', sans-serif;
+}
+.outfit-bold{
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+}
+.small{
+    font-size: 1rem;
+}
+.form label{
+    display: block;
+}
+.noresize{
+    resize: none;
+    overflow: hidden;
+}
+@keyframes slide-in {
+    0% {
+        transform: translateX(100%);
+
+   
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+       
+    }
+}

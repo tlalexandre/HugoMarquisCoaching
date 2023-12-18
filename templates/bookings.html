@@ -46,8 +46,10 @@
 </div>
 {%endblock%}
 {% block extra_js %}
+<script src='https://unpkg.com/fullcalendar@5.10.1/main.min.js'></script>
+<script src='https://unpkg.com/fullcalendar@5.10.1/locales-all.min.js'></script>
 <script>
    window.userIsSuperuser = {{ is_superuser|yesno:"true,false" }};
 </script>
-<script src="{% static 'js/script.js' %}"></script>
+<script src="{% static 'js/calendar.js' %}"></script>
 {% endblock %}
