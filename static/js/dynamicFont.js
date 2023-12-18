@@ -2,7 +2,7 @@ function adjustFontSize() {
     var elements = document.querySelectorAll('.masthead h1.dynamic-font-size, .card-body h2.dynamic-font-size');
     var minFontSize = 30; // Set a larger minimum possible font size
     var buffer = 30; // Set a buffer value to prevent the text from being too close to the edge of the parent
-    var factor = 1.6; // Set a factor to adjust the calculated font size
+    var factor = 1.8; // Set a factor to adjust the calculated font size
 
     for (var i = 0; i < elements.length; i++) {
         var element = elements[i];

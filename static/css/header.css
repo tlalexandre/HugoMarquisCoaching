@@ -6,7 +6,8 @@
 .hero-container{
     background: url(https://res.cloudinary.com/dyjmwwdzv/image/upload/v1701952429/static/images/salledesports.dd45abdd65e6.jpg)center center no-repeat ;
     background-size: cover;
-    height: 80vh;
+    height: 73vh;
+    justify-content: space-between;
 }
 .hero-container.shrink{
     animation: shrink2 2s ease-in-out forwards;
@@ -20,7 +21,6 @@
     flex-direction: column;
     justify-content: center;
     color: #fff;
-    padding-top: 40px;
 }
 .bg-opacity{
     background: rgba(27,18,18,0.6);
@@ -95,6 +95,14 @@
 }
 
 @media screen and (max-width:992px){
+    .hero-container{
+        height: 60vh;
+        justify-content: center;
+        text-align: center;
+    }
+    .title span{
+        font-size: 3.5rem;
+    }
     .card-news{
         width: 100%;
     }
