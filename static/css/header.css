@@ -22,18 +22,19 @@
     color: #fff;
     padding-top: 40px;
 }
-
+.bg-opacity{
+    background: rgba(27,18,18,0.6);
+}
 .headline{
     font-size: 2.2rem;
     font-weight: 700;
-    margin-top: 10rem;
 
 }
 .main-title h1, .main-title h2{
     font-size: 3.7rem;
 }
 .hero-character img{
-    height:87%;
+    height:100%;
 }
 
 .title {
@@ -88,3 +89,16 @@
 .partner-font-size{
         font-size: 16px;
   }
+
+.card-news{
+    width: 50%;
+}
+
+@media screen and (max-width:992px){
+    .card-news{
+        width: 100%;
+    }
+    .headline{
+        display: none;
+    }
+}

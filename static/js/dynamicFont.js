@@ -1,7 +1,8 @@
 function adjustFontSize() {
     var elements = document.querySelectorAll('.masthead h1.dynamic-font-size, .card-body h2.dynamic-font-size');
-    var maxAllowedFontSize = 100; // Set your maximum allowed font size
+    var minFontSize = 30; // Set a larger minimum possible font size
     var buffer = 30; // Set a buffer value to prevent the text from being too close to the edge of the parent
+    var factor = 1.6; // Set a factor to adjust the calculated font size
 
     for (var i = 0; i < elements.length; i++) {
         var element = elements[i];
@@ -15,36 +16,24 @@ function adjustFontSize() {
             parentHeight -= buffer;
         }
 
-        var textLength = element.textContent.length; // Get the length of the text string
-        var divisor = textLength / 5; // Adjust the divisor to a smaller value
-        var maxFontSizeHeight = parentHeight / divisor; // Calculate the maximum font size based on the length of the text string
-        var maxFontSizeWidth = parentWidth / divisor; // Calculate the maximum font size based on the width of the parent
-        var maxFontSize = Math.min(maxFontSizeHeight, maxFontSizeWidth); // Use the smaller of the two as the maximum font size
+        var area = parentWidth * parentHeight; // Calculate the area of the parent container
+        var textLength = element.textContent.length; // Get the length of the text
+        var maxFontSize = Math.sqrt(area / textLength) / factor; // Calculate the initial font size based on the square root of the area divided by the text length
 
-        var minFontSize = 0; // Minimum possible font size
+        element.style.fontSize = maxFontSize + 'px'; // Set the initial font size
+        element.style.lineHeight = '1.2'; // Set the initial line height
 
-        var iterations = 0; // Count the number of iterations
-        while (maxFontSize - minFontSize > 1 && iterations < 1000) { // Limit the number of iterations to 1000
-            var midFontSize = Math.floor((minFontSize + maxFontSize) / 2);
-            element.style.fontSize = midFontSize + 'px';
-            element.style.lineHeight = '0.8'; // Set the line-height to 1
+        // Gradually decrease the font size until the text fits within the container
+        while (element.offsetWidth > parentWidth || element.offsetHeight > parentHeight) {
+            maxFontSize -= 5; // Decrease the font size by 5
+            element.style.fontSize = maxFontSize + 'px'; // Update the font size
+            element.style.lineHeight = '1.2'; // Update the line height
 
-            if (element.offsetWidth > parentWidth || element.offsetHeight > parentHeight) {
-                maxFontSize = midFontSize;
-            } else {
-                minFontSize = midFontSize;
+            // If the font size reaches minFontSize, break the loop
+            if (maxFontSize <= minFontSize) {
+                break;
             }
-
-            iterations++; // Increment the number of iterations
         }
-
-        // Cap the font size at the maximum allowed value
-        if (minFontSize > maxAllowedFontSize) {
-            minFontSize = maxAllowedFontSize;
-        }
-
-        element.style.fontSize = minFontSize + 'px';
-        element.style.lineHeight = '0.8'; // Set the line-height to 1
     }
 }
 
