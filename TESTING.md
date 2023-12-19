@@ -32,12 +32,6 @@
 
 ## User Story Testing
 
-| User Story |Screenshots  | Result |
-|--|--|--|
-| As a developer I can setup a new Django project so that I can create the project's structure |The project was setup correctly  | <mark>PASS<mark>  |
-|As a developer I can connect database and media storage so that the user's stored data is stored successfully|Database and storage set up|<mark>PASS<mark>|
-|As a developer, I can perform an early deployment of the application to verify the functionality of the initial setup so that I can continue testing the application as it evolves during development.|Live website was hosted with no errors|<mark>PASS<mark>|
-
 
 
 | User Story                                                                                                                                                                                                                        | Screenshot                                                                                                                                                                                              | Result           |
