@@ -37,64 +37,36 @@
 | User Story                                                                                                                                                                                                                        | Screenshot                                                                                                                                                                                              | Result           |
 | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
 | As a developer I can setup a new Django project so that I can create the project's structure | The project was set up successfully | <mark>PASS<mark> |
-
 | As a developer I can connect database and media storage so that the user's stored data is stored successfully | Database and storage set up succesfully | <mark>PASS<mark> |
-
 | As a developer, I can perform an early deployment of the application to verify the functionality of the initial setup so that I can continue testing the application as it evolves during development. | Live site was hosted with no errors | <mark>PASS<mark> |
-
 | As a developer I can layout wireframes so that I have a clear idea of the sites structure and theme | Wireframers were planned and created as referenced in the [README](./README.md) | <mark>PASS<mark> |
-
 | As a developer I can choose a colour theme so that all pages have a consistent feel and style. | A colour theme was chosen for the website as referenced in the [README](./README.md) | <mark>PASS<mark> |
-
 | As a User I want the website to be responsive so I can view it on multiple devices | <details><summary>Responsive</summary><img src="./documentation/images/testing/responsive.png"></details> | <mark>PASS<mark> |
-
 | As a User I can intuitively navigate through the website so that I can view all content with ease. | <details><summary>Navigation Bar</summary><img src="./documentation/images/testing/navigation.png"></details> | <mark>PASS<mark> |
-
 | As a User, I can create an account so that I can post, save and edit content | <details><summary>Registration</summary><img src="./documentation/images/websiteScreenshots/desktop/signin.png"></details> | <mark>PASS<mark> |
-
 | As a User, I can log out so that I can secure my account from potential hacks | <details><summary>Sign Out</summary><img src="./documentation/images/testing/signout.png"></details> | <mark>PASS<mark> |
-
 | As a User, I can see the differents availaibilities of the coach easily. | <details><summary>Calendar</summary><img src="./documentation/images/testing/signout.png"></details> | <mark>PASS<mark> |
-
 | As a User, I can book a private session with the coach easily through the website | <details><summary>Book a Private Session</summary><img src="./documentation/images/testing/signout.png"></details> | <mark>PASS<mark> |
-
 | As a User, I can join a class added by the coach. | <details><summary>Join Course </summary><img src="./documentation/images/testing/signout.png"></details> | <mark>PASS<mark> |
-
 | As a Site Owner , I can create classes , and add my unavailabilities on the calendar| <details><summary>Adding Classes/Unavailabilities</summary><img src="./documentation/images/testing/signout.png"></details> | <mark>PASS<mark> |
-
 | As a Site Owner, I can approve ,or delete the private sessions booked by my customers | <details><summary>Approve/Delete</summary><img src="./documentation/images/testing/signout.png"></details> | <mark>PASS<mark> |
-
 | As a User, I can only see the details of my own private sessions or of the classes of the coach, to respect the privacy of everyone. | <details><summary>Privacy</summary><img src="./documentation/images/testing/signout.png"></details> | <mark>PASS<mark> |
-
 | As a Site owner, I can see the number of participants for my classes.| <details><summary>Number participants</summary><img src="./documentation/images/testing/signout.png"></details> | <mark>PASS<mark> |
-
 | As a Site Owner, I can make sure my clients stays inform about any modifications on the classes, or private sessions, by sending them automated emails.| <details><summary>Automated Emails</summary><img src="./documentation/images/testing/signout.png"></details> | <mark>PASS<mark> |
-
 | As a User, I can contact the Site Owner by sending a message through the Contact Form.| <details><summary>Contact Form</summary><img src="./documentation/images/testing/signout.png"></details> | <mark>PASS<mark> |
-
 | As a User, I can post a comment so that I can share my insights with the community. | <details><summary>Add Post</summary><img src="./documentation/images/testing/comment.png"></details> | <mark>PASS<mark> |
-
-| As a User, I can view content on the home page so that I can stay informed and explore engaging topics. | <details><summary>Home Page</summary><img src="./documentation/images/features/homepage.png"></details> | <mark>PASS<mark> |
-
+| As a User, I can view content on the home page so that I can stay informed and explore engaging topics. | <details><summary>Home Page</summary><img src="./documentation/images/features/homepage.png"></details> | <mark>PASS<mark> 
 | As a User, I can view a selected article with its comments, so that I can explore in-depth content and engage with the community. | <details><summary>Post Detail Page</summary><img src="./documentation/images/features/postdetail.png"></details> | <mark>PASS<mark> |
-
 | As a User, I can view articles so that I can explore content that interests me. | <details><summary>Category Page</summary><img src="./documentation/images/features/categories.png"></details> | <mark>PASS<mark> |
-
 | As a Developer, I can created a standardised article preview card for each article, providing key information at a glance so that users can quickly understand the context of an article | <details><summary>Article Card</summary><img src="./documentation/images/features/articlecard.png"></details> | <mark>PASS<mark> |
-
 | As a Site Owner, I can have the capability to perform all CRUD (Create, Read, Update, Delete) functionality within the website's admin interface so that I can manually create and edit content. | <details><summary>Admin Crud</summary><img src="./documentation/images/features/admincrud.png"></details> | <mark>PASS<mark> |
-
 | As a User I can see notification messages when performing CRUD operations or login/logout, signup so that informed about the outcome of the action taken. | <details><summary>Notifications</summary><img src="./documentation/images/features/notifications.png"></details> | <mark>PASS<mark> |
-
 | As a User, I can comment and like an article posted by the Site Owner to share with him and the community.| <details><summary>Comments/Likes</summary><img src="./documentation/images/testing/signout.png"></details> | <mark>PASS<mark> |
-
 | As a User, I want to view comments on an article so that I can see the discussions going on a particular topic. | <details><summary>Comments</summary><img src="./documentation/images/features/commentcard.png"></details> | <mark>PASS<mark> |
-
 | As a Developer, I want to ensure the styling and theme of the website are consistent, free from CSS errors, and provide an intuitive and easy-to-use UI/UX so that users easily digest content and perform all actions with ease. | <details><summary>Website theme</summary><img src="./documentation/images/theme/websitetheme.png"></details> | <mark>PASS<mark> |
-
 | As a developer, I can show custom error pages redirect the user to the home page, so that I have a consistent experience even when encountering errors on the website. | <details><summary>Error Page</summary><img src="./documentation/images/features/errorpage.png"></details> | <mark>PASS<mark> |
-
 | As a User, I can click on the footer contact social links so I can find out more information about the brand | <details><summary>Footer</summary><img src="./documentation/images/features/footer.png"></details> | <mark>PASS<mark> |
+
 ## Code Validation
 
 ### HTML
