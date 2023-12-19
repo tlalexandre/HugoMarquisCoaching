@@ -75,20 +75,20 @@ All HTML pages were run through the [W3C HTML Validator](https://validator.w3.or
 
 | Page            | Validator                                                                                                                             | Result              |
 | --------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
-| Home            | <details><summary>Home Page</summary><img src="./documentation/testing/HTML/HTMLHomePage.png"></details>                       | <mark>PASS</mark>   |
-| News        | <details><summary>News Page</summary><img src="./documentation/testing/HTML/HTMLNews.png"></details>               | <mark>PASS</mark>   |
-| News Detail     | <details><summary>News Detail Page</summary><img src="./documentation/testing/HTML/HTMLNewsDetails.png"></details>            | <mark>PASS</mark>   |
-| Add News        | <details><summary>Add News Page</summary><img src="./documentation/testing/HTML/HTMLAddNews.png"></details>               | <mark>PASS</mark> |
-| Bookings        | <details><summary>Bookings Page</summary><img src="./documentation/testing/HTML/HTMLBookings.png"></details>                 | <mark>PASS</mark>   |
-| Booking Course details    | <details><summary>Bookings Course details</summary><img src="./documentation/testing/HTML/HTMLBookingsEventDetails.png"></details> | <mark>PASS</mark> |
-| Creating a Course    | <details><summary>Creating a course</summary><img src="./documentation/testing/HTML/HTMLEventCreate.png"></details> | <mark>PASS</mark> |
-| Creating a Private Session    | <details><summary>Creating a Private Session</summary><img src="./documentation/testing/HTML/HTMLPrivateSessionCreate.png"></details> | <mark>PASS</mark> |
-| Unavailability    | <details><summary>Unavailability</summary><img src="./documentation/testing/HTML/HTMLUnavailable.png"></details> | <mark>PASS</mark> |
-| Unavailability Creation   | <details><summary>Unavailability Creation</summary><img src="./documentation/testing/HTML/HTMLUnavailableCreate.png"></details> | <mark>PASS</mark> |
-| Sign In         | <details><summary>Sign In</summary><img src="./documentation/testing/HTML/HTMLLogIn.png"></details>                        | <mark>PASS</mark>   |
-| Sign Up         | <details><summary>Sign Up</summary><img src="./documentation/testing/HTML/HTMLSignUp.png"></details>                       | <mark>Errors</mark>   |
-| Log out         | <details><summary>Log Out</summary><img src="./documentation/testing/HTML/HTMLLogout.png"></details>                       | <mark>PASS</mark>   |
-| Contact         | <details><summary>Contact</summary><img src="./documentation/testing/HTML/HTMLContact.png"></details>                       | <mark>PASS</mark>   |
+| Home            | <details><summary>Home Page</summary><img src="./documentation/images/testing/HTML/HTMLHomePage.png"></details>                       | <mark>PASS</mark>   |
+| News        | <details><summary>News Page</summary><img src="./documentation/images/testing/HTML/HTMLNews.png"></details>               | <mark>PASS</mark>   |
+| News Detail     | <details><summary>News Detail Page</summary><img src="./documentation/images/testing/HTML/HTMLNewsDetails.png"></details>            | <mark>PASS</mark>   |
+| Add News        | <details><summary>Add News Page</summary><img src="./documentation/images/testing/HTML/HTMLAddNews.png"></details>               | <mark>PASS</mark> |
+| Bookings        | <details><summary>Bookings Page</summary><img src="./documentation/images/testing/HTML/HTMLBookings.png"></details>                 | <mark>PASS</mark>   |
+| Booking Course details    | <details><summary>Bookings Course details</summary><img src="./documentation/images/testing/HTML/HTMLBookingsEventDetails.png"></details> | <mark>PASS</mark> |
+| Creating a Course    | <details><summary>Creating a course</summary><img src="./documentation/images/testing/HTML/HTMLEventCreate.png"></details> | <mark>PASS</mark> |
+| Creating a Private Session    | <details><summary>Creating a Private Session</summary><img src="./documentation/images/testing/HTML/HTMLPrivateSessionCreate.png"></details> | <mark>PASS</mark> |
+| Unavailability    | <details><summary>Unavailability</summary><img src="./documentation/images/testing/HTML/HTMLUnavailable.png"></details> | <mark>PASS</mark> |
+| Unavailability Creation   | <details><summary>Unavailability Creation</summary><img src="./documentation/images/testing/HTML/HTMLUnavailableCreate.png"></details> | <mark>PASS</mark> |
+| Sign In         | <details><summary>Sign In</summary><img src="./documentation/images/testing/HTML/HTMLLogIn.png"></details>                        | <mark>PASS</mark>   |
+| Sign Up         | <details><summary>Sign Up</summary><img src="./documentation/images/testing/HTML/HTMLSignUp.png"></details>                       | <mark>Errors</mark>   |
+| Log out         | <details><summary>Log Out</summary><img src="./documentation/images/testing/HTML/HTMLLogout.png"></details>                       | <mark>PASS</mark>   |
+| Contact         | <details><summary>Contact</summary><img src="./documentation/images/testing/HTML/HTMLContact.png"></details>                       | <mark>PASS</mark>   |
 
 The HTML validation errors are attributed to the integration of allAuth. These errors, while minor, are challenging to address without uninstalling this package. Given functionality remains as intended and this package provide significant value, functionality and usability is prioritised over resolving these specific HTML validation issues.
 
