@@ -24,29 +24,31 @@ Hugo Marquis Coaching is a website for a french sports coach, to allow him to po
     - [Overview](#overview)
     - [EPICS(Milestones)](#epics---milestones)
     - [User Stories Issues](#user-stories---issues)
-    - [MoSCoW prioritization](#moscow-prioritization)
     - [GitHub Projects](#github-projectskanban)
-    - [Late Design Changes](#late-design-changes)
 - [Features](#features)
   - [Navigation Header](#navigation-header)
   - [Footer](#footer)
   - [Home Page](#home-page)
-  - [News Page](#post-detail-page)
+  - [News Page](#news-page)
+    -[News Details Page](#news-details-page)
+    -[Add News Page](#add-news-page)
   - [Bookings Page](#bookings-page)
-  - [Edit/Add News Page](#addedit-news-page)
-  - [Edit Classes Page](#edit-classes-page)
-  - [Sign Up Page](#sign-up-page)
-  - [Sign In Page](#sign-in-page)
-  - [Sign Out Page](#sign-out-page)
-  - [News Preview Card](#news-preview-card)
+    -[Bookings Page as the coach/admin](#bookings-page-as-the-coachadmin)
+      -[Adding a class or an unavailability](#adding-a-class-or-an-unavailability)
+      -[Unavailability Page](#unavailability-page)
+      -[Updating a class](#updating-a-class)
+    -[Bookings Page as a regular user](#bookings-page-as-a-regular-user)
+      -[Adding a Private Session](#adding-a-private-session)
+      -[Joining a Class](#joining-a-class)
+    -[Private Session/Course Details Page](#private-session-details-page-and-course-details-page)
+  -[Contact Page](#contact-page)
+  -[Authentification](#authentification)
+    -[Sign Up Page](#sign-up-page)
+    -[Sign In Page](#sign-in-page)
+    -[Sign Out Page](#sign-out-page)
   - [Notification Messages](#notification-messages)
-  - [Confirmation Modal](#confirmation-modal)
-  - [Comment Form](#comment-form)
-  - [Pending Post](#pending-post)
-  - [Pending Private Session](#pending-private-session)
   - [Error Pages](#comment-form)
 - [Testing](#testing)
-- [Bugs](#bugs)
 - [Technologies and Languages](#technologies-and-languages)
   - [Languages](#languages-used)
   - [Python Modules](#python-modules-imported)
@@ -410,7 +412,9 @@ Once the form is submitted , an email gets sent to the coach with the differents
 <img src="./documentation/images/websiteScreenshots/desktop/ContactPage.png">
 </details>
 
-### Sign Up page
+### Authentification
+
+#### Sign Up page
 
 This page comprises a form with fields for entering a username and password. Beneath the form is the sign up button which submits the form. Below the form is a redirect to the register page if the user does not have an account. Click the remember me checkbox to remain logged in as a session.
 
@@ -418,7 +422,7 @@ This page comprises a form with fields for entering a username and password. Ben
 <img src="./documentation/images/websiteScreenshots/desktop/SignUp.png">
 </details>
 
-### Sign In page
+#### Sign In page
 
 It features a form with fields for inputting name, email, username, password, and password confirmation. Underneath the form, there is a link to log in for users with existing accounts, followed by the signup button. After signup, users receive a welcome email at the provided email address and are then directed to the profile page update form, where they can personalise their profiles.
 
@@ -426,7 +430,7 @@ It features a form with fields for inputting name, email, username, password, an
 <img src="./documentation/images/websiteScreenshots/desktop/SignIn.png">
 </details>
 
-### Sign out page
+#### Sign out page
 
 Upon clicking the "log out" link in the navigation, users are directed to a confirmation page. 
 
@@ -445,65 +449,15 @@ Notification messages were user every time the user performs CRUD operation, sig
 
 ### Error Pages
 
-Custom Error pages are rendered to show the user what went wrong with their request. These error pages allow the user to redirect to the home page.
+Custom Error page is rendered to show the user what went wrong with their request. This error page allow the user to redirect to the home page.
 
-Examples below are 403, 404
-
-<details><summary>403</summary>
-<img src="./documentation/images/features/403error.png">
-</details>
 <details><summary>404</summary>
-<img src="./documentation/images/features/404error.png">
+<img src="./documentation/images/websiteScreenshots/desktop/404Page.png">
 </details>
-
-## Future Features
-
-Implementing future features is essential to maintain website growth and user retention because they not only keep the platform relevant and competitive but also provide added value to users, enticing them to return and engage with fresh, exciting content and functionalities.
-
-### Search Feature
-
-Implement a search bar in the navigation menu to allow users to search for specific users or articles by entering text, enhancing content discoverability.
-
-### Password Reset with Email Validation
-
-Introduce a secure and user-friendly password reset system that relies on email validation, making it easier for users to regain access to their accounts.
-
-### Messaging System/Ticket System
-
-- Develop a messaging system that enables users to send direct messages to each other, fostering user interaction.
-- Alternatively, create a ticket system where users can contact the developer for technical issues or support, providing a more organized and responsive channel for communication. This is especially important because the current contact method is limited to an email in the footer, which may not be as user-friendly.
-
-### Article Sharing
-
-4. Add a share button to articles, allowing users to effortlessly share content on their social media platforms, increasing the website's visibility and user engagement.
-
-These features have been added to the Agile Project Board in the unresolved column so they can be implemented at a later date.
-
-- [Search Feature](https://github.com/DarrachBarneveld/CoolCoders-PP4/issues/48)
-- [Password Reset with Email Validation](https://github.com/DarrachBarneveld/CoolCoders-PP4/issues/49)
-- [Messaging System/Ticket System](https://github.com/DarrachBarneveld/CoolCoders-PP4/issues/50)
-- [Article Sharing](https://github.com/DarrachBarneveld/CoolCoders-PP4/issues/51)
 
 ## Testing
 
 In depth testing documentation can be found [here.](./TESTING.md)
-
-## Bugs
-
-Here is a list of all the major bugs encountered throughout development. Links to specific issues provide a more in depth analysis of how they were identified and resolved. This can also be found documented in [TESTING.md](./TESTING.md)
-
-| Bug                                                                                                                        | Status |
-| -------------------------------------------------------------------------------------------------------------------------- | ------ |
-| [Profile routing based on slug errors #31](https://github.com/DarrachBarneveld/CoolCoders-PP4/issues/31)                   | Closed |
-| [UpdateView Profile throwing errors with multiple forms #32](https://github.com/DarrachBarneveld/CoolCoders-PP4/issues/32) | Closed |
-| [Content creating widget not responsive #37](https://github.com/DarrachBarneveld/CoolCoders-PP4/issues/37)                 | Closed |
-| [Pagination on profile page renders only first results #38](https://github.com/DarrachBarneveld/CoolCoders-PP4/issues/38)  | Closed |
-| [Lighthouse Performance Scores #41](https://github.com/DarrachBarneveld/CoolCoders-PP4/issues/41)                          | Closed |
-| [User Edit Profile Form Autofocus #42](https://github.com/DarrachBarneveld/CoolCoders-PP4/issues/42)                       | Closed |
-| [UX/UI Final Sweep #44](https://github.com/DarrachBarneveld/CoolCoders-PP4/issues/44)                                      | Closed |
-| [Refresh Routing on changed Username #47](https://github.com/DarrachBarneveld/CoolCoders-PP4/issues/47)                    | Open   |
-| [Env File not properly ignored #54](https://github.com/DarrachBarneveld/CoolCoders-PP4/issues/54)                          | Closed |
-| [User Account Updated #55](https://github.com/DarrachBarneveld/CoolCoders-PP4/issues/55)                                   | Closed |
 
 ## Technologies And Languages
 
@@ -537,7 +491,7 @@ Here is a list of all the major bugs encountered throughout development. Links t
 ### Technologies and programs
 
 - [Bootstrap](https://getbootstrap.com/) was used to quickly layout the responsive structure of the website
-- [Chat-GPT](https://chat.openai.com/) was used to create all written content and copy of the website
+- [GitHub Copilot](https://github.com/features/copilot) was used to help me implement features faster.
 - [VS Code](https://code.visualstudio.com/) was used to code the website locally
 - [Balsamiq - Wireframe](https://balsamiq.com/wireframes/) was used to create quick and precise wireframes
 - [Favicon Generator](https://favicon.io/favicon-converter/) was used to generate Favicon
@@ -554,6 +508,7 @@ Here is a list of all the major bugs encountered throughout development. Links t
 - [Pylance Validator](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance) was used as a linter to enhance best practice in the Python code.
 - [CI Python Pep8 Checker](https://pep8ci.herokuapp.com/) was used to validate the Python code.
 - [Cloudinary](https://cloudinary.com/) was used to store static files and images.
+- [FullCalendar](https://fullcalendar.io/docs) was used to display the calendar easily .
 - [Coolors.co](https://coolors.co/) was used to display the colour scheme.
 - [DBDiagram](https://dbdiagram.io/) was used to visually create the database structure and schemas
 - [PostGresSQl](https://www.postgresql.org/) was used in development to store the database information locally
@@ -578,6 +533,8 @@ The hidden variables are as follows
 - DATABASE_URL
 - CLOUDINARY_URL
 - PORT
+- EMAIL_HOST_USER
+- EMAIL_HOST_PASSWORD
 
 ### Deploying on Heroku
 
@@ -586,7 +543,7 @@ The hidden variables are as follows
 3. Once logged in, select create a new app.
 4. Select an app name and region.
 5. Select deployment method as connect to github.
-6. Find the desired repo. Coolcoders PP4 in this instance.
+6. Find the desired repo. Hugo Marquis in this instance.
 7. Enable automatic deploys and select the main branch
 8. In the settings tab select reveal config vars. Input the required hidden variables.
 9. Select nodejs and python as the buildpack.
@@ -624,46 +581,18 @@ The hidden variables are as follows
 
 ### Content
 
-All websites articles are written by me with the aid of promting CHATGPT. The AI Assisted in quickly outputting articles so the website was fleshed out.
+All websites articles are written by me with the aid of Hugo Marquis Instagram. 
 
 ### Media
-
-- [Placeholder](https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg)
-- [AI Image](https://www.risknet.de/en/topics/news-details/if-chat-gpt-becomes-superintelligent/)
-- [Abacus](https://www.wnyc.org/story/tools-of-the-trade-the-abacus/)
-- [Women in Tech](https://women-in-tech.org/)
-- [Web vs App](https://www.linkedin.com/pulse/mobile-developer-vs-web-choose-right-career-mircea-turcanu/)
-- [OOP](https://www.techtarget.com/searchapparchitecture/definition/object-oriented-programming-OOP)
-- [Sleep and Code](https://medium.com/codex/sleep-more-code-more-aafa217fcb94)
-- [Portable Monitor](https://www.pcworld.com/article/609831/fopos-triple-laptop-monitor-is-a-crazy-cool-road-warriors-tool.html)
-- [Blue Light Glasses](https://edition.cnn.com/2023/08/17/health/blue-light-glasses-study-wellness/index.html)
-- [Beer and Code](https://www.eventbrite.com/o/show-me-your-code-beer-bratislava-28116838723)
-- [Hackathons](https://edison365.com/how-do-hackathons-work/)
+ -[Undraw](https://undraw.co/) was used to have some nice illustrations all over the website
+ -[Unsplash](https://unsplash.com/) was used to have some photos for the news part of the website as well as the header of the home page.
 
 ### Code
 
-Credit to [ByteGrad](https://www.youtube.com/watch?v=Jdkvmq8MtJY) for helping my css knowledge for making text appear with ellipse after a certain line to allow my article cards to be uniform in size and appearance.
-
-Credit to [Dayana-N](https://github.com/Dayana-N/AutoMarket-PP4) for the well structured and coherent README which was used as a template to create my own.
-
-Credit to [b0uh](https://b0uh.github.io/django-multiple-forms-in-one-class-based-view.html) for helping me understand how to have multiple forms rendering context on a single view class.
-
-Credit to [Codemy.com](https://www.youtube.com/watch?v=H8MmNqDyra8&t=556s) for helping create profile classes directly linked to User instances.
-
-Credit to [Maximilian Schwarzmüller](https://www.udemy.com/course/python-django-the-practical-guide/) for helping me understand django based view classes to a much higher degree.
-
-Credit to [Dr Angela Yu](https://www.udemy.com/course/100-days-of-code/) for assisting my knowledge in python basics such as list comprehension
-
-Credit to [Stackoverflow](https://stackoverflow.com/questions/10511873/can-django-pagination-do-multiple-paginations-per-page) for understand the correct approach for implementing multiple pagination on a single view class.
-
-Credit to [Bootstrap](https://getbootstrap.com/docs/4.0/components/modal/) for providing the modal component
-
-Credit to [StackOverflow](https://stackoverflow.com/questions/45467731/django-template-displays-edited-user-context-info-despite-validationerror) for helping me figure out the req.user instance issues when using form validation allowing me to have the nav bar remain consistant when username validation errors occur.
-
-Credit to [StackOverflow](https://stackoverflow.com/questions/34959897/set-favicon-in-django-admin) for showing me how to add a favicon to the admin portal django template
+-Credit to Hugo Marquis , for letting me work on his project.
+-Credit to GitHub Copilot who helped me figure out the differents issues I encountered during the development of this project, and allowing me to do more than I expected.
+-Credit to my mentor Simen Daehlin who recommended me to use FullCalendar to display the calendar for the bookings.
 
 ### Acknowledgements
 
-- A huge thanks to my mentor AntonioRodriguez who really helped me understand the MVC architechture seen in this project and giving me support above and beyond what was expected.
-- Stef Cruz, Shane Donlon, Tanguy L'Alexandre, Callum Dennis, Daisy McGirr and Alan Bushell for manually testing and finding any potential errors before submission
 - The Codu community for providing inspiration and motivation to continue my learning.
