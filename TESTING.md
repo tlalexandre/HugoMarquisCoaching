@@ -75,36 +75,40 @@ All HTML pages were run through the [W3C HTML Validator](https://validator.w3.or
 
 | Page            | Validator                                                                                                                             | Result              |
 | --------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
-| Home            | <details><summary>Home Page</summary><img src="./documentation/testing/validation/html/homehtml.png"></details>                       | <mark>PASS</mark>   |
-| Category        | <details><summary>Category Page</summary><img src="./documentation/testing/validation/html/categoryhtml.png"></details>               | <mark>PASS</mark>   |
-| Post Detail     | <details><summary>Post Detail Page</summary><img src="./documentation/testing/validation/html/categoryhtml.png"></details>            | <mark>PASS</mark>   |
-| Add Post        | <details><summary>Add Post Page</summary><img src="./documentation/testing/validation/html/addposterror.png"></details>               | <mark>ERRORS</mark> |
-| Edit Post       | <details><summary>Edit Post Page</summary><img src="./documentation/testing/validation/html/editposterror.png"></details>             | <mark>ERRORS</mark> |
-| Profile         | <details><summary>Profile Page</summary><img src="./documentation/testing/validation/html/profilehtml.png"></details>                 | <mark>PASS</mark>   |
-| Edit Profile    | <details><summary>Edit Profile Page</summary><img src="./documentation/testing/validation/html/updateprofileerror.png.png"></details> | <mark>Errors</mark> |
-| Sign In         | <details><summary>Sign In</summary><img src="./documentation/testing/validation/html/loginhtml.png"></details>                        | <mark>PASS</mark>   |
-| Sign Up         | <details><summary>Sign Up</summary><img src="./documentation/testing/validation/html/signuphtml.png"></details>                       | <mark>PASS</mark>   |
-| Log out         | <details><summary>Log Out</summary><img src="./documentation/testing/validation/html/logouthtml.png"></details>                       | <mark>PASS</mark>   |
-| Code of Conduct | <details><summary>Code of Conduct</summary><img src="./documentation/testing/validation/html/codeofconducthtml.png"></details>        | <mark>PASS</mark>   |
+| Home            | <details><summary>Home Page</summary><img src="./documentation/testing/HTML/HTMLHomePage.png"></details>                       | <mark>PASS</mark>   |
+| News        | <details><summary>News Page</summary><img src="./documentation/testing/HTML/HTMLNews.png"></details>               | <mark>PASS</mark>   |
+| News Detail     | <details><summary>News Detail Page</summary><img src="./documentation/testing/HTML/HTMLNewsDetails.png"></details>            | <mark>PASS</mark>   |
+| Add News        | <details><summary>Add News Page</summary><img src="./documentation/testing/HTML/HTMLAddNews.png"></details>               | <mark>PASS</mark> |
+| Bookings        | <details><summary>Bookings Page</summary><img src="./documentation/testing/HTML/HTMLBookings.png"></details>                 | <mark>PASS</mark>   |
+| Booking Course details    | <details><summary>Bookings Course details</summary><img src="./documentation/testing/HTML/HTMLBookingsEventDetails.png"></details> | <mark>PASS</mark> |
+| Creating a Course    | <details><summary>Creating a course</summary><img src="./documentation/testing/HTML/HTMLEventCreate.png"></details> | <mark>PASS</mark> |
+| Creating a Private Session    | <details><summary>Creating a Private Session</summary><img src="./documentation/testing/HTML/HTMLPrivateSessionCreate.png"></details> | <mark>PASS</mark> |
+| Unavailability    | <details><summary>Unavailability</summary><img src="./documentation/testing/HTML/HTMLUnavailable.png"></details> | <mark>PASS</mark> |
+| Unavailability Creation   | <details><summary>Unavailability Creation</summary><img src="./documentation/testing/HTML/HTMLUnavailableCreate.png"></details> | <mark>PASS</mark> |
+| Sign In         | <details><summary>Sign In</summary><img src="./documentation/testing/HTML/HTMLLogIn.png"></details>                        | <mark>PASS</mark>   |
+| Sign Up         | <details><summary>Sign Up</summary><img src="./documentation/testing/HTML/HTMLSignUp.png"></details>                       | <mark>Errors</mark>   |
+| Log out         | <details><summary>Log Out</summary><img src="./documentation/testing/HTML/HTMLLogout.png"></details>                       | <mark>PASS</mark>   |
+| Contact         | <details><summary>Contact</summary><img src="./documentation/testing/HTML/HTMLContact.png"></details>                       | <mark>PASS</mark>   |
 
-The HTML validation errors are attributed to the integration of two components: the Summernote widget and the rendering of Django password forms with Crispy Forms. These errors, while minor, are challenging to address without uninstalling these packages. Given functionality remains as intended and these packages provide significant value, functionality and usability is prioritised over resolving these specific HTML validation issues.
-
-SummerNote HTML Issues
-<img src="./documentation/testing/validation/html/htmlsummernote.png">
+The HTML validation errors are attributed to the integration of allAuth. These errors, while minor, are challenging to address without uninstalling this package. Given functionality remains as intended and this package provide significant value, functionality and usability is prioritised over resolving these specific HTML validation issues.
 
 ### CSS
 
 Test Results CSS <mark>PASS<mark>
-<img src="./documentation/testing/validation/css/cssvalidation.png">
+<img src="./documentation/testing/CSS/CSSValidator.png">
 
 ### JavaScript
 
-The only JS used in this project was refactored from Code Institute's I Think Therefore I Blog project into a seperate JS file.
+I used Javascript for different cases. I used it to render the calendar with dynamics events, to change dynamically the size of the font on the articles, to allow users to join a course and finally to retrieve the dates and time when users clicks on a date in the calendar.
 
-Global bootstrap variable acheived through use of the bootstrap cdn script tag in base.html template
-
-Test Results JS <mark>PASS<mark>
-<img src="./documentation/testing/validation/js/jshint.png">
+calendar.js:
+<img src="./documentation/images/testing/JS/JSValidatorCalendar.png">
+dynamicFont.js:
+<img src="./documentation/images/testing/JS/JSValidatorDynamicFont.png">
+join_course.js:
+<img src="./documentation/images/testing/JS/JSValidatorJoinCourse.png">
+retrieve_date.js:
+JS Hint didn't work when I gave the code of that file . 
 
 ### Python
 
