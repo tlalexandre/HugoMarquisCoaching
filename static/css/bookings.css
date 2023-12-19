@@ -46,6 +46,7 @@ thead{
     display: flex; /* Center content */
     align-items: center; /* Center content vertically */
     justify-content: center; /* Center content horizontally */
+    display: none;
 }
 
 #choiceModal div {
@@ -55,6 +56,10 @@ thead{
     border: 1px solid #888;
     width: 80%;
     z-index: 1051; /* Sit on top of the modal background */
+}
+#choiceModal.hidden {
+    z-index: -1;
+    display: none;
 }
 .img-container{
     max-width: 600px;

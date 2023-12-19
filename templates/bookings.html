@@ -44,12 +44,33 @@
     </div>
     <div id="calendar" class="col-12 col-lg-8 bg-dark text-warning mx-auto p-5 rounded-lg"></div> 
 </div>
+
+<div id="choiceModal" class="modal fade" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog bg-dark">
+        <div class="modal-content w-100 bg-dark text-light">
+            <div class="bg-dark w-100 modal-header">
+                <h1 class="modal-title">{% trans 'Choose an action' %}</h1>
+                <button id="closeModal" class="p-2 rounded bg-danger text-light">X</button>
+            </div>
+            <div class="modal-body w-100 bg-warning d-flex justify-content-between">
+                <button id="createCourse" class="rounded bg-dark text-light shadow-lg">{% trans 'Create Course' %}</button>
+                <button id="createUnavailablePeriod" class="rounded bg-dark text-light shadow-lg">{% trans 'Add Unavailable Period' %}</button>
+                <button id="createPrivateSession" class="rounded bg-dark text-light shadow-lg">{% trans 'Create Private Session' %}</button>
+            </div>
+            <span id="modalDate" class="text-light"></span>
+        </div>
+    </div>
+</div>
 {%endblock%}
 {% block extra_js %}
 <script src='https://unpkg.com/fullcalendar@5.10.1/main.min.js'></script>
 <script src='https://unpkg.com/fullcalendar@5.10.1/locales-all.min.js'></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <script>
    window.userIsSuperuser = {{ is_superuser|yesno:"true,false" }};
+</script>
+<script type="text/javascript">
+    window.LANGUAGE_CODE = "{{ LANGUAGE_CODE }}";
 </script>
 <script src="{% static 'js/calendar.js' %}"></script>
 {% endblock %}

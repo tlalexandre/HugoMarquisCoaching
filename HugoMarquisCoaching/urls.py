@@ -16,13 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls import url
-from django.views.i18n import set_language
+from django.views.i18n import set_language, JavaScriptCatalog
 from .views import contact
 
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('jsi18n/', JavaScriptCatalog.as_view(), name='javascript-catalog'),
     path('summernote/', include('django_summernote.urls')),
     url(r'^i18n/', include('django.conf.urls.i18n')),
     path('',include("blog.urls")),

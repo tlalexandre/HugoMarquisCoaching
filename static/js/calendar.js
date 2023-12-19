@@ -1,4 +1,5 @@
 const userIsSuperuser = window.userIsSuperuser;
+let languageCode = window.LANGUAGE_CODE;
 let dayCount;
   if (isSmallDevice()) {
     dayCount=3;
@@ -45,6 +46,7 @@ function handleEventClick(arg) {
 }
 
 function handleDateClick(info) {
+    console.log("handleDateClick called")
     const clickedDate = info.dateStr;
     var currentDate = new Date();  // Get the current date and time
     var clickedDateTime = new Date(clickedDate);
@@ -55,77 +57,33 @@ function handleDateClick(info) {
         return;
     }
     var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit'  };
-    var formattedDate = new Date(clickedDate).toLocaleDateString('fr-FR', options);
-    // Create the modal
-    var modal = document.createElement('div');
-    modal.classList.add('d-flex','flex-column');
-    modal.id = 'choiceModal';
-    if (userIsSuperuser) {  // Replace this with the actual condition
-        modal.innerHTML = `
-            <div class="rounded-lg bg-dark">
-            <div class="modal-header text-light bg-dark w-100 border-0">
-                <h1 class="modal-title">Choose an action</h1>
-                <button id="closeModal" class="p-2 rounded bg-danger text-light">X</button>
-            </div>
-            <div class="modal-body rounded d-flex justify-content-around w-80 bg-warning mb-3">
-                <button id="createCourse" class="rounded bg-dark text-light shadow-lg" >Create Course</button>
-                <button id="createUnavailablePeriod" class="rounded bg-dark text-light shadow-lg" >Add Unavailable Period</button>
-                </div>
-                <span class="text-light">on ${formattedDate}</span>
-            </div>
-        `;
-        document.body.appendChild(modal);
+    var formattedDate = new Date(clickedDate).toLocaleDateString(languageCode, options);
 
-        // Add event listeners to the buttons
-        document.getElementById('createCourse').addEventListener('click', function() {
-            window.location.href = '/bookings/event_create/?date=' + clickedDate + '&type=course';
-        });
-        document.getElementById('createUnavailablePeriod').addEventListener('click', function() {
-            window.location.href = '/bookings/unavailable_period/add/?date=' + clickedDate;
-        });
-        document.getElementById('closeModal').addEventListener('click', function() {
-            var modal = document.getElementById('choiceModal');
-            var modalBackdrop = document.querySelector('.modal-backdrop');
-            if(modalBackdrop){
-                modalBackdrop.parentNode.removeChild(modalBackdrop);
-            }
-            modal.parentNode.removeChild(modal);
-            document.body.style.overflow = 'auto';
-        });
-    } else {
-        modal.innerHTML = `
-        <div class="rounded-lg bg-dark">
-        <div class="modal-header text-light bg-dark w-100 border-0">
-            <h1 class="modal-title">Choose an action</h1>
-            <button id="closeModal" class="p-2 rounded bg-danger text-light">X</button>
-        </div>
-        <div class="modal-body rounded d-flex justify-content-around w-80 bg-warning mb-3">
-            <button id="createPrivateSession" class="rounded bg-dark text-light shadow-lg" >Create Private Session</button>
-            
-            </div>
-            <span class="text-light">on ${formattedDate}</span>
-        </div>
-        `;
-        document.body.appendChild(modal);
+    // Update the date in the modal
+    document.getElementById('modalDate').textContent = 'on' + ' ' + formattedDate;
 
-        // Add event listener to the button
-        document.getElementById('createPrivateSession').addEventListener('click', function() {
-            window.location.href = '/bookings/event_create/?date=' + clickedDate  + '&type=private_session';
-        });
-        document.getElementById('closeModal').addEventListener('click', function() {
-            var modal = document.getElementById('choiceModal');
-            var modalBackdrop = document.querySelector('.modal-backdrop');
-            if(modalBackdrop){
-                modalBackdrop.parentNode.removeChild(modalBackdrop);
-            }
-            modal.parentNode.removeChild(modal);
-            document.body.style.overflow = 'auto';
-        });
-    }
+    // Show or hide the buttons based on whether the user is a superuser
+    document.getElementById('createCourse').style.display = userIsSuperuser ? 'block' : 'none';
+    document.getElementById('createCourse').addEventListener('click', function() {
+        window.location.href = '/bookings/event_create/?date=' + clickedDate + '&type=course';
+    });
+    document.getElementById('createUnavailablePeriod').style.display = userIsSuperuser ? 'block' : 'none';
+    document.getElementById('createUnavailablePeriod').addEventListener('click', function() {
+        window.location.href = '/bookings/unavailable_period/add/?date=' + clickedDate;
+    });
+    document.getElementById('createPrivateSession').style.display = userIsSuperuser ? 'none' : 'block';
+    document.getElementById('createPrivateSession').addEventListener('click', function() {
+        window.location.href = '/bookings/event_create/?date=' + clickedDate  + '&type=private_session';
+    });
 
     // Display the modal
+    $('#choiceModal').css('display', 'flex');
     $('#choiceModal').modal('show');
 }
+$('#closeModal').on('click', function () {
+    $('#choiceModal').modal('hide');
+    $('#choiceModal').css('display', 'none');
+});
 function addTooltipToCells() {
     let cells = document.querySelectorAll('.fc-time-slot');
     cells.forEach(function(cell) {
@@ -203,6 +161,10 @@ window.onload = function() {
         });
         calendar.render();
     }
+
+    $(document).ready(function() {
+        $('#choiceModal').modal('hide');
+    });
 
     addTooltipToCells();
 };
