@@ -182,7 +182,6 @@ Lighthouse validation was run on all pages (both mobile and desktop) in order to
 | Sign In |     100     |      100      |      100       | 100 | <details><summary>Sign In</summary><img src="./documentation/images/lighthouse/SignInPageDesktop.png"></details>       |
 | Sign Up |     100     |      100      |      100       | 100 | <details><summary>Sign Up</summary><img src="./documentation/images/lighthouse/SignUpPageDesktop.png"></details>       |
 | Sign Out |     100     |      100      |      100       | 100 | <details><summary>Sign Out</summary><img src="./documentation/images/lighthouse/SignOutPageDesktop.png"></details>       |
-
 |                 |             |               |                |     |
 | **Mobile**      |             |               |                |     |
 | Home            |     98      |      100      |      100       | 100 | <details><summary>Home</summary><img src="./documentation/images/lighthouse/HomePageMobile.png"></details>                    |
