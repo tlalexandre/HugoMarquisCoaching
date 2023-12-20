@@ -168,36 +168,36 @@ Lighthouse validation was run on all pages (both mobile and desktop) in order to
 | --------------- | :---------: | :-----------: | :------------: | :-: | --------------------------------------------------------------------------------------------------------------------------- |
 |                 |             |               |                |     |
 | **Desktop**     |             |               |                |     |
-| Home            |     98      |      100      |      100       | 100 | <details><summary>Home</summary><img src="./documentation/images/lighthouse/HomePageDesktop.png"></details>                    |
-|News       |     98      |      100      |      100       | 100 | <details><summary>News</summary><img src="./documentation/images/lighthouse/NewsPageDesktop.png"></details>            |
-| News Details     |     97      |      100      |      100       | 100 | <details><summary>Post Detail </summary><img src="./documentation/images/lighthouse/NewsDetailsPageDesktop.png"></details>      |
-| Add News         |     96      |      100      |      100       | 100 | <details><summary>Add News</summary><img src="./documentation/images/lighthouse/AddNewsPageDesktop.png"></details>              |
-| Bookings        |     99      |      96       |      100       | 100 | <details><summary>Bookings</summary><img src="./documentation/images/lighthouse/BookingsPageDesktop.png"></details>             |
-| Event Details       |     99      |      96       |      100       | 100 | <details><summary>Event Details</summary><img src="./documentation/images/lighthouse/EventDetailsPageDesktop.png"></details>           |
-| Create Event  |     100     |      100      |      100       | 100 | <details><summary>Create Event</summary><img src="./documentation/images/lighthouse/CreateCoursePageDesktop.png"></details> |
-| Update Class  |     100     |      100      |      100       | 100 | <details><summary>Update Class</summary><img src="./documentation/images/lighthouse/UpdateCoursePageDesktop.png"></details> |
-| Add Unavailability         |     99      |      100      |      100       | 100 | <details><summary> Add Unavailability</summary><img src="./documentation/images/lighthouse/AddUnavailableDesktop.png"></details>               |
-| Unavailable         |     100     |      100      |      100       | 100 | <details><summary>Unavailable</summary><img src="./documentation/images/lighthouse/UnavailablePageDesktop.png"></details>               |
-| Contact        |     100     |      100      |      100       | 100 | <details><summary>Contact</summary><img src="./documentation/images/lighthouse/ContactPageDesktop.png"></details>             |
-| Sign In |     100     |      100      |      100       | 100 | <details><summary>Sign In</summary><img src="./documentation/images/lighthouse/SignInPageDesktop.png"></details>       |
-| Sign Up |     100     |      100      |      100       | 100 | <details><summary>Sign Up</summary><img src="./documentation/images/lighthouse/SignUpPageDesktop.png"></details>       |
-| Sign Out |     100     |      100      |      100       | 100 | <details><summary>Sign Out</summary><img src="./documentation/images/lighthouse/SignOutPageDesktop.png"></details>       |
+| Home            |     86      |      87      |      95       | 90 | <details><summary>Home</summary><img src="./documentation/images/lighthouse/HomePageDesktop.png"></details>                    |
+|News       |     96      |      89      |      95       | 90 | <details><summary>News</summary><img src="./documentation/images/lighthouse/NewsPageDesktop.png"></details>            |
+| News Details     |     81      |      87      |      95       | 90 | <details><summary>News Details </summary><img src="./documentation/images/lighthouse/NewsDetailsPageDesktop.png"></details>      |
+| Add News         |     99      |      90      |      95       | 90 | <details><summary>Add News</summary><img src="./documentation/images/lighthouse/AddNewsPageDesktop.png"></details>              |
+| Bookings        |     98      |      91       |      95       | 80 | <details><summary>Bookings</summary><img src="./documentation/images/lighthouse/BookingsPageDesktop.png"></details>             |
+| Event Details       |     88      |      89       |      95       | 90 | <details><summary>Event Details</summary><img src="./documentation/images/lighthouse/EventDetailsPageDesktop.png"></details>           |
+| Create Event  |     99     |      89      |      95       | 90 | <details><summary>Create Event</summary><img src="./documentation/images/lighthouse/CreateCoursePageDesktop.png"></details> |
+| Update Class  |     99     |      89      |      95       | 90 | <details><summary>Update Class</summary><img src="./documentation/images/lighthouse/UpdateCoursePageDesktop.png"></details> |
+| Add Unavailability  |     99      |      89      |      95       | 90 | <details><summary> Add Unavailability</summary><img src="./documentation/images/lighthouse/AddUnavailableDesktop.png"></details>               |
+| Unavailable         |     79     |      89      |      95      | 90 | <details><summary>Unavailable</summary><img src="./documentation/images/lighthouse/UnavailablePageDesktop.png"></details>               |
+| Contact        |     99     |      89      |      95       | 90 | <details><summary>Contact</summary><img src="./documentation/images/lighthouse/ContactPageDesktop.png"></details>             |
+| Sign In |     98     |      90      |      95       | 90 | <details><summary>Sign In</summary><img src="./documentation/images/lighthouse/SignInPageDesktop.png"></details>       |
+| Sign Up |     98     |      90      |      95       | 90 | <details><summary>Sign Up</summary><img src="./documentation/images/lighthouse/SignUpPageDesktop.png"></details>       |
+| Sign Out |    99      |      89      |      95       | 90 | <details><summary>Sign Out</summary><img src="./documentation/images/lighthouse/SignOutPageDesktop.png"></details>       |
 |                 |             |               |                |     |
 | **Mobile**      |             |               |                |     |
-| Home            |     98      |      100      |      100       | 100 | <details><summary>Home</summary><img src="./documentation/images/lighthouse/HomePageMobile.png"></details>                    |
-|News       |     98      |      100      |      100       | 100 | <details><summary>News</summary><img src="./documentation/images/lighthouse/NewsPageMobile.png"></details>            |
-| News Details     |     97      |      100      |      100       | 100 | <details><summary>Post Detail </summary><img src="./documentation/images/lighthouse/NewsDetailsPageMobile.png"></details>      |
-| Add News         |     96      |      100      |      100       | 100 | <details><summary>Add News</summary><img src="./documentation/images/lighthouse/AddNewsPageMobile.png"></details>              |
-| Bookings        |     99      |      96       |      100       | 100 | <details><summary>Bookings</summary><img src="./documentation/images/lighthouse/BookingsPageMobile.png"></details>             |
-| Event Details       |     99      |      96       |      100       | 100 | <details><summary>Event Details</summary><img src="./documentation/images/lighthouse/EventDetailsPageMobile.png"></details>           |
-| Create Event  |     100     |      100      |      100       | 100 | <details><summary>Create Event</summary><img src="./documentation/images/lighthouse/CreateCoursePageMobile.png"></details> |
-| Update Class  |     100     |      100      |      100       | 100 | <details><summary>Update Class</summary><img src="./documentation/images/lighthouse/UpdateCoursePageMobile.png"></details> |
-| Add Unavailability         |     99      |      100      |      100       | 100 | <details><summary> Add Unavailability</summary><img src="./documentation/images/lighthouse/AddUnavailableMobile.png"></details>               |
-| Unavailable         |     100     |      100      |      100       | 100 | <details><summary>Unavailable</summary><img src="./documentation/images/lighthouse/UnavailablePageMobile.png"></details>               |
-| Contact        |     100     |      100      |      100       | 100 | <details><summary>Contact</summary><img src="./documentation/images/lighthouse/ContactPageMobile.png"></details>             |
-| Sign In |     100     |      100      |      100       | 100 | <details><summary>Sign In</summary><img src="./documentation/images/lighthouse/SignInPageMobile.png"></details>       |
-| Sign Up |     100     |      100      |      100       | 100 | <details><summary>Sign Up</summary><img src="./documentation/images/lighthouse/SignUpPageMobile.png"></details>       |
-| Sign Out |     100     |      100      |      100       | 100 | <details><summary>Sign Out</summary><img src="./documentation/images/lighthouse/SignOutPageMobile.png"></details>       |
+| Home            |     68      |      87      |      95       | 92 | <details><summary>Home</summary><img src="./documentation/images/lighthouse/HomePageMobile.png"></details>                    |
+|News       |     71      |      89      |      95       | 92 | <details><summary>News</summary><img src="./documentation/images/lighthouse/NewsPageMobile.png"></details>            |
+| News Details     |     86      |      87      |      95       | 92 | <details><summary>News Details </summary><img src="./documentation/images/lighthouse/NewsDetailsPageMobile.png"></details>      |
+| Add News         |     91      |      90      |      95       | 92 | <details><summary>Add News</summary><img src="./documentation/images/lighthouse/AddNewsPageMobile.png"></details>              |
+| Bookings        |     92     |      91       |      95       | 83 | <details><summary>Bookings</summary><img src="./documentation/images/lighthouse/BookingsPageMobile.png"></details>             |
+| Event Details       |     72      |      89       |      95       | 92 | <details><summary>Event Details</summary><img src="./documentation/images/lighthouse/EventDetailsPageMobile.png"></details>           |
+| Create Event  |     91     |      89      |      95       | 92 | <details><summary>Create Event</summary><img src="./documentation/images/lighthouse/CreateCoursePageMobile.png"></details> |
+| Update Class  |     92     |      89      |      95       | 92 | <details><summary>Update Class</summary><img src="./documentation/images/lighthouse/UpdateCoursePageMobile.png"></details> |
+| Add Unavailability         |     94      |      89      |      95       | 92 | <details><summary> Add Unavailability</summary><img src="./documentation/images/lighthouse/AddUnavailableMobile.png"></details>               |
+| Unavailable         |     72     |      89      |      95       | 92 | <details><summary>Unavailable</summary><img src="./documentation/images/lighthouse/UnavailablePageMobile.png"></details>               |
+| Contact        |     91     |      89      |      95       | 92 | <details><summary>Contact</summary><img src="./documentation/images/lighthouse/ContactPageMobile.png"></details>             |
+| Sign In |     80     |      90      |      95       | 92 | <details><summary>Sign In</summary><img src="./documentation/images/lighthouse/SignInPageMobile.png"></details>       |
+| Sign Up |    77      |      90      |      95       | 92 | <details><summary>Sign Up</summary><img src="./documentation/images/lighthouse/SignUpPageMobile.png"></details>       |
+| Sign Out |     82     |      89      |      95       | 92 | <details><summary>Sign Out</summary><img src="./documentation/images/lighthouse/SignOutPageMobile.png"></details>       |
 
 
 ## Manual Testing
@@ -208,102 +208,72 @@ Lighthouse validation was run on all pages (both mobile and desktop) in order to
 | ---------------------- | ----------- | ------------------------------------------------------- | ----------------- |
 | Logo                   | Click       | Redirect to Home page                                   | <mark>Pass</mark> |
 | Home Link              | Click       | Redirect to Home page                                   | <mark>Pass</mark> |
-| Category Button        | Click       | Render a dropdown menu of all categories                | <mark>Pass</mark> |
-| Category Dropdown Link | Click       | Redirect to selected category page                      | <mark>Pass</mark> |
-| Add Post Link          | Click       | Redirect to selected add post page                      | <mark>Pass</mark> |
+| News Link        | Click       | Redirect to News                | <mark>Pass</mark> |
+| Bookings Link          | Click       | Redirect to Bookings                      | <mark>Pass</mark> |
 | Register Link          | Click       | Redirect to sign up page                                | <mark>Pass</mark> |
 | Log in Link            | Click       | Redirect to sign in page                                | <mark>Pass</mark> |
 | Log out Link           | Click       | Redirect to log out page                                | <mark>Pass</mark> |
-| Profile Link           | Click       | Redirect to profile page                                | <mark>Pass</mark> |
+| Contact Link           | Click       | Redirect to contact page                                | <mark>Pass</mark> |
+| Language Dropdown           | Click       | Open dropdown menu to select language                                | <mark>Pass</mark> |
+| Language links           | Click       | Change language of the website                                | <mark>Pass</mark> |
 | Hamburger Menu         | Click       | Render a dropdown menu of all links                     | <mark>Pass</mark> |
 | Footer Socials         | Click       | Redirect in a new tab to all respective media platforms | <mark>Pass</mark> |
-| Code of Conduct Link   | Click       | Redirect to code of conduct page                        | <mark>Pass</mark> |
-| Footer Email           | Click       | Open up an email provider with developer email attached | <mark>Pass</mark> |
+| Footer Email           | Click       | Open up an email provider with coach email attached | <mark>Pass</mark> |
 | Register Link          | Display     | Render for non authenticated users                      | <mark>Pass</mark> |
 | Log in Link            | Display     | Render for non authenticated users                      | <mark>Pass</mark> |
-| Add Post Link          | Display     | Render only if user is authenticated                    | <mark>Pass</mark> |
-| Log out Link           | Display     | Render only if user is authenticated                    | <mark>Pass</mark> |
-| Profile Link           | Display     | Render only if user is authenticated                    | <mark>Pass</mark> |
-| Nav Link               | Hover/Focus | Display a green underline border, lighten text          | <mark>Pass</mark> |
-| Footer Socials         | Hover/Focus | Provide background colour feedback change               | <mark>Pass</mark> |
-| Code of Conduct Link   | Hover/Focus | Text darken                                             | <mark>Pass</mark> |
+
 
 ### Home Page
 
 | Element          | Action      | Expected Result                          | Pass/Fail         |
 | ---------------- | ----------- | ---------------------------------------- | ----------------- |
-| Category Widgets | Click       | Redirect to selected category page       | <mark>Pass</mark> |
-| Editors Pick     | Display     | Editors Pick Post Card viewable          | <mark>Pass</mark> |
-| Trending         | Display     | Trending Post Snippets viewable          | <mark>Pass</mark> |
-| Popular Post     | Display     | Popular Post Post Card viewable          | <mark>Pass</mark> |
-| Category Widgets | Hover/Focus | Background turns green, text turns white | <mark>Pass</mark> |
+| Link to last article            | Click     | Redirect to last article                      | <mark>Pass</mark> |
 
-### Category Page
+### News Page
 
 | Element          | Action      | Expected Result                                               | Pass/Fail         |
 | ---------------- | ----------- | ------------------------------------------------------------- | ----------------- |
-| Category Widgets | Click       | Redirect to selected category page                            | <mark>Pass</mark> |
-| Article Cards    | Display     | All Category Post Cards Rendered in grid layout               | <mark>Pass</mark> |
-| Article Cards    | Pagination  | Pagination occurs on over 6 cards to a page                   | <mark>Pass</mark> |
+| Link to Article Details | Click       | Redirect to the selected article page                           | <mark>Pass</mark> |
+| Add News button     | Click     | Only displayed for superuser and redirect to Add News Page | <mark>Pass</mark> |
+| Likes Counter    | Display  | Renders number of likes related to an article                   | <mark>Pass</mark> |
 | Paginator        | Click       | All navigations buttons redirect to correct paginated results | <mark>Pass</mark> |
-| Category Widgets | Hover/Focus | Background turns green, text turns white                      | <mark>Pass</mark> |
 
-### Article Preview Card
+### News Details Page
 
 | Element        | Action      | Expected Result                                    | Pass/Fail         |
 | -------------- | ----------- | -------------------------------------------------- | ----------------- |
 | Content        | Display     | Render the article title, excerpt, author and date | <mark>Pass</mark> |
 | Statistics     | Display     | Render the amount of likes, comments and category  | <mark>Pass</mark> |
-| Title Link     | Click       | Redirect to post detail page                       | <mark>Pass</mark> |
-| Explore Button | Click       | Redirect to post detail page                       | <mark>Pass</mark> |
-| Author Link    | Click       | Redirect to authors profile page                   | <mark>Pass</mark> |
-| Edit Button    | Click       | Redirect to edit post page                         | <mark>Pass</mark> |
-| Edit Button    | Display     | Render for only authneticated post author          | <mark>Pass</mark> |
-| Title Link     | Hover/Focus | Darken Text                                        | <mark>Pass</mark> |
-| Author Link    | Hover/Focus | Darken Text                                        | <mark>Pass</mark> |
-| Explore Button | Hover/Focus | Background blue, text white                        | <mark>Pass</mark> |
-| Edit Button    | Hover/Focus | Darken Background                                  | <mark>Pass</mark> |
+| Comment Form     | Input     | Allow user to create comment  | <mark>Pass</mark> |
+| Submit Button    | Click    | Submit Comments to the database  | <mark>Pass</mark> |
 
-### Pending Preview Card
+### Bookings Page
 
 | Element     | Action      | Expected Result                                    | Pass/Fail         |
 | ----------- | ----------- | -------------------------------------------------- | ----------------- |
-| Edit Button | Display     | Render for only authneticated post author          | <mark>Pass</mark> |
-| Content     | Display     | Render the article title, excerpt, author and date | <mark>Pass</mark> |
-| Edit Button | Click       | Redirect to edit post page                         | <mark>Pass</mark> |
-| Edit Button | Hover/Focus | Darken Background                                  | <mark>Pass</mark> |
+| Calendar | Display     | Render all the events in the database          | <mark>Pass</mark> |
+| Calendar Navigation Buttons | Click     | Allow users to navigate through the differents dates          | <mark>Pass</mark> |
+| Calendar Today Button | Click     | Allow users to come back to the date of today          | <mark>Pass</mark> |
+| Add Events | Click     | Open a modal, with choices based on if the user is superuser or not, when clicking on calendar| <mark>Pass</mark> |
+| Events details | Click     |Redirect users to the selected event page| <mark>Pass</mark> |
+| Modal Choice | Click     |Redirect users to create an event(Course/Unavailability for superuser, and Private sessions for regular users)| <mark>Pass</mark> |
+| Modal X | Click     | Close the modal | <mark>Pass</mark> |
 
-### Post Detail Page
+
+### Event Details Page
 
 | Element               | Action      | Expected Result                                     | Pass/Fail         |
 | --------------------- | ----------- | --------------------------------------------------- | ----------------- |
-| Article               | Display     | The articles title/content and author are displayed | <mark>Pass</mark> |
-| Author Link           | Click       | Redirect to authors profile page                    | <mark>Pass</mark> |
-| Edit Button           | Click       | Redirect to edit post page                          | <mark>Pass</mark> |
-| Edit Button           | Display     | Render for only authneticated post author           | <mark>Pass</mark> |
-| Like Button           | Display     | Render Thumbs up toggle if authenticated            | <mark>Pass</mark> |
-| Like Button           | Display     | If Liked render a blue thumbs up button             | <mark>Pass</mark> |
-| Like Button           | Display     | If not liked render an outliked thumbs up button    | <mark>Pass</mark> |
-| Like Button           | Click       | Toggle the users liked status in the database       | <mark>Pass</mark> |
-| Like Button           | Click       | Refresh the page with the current like status       | <mark>Pass</mark> |
-| Heart Button          | Display     | Render if user is not authenicated                  | <mark>Pass</mark> |
-| Heart Button          | Click       | Redirected user to sign in page                     | <mark>Pass</mark> |
-| Likes Count           | Display     | Display the total amount of likes of the article    | <mark>Pass</mark> |
-| Comments              | Display     | Render All Comments                                 | <mark>Pass</mark> |
-| Comment Form          | Display     | Render Comment Form to authenticated users          | <mark>Pass</mark> |
-| Comment Form(Valid)   | Submit      | Post the comment to the post detail page            | <mark>Pass</mark> |
-| Comment Form(Valid)   | Submit      | Toast notification displayed                        | <mark>Pass</mark> |
-| Comment Form(Invalid) | Submit      | Render error context to the UI                      | <mark>Pass</mark> |
-| Comment Form(Invalid) | Submit      | Toast error notification displayed                  | <mark>Pass</mark> |
-| Comment Form Login    | Display     | Render login button to non authenticated users      | <mark>Pass</mark> |
-| Comment Form Login    | Click       | Redirected user to sign in page                     | <mark>Pass</mark> |
-| Popular Posts         | Display     | 3 popular posts of the same category are displayed  | <mark>Pass</mark> |
-| Like Button           | Hover/Focus | Darken Text and increase scale                      | <mark>Pass</mark> |
-| Heart Button          | Hover/Focus | Increase scale                                      | <mark>Pass</mark> |
-| Author Link           | Hover/Focus | Darken Text                                         | <mark>Pass</mark> |
-| Edit Button           | Hover/Focus | Darken Background                                   | <mark>Pass</mark> |
-| Like Button           | Hover/Focus | Cursor Pointer                                      | <mark>Pass</mark> |
-| Comment Submit Button | Hover/Focus | Darken Background                                   | <mark>Pass</mark> |
+| Details Event              | Display     | The event title, start time, end time, number of participants, location, creator, and description are correctly displayed. | <mark>Pass</mark> |
+| Update Button               | Click    | Displayed only for superusers,Redirect to the Update Course Page | <mark>Pass</mark> |
+| Delete Button               | Click    | Displayed only for superusers,Open a modal to delete the course | <mark>Pass</mark> |
+| Modal               | Display    | Displayed only for superusers, display two buttons Delete, and Cancel | <mark>Pass</mark> |
+| Delete Button Modal              | Click    | Displayed only for superusers,Delete a course and automatically send an email to users who joined the course | <mark>Pass</mark> |
+| Cancel Button Modal              | Click    | Displayed only for superusers, close the modal  | <mark>Pass</mark> |
+| Join Button            | Click    | Displayed only for regular users, allow users to join the course  | <mark>Pass</mark> |
+| Participants list            | Display    | Allow every users to see the participants of a course  | <mark>Pass</mark> |
+
+
 
 ### Comment
 

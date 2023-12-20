@@ -37,11 +37,6 @@
     height:100%;
 }
 
-.title {
-    opacity: 0;
-    animation: slide-in 2s forwards;
-    animation-fill-mode: forwards;
-}
 
 @media screen and (max-width:992px){
     .hero-character{

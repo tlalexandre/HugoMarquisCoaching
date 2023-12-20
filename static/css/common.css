@@ -11,7 +11,8 @@ body{
     box-sizing: border-box;
     background:var(--yellow);
     font-family: 'Zilla Slab', 'Outfit', serif;
-    font-weight: 400
+    font-weight: 400;
+    overflow-x:hidden;
 }
 
 thead{
@@ -62,15 +63,16 @@ i{
     resize: none;
     overflow: hidden;
 }
-@keyframes slide-in {
-    0% {
-        transform: translateX(100%);
 
-   
-    }
-    100% {
-        transform: translateX(0);
-        opacity: 1;
-       
+
+@media (min-width: 768px) {
+    @keyframes slide-in {
+        0% {
+            transform: translateX(100%);
+        }
+        100% {
+            transform: translateX(0);
+            opacity: 1;
+        }
     }
 }
