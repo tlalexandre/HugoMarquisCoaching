@@ -158,7 +158,7 @@ The Website was tested on Google Chrome, Firefox, Safari and Chrome Canary brows
 
 ## Device Testing
 
-The website was tested on a variety of devices, including Desktop, Laptop, Huawei P30 Pro, and Samsung tablet, to ensure that it displayed well on screens of different sizes, both in portrait and landscape orientations. The website functioned as expected, and its responsive design was validated using Chrome developer tools on various devices, ensuring that the layout remained structurally sound across different screen dimensions.
+The website was tested on a variety of devices, including Desktop, Laptop, Google Pixel 6, and Samsung tablet, to ensure that it displayed well on screens of different sizes, both in portrait and landscape orientations. The website functioned as expected, and its responsive design was validated using Chrome developer tools on various devices, ensuring that the layout remained structurally sound across different screen dimensions.
 
 ### Lighthouse
 
@@ -168,34 +168,38 @@ Lighthouse validation was run on all pages (both mobile and desktop) in order to
 | --------------- | :---------: | :-----------: | :------------: | :-: | --------------------------------------------------------------------------------------------------------------------------- |
 |                 |             |               |                |     |
 | **Desktop**     |             |               |                |     |
-| Home            |     98      |      100      |      100       | 100 | <details><summary>Home</summary><img src="./documentation/testing/lighthouse/homedesktop.png"></details>                    |
-| Category        |     98      |      100      |      100       | 100 | <details><summary>Category</summary><img src="./documentation/testing/lighthouse/categorydesktop.png"></details>            |
-| Post Detail     |     97      |      100      |      100       | 100 | <details><summary>Post Detail </summary><img src="./documentation/testing/lighthouse/postdetaildesktop.png"></details>      |
-| Profile         |     96      |      100      |      100       | 100 | <details><summary>Profile</summary><img src="./documentation/testing/lighthouse/profiledesktop.png"></details>              |
-| Add Post        |     99      |      96       |      100       | 100 | <details><summary>Add Post</summary><img src="./documentation/testing/lighthouse/addpostdesktop.png"></details>             |
-| Edit Post       |     99      |      96       |      100       | 100 | <details><summary>Edit Post</summary><img src="./documentation/testing/lighthouse/editpostdesktop.png"></details>           |
-| Update Profile  |     100     |      100      |      100       | 100 | <details><summary>Update Profile</summary><img src="./documentation/testing/lighthouse/updateprofiledesktop.png"></details> |
-| Sign Up         |     99      |      100      |      100       | 100 | <details><summary>Sign Up</summary><img src="./documentation/testing/lighthouse/signindesktop.png"></details>               |
-| Sign In         |     100     |      100      |      100       | 100 | <details><summary>Sign In</summary><img src="./documentation/testing/lighthouse/signindesktop.png"></details>               |
-| Sign Out        |     100     |      100      |      100       | 100 | <details><summary>Sign Out</summary><img src="./documentation/testing/lighthouse/signoutdesktop.png"></details>             |
-| Code of Conduct |     100     |      100      |      100       | 100 | <details><summary>Sign Out</summary><img src="./documentation/testing/lighthouse/codeofconductdesktop.png"></details>       |
+| Home            |     98      |      100      |      100       | 100 | <details><summary>Home</summary><img src="./documentation/images/lighthouse/HomePageDesktop.png"></details>                    |
+|News       |     98      |      100      |      100       | 100 | <details><summary>News</summary><img src="./documentation/images/lighthouse/NewsPageDesktop.png"></details>            |
+| News Details     |     97      |      100      |      100       | 100 | <details><summary>Post Detail </summary><img src="./documentation/images/lighthouse/NewsDetailsPageDesktop.png"></details>      |
+| Add News         |     96      |      100      |      100       | 100 | <details><summary>Add News</summary><img src="./documentation/images/lighthouse/AddNewsPageDesktop.png"></details>              |
+| Bookings        |     99      |      96       |      100       | 100 | <details><summary>Bookings</summary><img src="./documentation/images/lighthouse/BookingsPageDesktop.png"></details>             |
+| Event Details       |     99      |      96       |      100       | 100 | <details><summary>Event Details</summary><img src="./documentation/images/lighthouse/EventDetailsPageDesktop.png"></details>           |
+| Create Event  |     100     |      100      |      100       | 100 | <details><summary>Create Event</summary><img src="./documentation/images/lighthouse/CreateCoursePageDesktop.png"></details> |
+| Update Class  |     100     |      100      |      100       | 100 | <details><summary>Update Class</summary><img src="./documentation/images/lighthouse/UpdateCoursePageDesktop.png"></details> |
+| Add Unavailability         |     99      |      100      |      100       | 100 | <details><summary> Add Unavailability</summary><img src="./documentation/images/lighthouse/AddUnavailableDesktop.png"></details>               |
+| Unavailable         |     100     |      100      |      100       | 100 | <details><summary>Unavailable</summary><img src="./documentation/images/lighthouse/UnavailablePageDesktop.png"></details>               |
+| Contact        |     100     |      100      |      100       | 100 | <details><summary>Contact</summary><img src="./documentation/images/lighthouse/ContactPageDesktop.png"></details>             |
+| Sign In |     100     |      100      |      100       | 100 | <details><summary>Sign In</summary><img src="./documentation/images/lighthouse/SignInPageDesktop.png"></details>       |
+| Sign Up |     100     |      100      |      100       | 100 | <details><summary>Sign Up</summary><img src="./documentation/images/lighthouse/SignUpPageDesktop.png"></details>       |
+| Sign Out |     100     |      100      |      100       | 100 | <details><summary>Sign Out</summary><img src="./documentation/images/lighthouse/SignOutPageDesktop.png"></details>       |
+
 |                 |             |               |                |     |
 | **Mobile**      |             |               |                |     |
-| Home            |     90      |      100      |      100       | 100 | <details><summary>Home</summary><img src="./documentation/testing/lighthouse/homemobile.png"></details>                     |
-| Category        |     91      |      100      |      100       | 100 | <details><summary>Category</summary><img src="./documentation/testing/lighthouse/categorymobile.png"></details>             |
-| Post Detail     |     95      |      100      |      100       | 100 | <details><summary>Post Detail</summary><img src="./documentation/testing/lighthouse/postdetailmobile.png"></details>        |
-| Profile         |     90      |      100      |      100       | 100 | <details><summary>Profile</summary><img src="./documentation/testing/lighthouse/profilemobile.png"></details>               |
-| Add Post        |     86      |      95       |      100       | 100 | <details><summary>Add Post</summary><img src="./documentation/testing/lighthouse/addpostmobile.png"></details>              |
-| Edit Post       |     87      |      95       |      100       | 100 | <details><summary>Edit Post</summary><img src="./documentation/testing/lighthouse/editpostdesktop.png"></details>           |
-| Update Profile  |     98      |      100      |      100       | 100 | <details><summary>Update Profile</summary><img src="./documentation/testing/lighthouse/updateprofilemobile.png"></details>  |
-| Sign Up         |     98      |      100      |      100       | 100 | <details><summary>Sign Up</summary><img src="./documentation/testing/lighthouse/signupmobile.png"></details>                |
-| Sign In         |     99      |      100      |      100       | 100 | <details><summary>Sign In</summary><img src="./documentation/testing/lighthouse/signinmobile.png"></details>                |
-| Sign Out        |     98      |      100      |      100       | 100 | <details><summary>Sign Out</summary><img src="./documentation/testing/lighthouse/signoutmobile.png"></details>              |
-| Code of Conduct |     98      |      100      |      100       | 100 | <details><summary>Sign Out</summary><img src="./documentation/testing/lighthouse/codeofconductmobie.png"></details>         |
+| Home            |     98      |      100      |      100       | 100 | <details><summary>Home</summary><img src="./documentation/images/lighthouse/HomePageMobile.png"></details>                    |
+|News       |     98      |      100      |      100       | 100 | <details><summary>News</summary><img src="./documentation/images/lighthouse/NewsPageMobile.png"></details>            |
+| News Details     |     97      |      100      |      100       | 100 | <details><summary>Post Detail </summary><img src="./documentation/images/lighthouse/NewsDetailsPageMobile.png"></details>      |
+| Add News         |     96      |      100      |      100       | 100 | <details><summary>Add News</summary><img src="./documentation/images/lighthouse/AddNewsPageMobile.png"></details>              |
+| Bookings        |     99      |      96       |      100       | 100 | <details><summary>Bookings</summary><img src="./documentation/images/lighthouse/BookingsPageMobile.png"></details>             |
+| Event Details       |     99      |      96       |      100       | 100 | <details><summary>Event Details</summary><img src="./documentation/images/lighthouse/EventDetailsPageMobile.png"></details>           |
+| Create Event  |     100     |      100      |      100       | 100 | <details><summary>Create Event</summary><img src="./documentation/images/lighthouse/CreateCoursePageMobile.png"></details> |
+| Update Class  |     100     |      100      |      100       | 100 | <details><summary>Update Class</summary><img src="./documentation/images/lighthouse/UpdateCoursePageMobile.png"></details> |
+| Add Unavailability         |     99      |      100      |      100       | 100 | <details><summary> Add Unavailability</summary><img src="./documentation/images/lighthouse/AddUnavailableMobile.png"></details>               |
+| Unavailable         |     100     |      100      |      100       | 100 | <details><summary>Unavailable</summary><img src="./documentation/images/lighthouse/UnavailablePageMobile.png"></details>               |
+| Contact        |     100     |      100      |      100       | 100 | <details><summary>Contact</summary><img src="./documentation/images/lighthouse/ContactPageMobile.png"></details>             |
+| Sign In |     100     |      100      |      100       | 100 | <details><summary>Sign In</summary><img src="./documentation/images/lighthouse/SignInPageMobile.png"></details>       |
+| Sign Up |     100     |      100      |      100       | 100 | <details><summary>Sign Up</summary><img src="./documentation/images/lighthouse/SignUpPageMobile.png"></details>       |
+| Sign Out |     100     |      100      |      100       | 100 | <details><summary>Sign Out</summary><img src="./documentation/images/lighthouse/SignOutPageMobile.png"></details>       |
 
-Lighthouse Iframe summernote widget error. This error dropped the accessibilty score of some pages and was due to the summernote external package. The error was left unresolved.
-
-<details><summary>IFrame Error</summary><img src="./documentation/testing/lighthouse/iframeerror.png"></details>
 
 ## Manual Testing
 
