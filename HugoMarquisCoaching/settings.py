@@ -33,9 +33,10 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get("DEBUG")
 
-ALLOWED_HOSTS = ["hugo-marquis-297dbddc34dd.herokuapp.com", "127.0.0.1","localhost"]
+ALLOWED_HOSTS = ["hugo-marquis-297dbddc34dd.herokuapp.com",
+                 "127.0.0.1", "localhost"]
 
-HOME_URL='home'
+HOME_URL = 'home'
 # Application definition
 
 INSTALLED_APPS = [
@@ -55,10 +56,10 @@ INSTALLED_APPS = [
     'crispy_forms',
     'blog',
     'calendarapp',
-    
+
 ]
 
-CRISPY_TEMPLATE_PACK='bootstrap4'
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -109,7 +110,7 @@ WSGI_APPLICATION = 'HugoMarquisCoaching.wsgi.application'
 # }
 
 DATABASES = {
-   'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+    'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
 }
 
 
@@ -138,9 +139,9 @@ AUTH_PASSWORD_VALIDATORS = [
 LANGUAGE_CODE = 'en-us'
 
 LOCALE_PATHS = [
-    os.path.join(BASE_DIR, 'locale'),  # Path to the directory containing your translation files
+    # Path to the directory containing your translation files
+    os.path.join(BASE_DIR, 'locale'),
 ]
-
 
 
 TIME_ZONE = 'UTC'
@@ -162,9 +163,9 @@ SITE_ID = 1  # Required for language selection
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-LOGIN_REDIRECT_URL='/'
+LOGIN_REDIRECT_URL = '/'
 
-LOGOUT_REDIRECT_URL='/'
+LOGOUT_REDIRECT_URL = '/'
 
 ACCOUNT_EMAIL_REQUIRED = True
 
@@ -185,7 +186,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_URL = '/media/'
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
-CLOUDINARY_STORAGE={
+CLOUDINARY_STORAGE = {
     'CLOUD_NAME': os.environ.get('CLOUD_NAME'),
     'API_KEY': os.environ.get('API_KEY'),
     'API_SECRET': os.environ.get('API_SECRET'),

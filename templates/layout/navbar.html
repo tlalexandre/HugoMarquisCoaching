@@ -1,8 +1,8 @@
 {% load static %}
 {% load i18n %}
-{% load i18n %}
+
 <nav class="navbar navbar-expand-lg navbar-light bg-dark">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="{% url 'home' %}">
         <img src="{% static 'images/LogoNoText.png' %}"  class="overlap" height="150" alt="">
     </a>
     <button class="navbar-toggler text-warning" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">

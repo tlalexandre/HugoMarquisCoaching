@@ -34,11 +34,14 @@ class Post(models.Model):
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)  # save the object to generate an ID
         if not self.slug:  # if the slug is not set
-            self.slug = slugify(f"{self.title}-{self.id}")  # generate a slug using the title and ID
-            super().save(*args, **kwargs)  # save the object again to save the slug
+            # generate a slug using the title and ID
+            self.slug = slugify(f"{self.title}-{self.id}")
+            super().save(*args, **kwargs)
+
 
 class Comment(models.Model):
-    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="comments")
+    post = models.ForeignKey(
+        Post, on_delete=models.CASCADE, related_name="comments")
     name = models.CharField(max_length=80)
     email = models.EmailField()
     body = models.TextField()

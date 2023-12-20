@@ -2,9 +2,6 @@ from django.contrib import admin
 from .models import Course, PrivateSession, UnavailablePeriod
 
 
-
-
-
 @admin.register(Course)
 class Course(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("name",)}
@@ -34,6 +31,7 @@ class PrivateSession(admin.ModelAdmin):
         "location",
         "type",
     )
+
 
 @admin.register(UnavailablePeriod)
 class UnavailablePeriod(admin.ModelAdmin):
