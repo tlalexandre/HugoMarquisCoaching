@@ -65,7 +65,7 @@ thead{
     max-width: 600px;
 }
 .card-content{
-    background-image: url(../images/Yoga.jpg);
+    background-image: url('https://res.cloudinary.com/dyjmwwdzv/image/upload/v1701952441/static/images/Yoga.3222389cc843.jpg');
     background-size: cover;
     min-height: 400px;
 }
@@ -73,7 +73,7 @@ thead{
     height: 70vh;
 }
 .unavailable{
-    background-image: url(../images/unavailable.jpg);
+    background-image: url('https://res.cloudinary.com/dyjmwwdzv/image/upload/v1701952436/static/images/unavailable.606f8c417144.jpg');
     background-size: cover;
     min-height: 500px;
 }

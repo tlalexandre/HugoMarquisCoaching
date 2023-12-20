@@ -114,31 +114,31 @@ JS Hint didn't work when I gave the code of that file .
 #### Calendar
 | File     | Validator                                                                                                              | Result            |
 | -------- | ---------------------------------------------------------------------------------------------------------------------- | ----------------- |
-| Models   | <details><summary>Models</summary><img src="./documentation/testing/Python/PythonCalendarModels.png"></details>     | <mark>PASS</mark> |
-| Views    | <details><summary>Views</summary><img src="./documentation/testing/Python/PythonCalendarViews.png"></details>       | <mark>PASS</mark> |
-| Forms    | <details><summary>Forms</summary><img src="./documentation/testing/Python/PythonCalendarForms.png"></details>       | <mark>PASS</mark> |
-| Urls     | <details><summary>Urls</summary><img src="./documentation/testing/Python/PythonCalendarUrls.png"></details>      | <mark>PASS</mark> |
-| Admin    | <details><summary>Admin</summary><img src="./documentation/testing/Python/PythonCalendarAdmin.png"></details>       | <mark>PASS</mark> |
-| Utils    | <details><summary>Utils</summary><img src="./documentation/testing/Python/PythonCalendarUtils.png"></details>       | <mark>PASS</mark> |
+| Models   | <details><summary>Models</summary><img src="./documentation/images/testing/Python/PythonCalendarModels.png"></details>     | <mark>PASS</mark> |
+| Views    | <details><summary>Views</summary><img src="./documentation/images/testing/Python/PythonCalendarViews.png"></details>       | <mark>PASS</mark> |
+| Forms    | <details><summary>Forms</summary><img src="./documentation/images/testing/Python/PythonCalendarForms.png"></details>       | <mark>PASS</mark> |
+| Urls     | <details><summary>Urls</summary><img src="./documentation/images/testing/Python/PythonCalendarUrls.png"></details>      | <mark>PASS</mark> |
+| Admin    | <details><summary>Admin</summary><img src="./documentation/images/testing/Python/PythonCalendarAdmin.png"></details>       | <mark>PASS</mark> |
+| Utils    | <details><summary>Utils</summary><img src="./documentation/images/testing/Python/PythonCalendarUtils.png"></details>       | <mark>PASS</mark> |
 
 
 #### Blog
 
 | File     | Validator                                                                                                              | Result            |
 | -------- | ---------------------------------------------------------------------------------------------------------------------- | ----------------- |
-| Models   | <details><summary>Models</summary><img src="./documentation/testing/Python/PythonBlogModels.png"></details>     | <mark>PASS</mark> |
-| Views    | <details><summary>Views</summary><img src="./documentation/testing/Python/PythonBlogViews.png"></details>       | <mark>PASS</mark> |
-| Forms    | <details><summary>Forms</summary><img src="./documentation/testing/Python/PythonBlogForms.png"></details>       | <mark>PASS</mark> |
-| Urls     | <details><summary>Urls</summary><img src="./documentation/testing/Python/PythonBlogUrls.png"></details>      | <mark>PASS</mark> |
-| Admin    | <details><summary>Admin</summary><img src="./documentation/testing/Python/PythonBlogAdmin.png"></details>       | <mark>PASS</mark> |
+| Models   | <details><summary>Models</summary><img src="./documentation/images/testing/Python/PythonBlogModels.png"></details>     | <mark>PASS</mark> |
+| Views    | <details><summary>Views</summary><img src="./documentation/images/testing/Python/PythonBlogViews.png"></details>       | <mark>PASS</mark> |
+| Forms    | <details><summary>Forms</summary><img src="./documentation/images/testing/Python/PythonBlogForms.png"></details>       | <mark>PASS</mark> |
+| Urls     | <details><summary>Urls</summary><img src="./documentation/images/testing/Python/PythonBlogUrls.png"></details>      | <mark>PASS</mark> |
+| Admin    | <details><summary>Admin</summary><img src="./documentation/images/testing/Python/PythonBlogAdmin.png"></details>       | <mark>PASS</mark> |
 
 #### General Website
 | File     | Validator                                                                                                              | Result            |
 | -------- | ---------------------------------------------------------------------------------------------------------------------- | ----------------- |
-| Contact Form   | <details><summary>Models</summary><img src="./documentation/testing/Python/PythonContactForm.png"></details>     | <mark>PASS</mark> |
-| Settings    | <details><summary>Views</summary><img src="./documentation/testing/Python/PythonSettings.png"></details>       | <mark>PASS</mark> |
-| Urls    | <details><summary>Forms</summary><img src="./documentation/testing/Python/PythonUrls.png"></details>       | <mark>PASS</mark> |
-| Views    | <details><summary>Urls</summary><img src="./documentation/testing/Python/PythonViews.png"></details>      | <mark>PASS</mark> |
+| Contact Form   | <details><summary>Models</summary><img src="./documentation/images/testing/Python/PythonContactForm.png"></details>     | <mark>PASS</mark> |
+| Settings    | <details><summary>Views</summary><img src="./documentation/images/testing/Python/PythonSettings.png"></details>       | <mark>PASS</mark> |
+| Urls    | <details><summary>Forms</summary><img src="./documentation/testing/images/Python/PythonUrls.png"></details>       | <mark>PASS</mark> |
+| Views    | <details><summary>Urls</summary><img src="./documentation/testing/images/Python/PythonViews.png"></details>      | <mark>PASS</mark> |
 
 Settings.py validation errors of line to line are as a result of the original django configuration set up and not custom code.
 
