@@ -97,7 +97,7 @@ The HTML validation errors are attributed to the integration of allAuth. These e
 ### CSS
 
 Test Results CSS <mark>PASS<mark>
-<img src="./documentation/testing/CSS/CSSValidator.png">
+<img src="./documentation/images/testing/CSS/CSSValidator.png">
 
 ### JavaScript
 
