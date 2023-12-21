@@ -584,14 +584,14 @@ The hidden variables are as follows
 All websites articles are written by me with the aid of Hugo Marquis Instagram. 
 
 ### Media
- -[Undraw](https://undraw.co/) was used to have some nice illustrations all over the website
- -[Unsplash](https://unsplash.com/) was used to have some photos for the news part of the website as well as the header of the home page.
+ - [Undraw](https://undraw.co/) was used to have some nice illustrations all over the website
+ - [Unsplash](https://unsplash.com/) was used to have some photos for the news part of the website as well as the header of the home page.
 
 ### Code
 
--Credit to Hugo Marquis , for letting me work on his project.
--Credit to GitHub Copilot who helped me figure out the differents issues I encountered during the development of this project, and allowing me to do more than I expected.
--Credit to my mentor Simen Daehlin who recommended me to use FullCalendar to display the calendar for the bookings.
+- Credit to Hugo Marquis , for letting me work on his project.
+- Credit to GitHub Copilot who helped me figure out the differents issues I encountered during the development of this project, and allowing me to do more than I expected.
+- Credit to my mentor Simen Daehlin who recommended me to use FullCalendar to display the calendar for the bookings.
 
 ### Acknowledgements
 
