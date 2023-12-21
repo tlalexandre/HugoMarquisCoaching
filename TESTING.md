@@ -228,6 +228,8 @@ Lighthouse validation was run on all pages (both mobile and desktop) in order to
 | Element          | Action      | Expected Result                          | Pass/Fail         |
 | ---------------- | ----------- | ---------------------------------------- | ----------------- |
 | Link to last article            | Click     | Redirect to last article                      | <mark>Pass</mark> |
+| Images            | Display     | Renders at the appropriate size                      | <mark>Pass</mark> |
+
 
 ### News Page
 
@@ -247,6 +249,22 @@ Lighthouse validation was run on all pages (both mobile and desktop) in order to
 | Comment Form     | Input     | Allow user to create comment  | <mark>Pass</mark> |
 | Submit Button    | Click    | Submit Comments to the database  | <mark>Pass</mark> |
 
+### Add News Page
+
+| Element               | Action         | Expected Result                                    | Pass/Fail         |
+| --------------------- | -------------- | -------------------------------------------------- | ----------------- |
+| Title Input    | Input           | Can fill the input       | <mark>Pass</mark> |
+| Content Input    | Input           | Can fill the input       | <mark>Pass</mark> |
+| Image Input           | Click          | Open device file storage                           | <mark>Pass</mark> |
+| Image Input           | Selected       | Display selected image name                        | <mark>Pass</mark> |
+| Image Input           | None           | Placeholder image selected                         | <mark>Pass</mark> |
+| Post Title            | Submit         | No duplicated titles are allowed                   | <mark>Pass</mark> |
+| Error Context         | Submit         | If user forces submit error contexts are displayed | <mark>Pass</mark> |
+| Submit Button (Form Valid) | Submit | Form is submitted and sent to the database| <mark>Pass</mark> |
+| Submit Button (Form Invalid) | Submit | Error messages appears , asking the user to fill out the missing fields of the form| <mark>Pass</mark> |
+
+
+
 ### Bookings Page
 
 | Element     | Action      | Expected Result                                    | Pass/Fail         |
@@ -255,10 +273,59 @@ Lighthouse validation was run on all pages (both mobile and desktop) in order to
 | Calendar Navigation Buttons | Click     | Allow users to navigate through the differents dates          | <mark>Pass</mark> |
 | Calendar Today Button | Click     | Allow users to come back to the date of today          | <mark>Pass</mark> |
 | Add Events | Click     | Open a modal, with choices based on if the user is superuser or not, when clicking on calendar| <mark>Pass</mark> |
-| Events details | Click     |Redirect users to the selected event page| <mark>Pass</mark> |
-| Modal Choice | Click     |Redirect users to create an event(Course/Unavailability for superuser, and Private sessions for regular users)| <mark>Pass</mark> |
+| Events  | Click     |Redirect users to the selected event page| <mark>Pass</mark> |
+| Modal Choices | Click     |Redirect users to create an event(Course/Unavailability for superuser, and Private sessions for regular users)| <mark>Pass</mark> |
 | Modal X | Click     | Close the modal | <mark>Pass</mark> |
 
+### Add Course Page
+
+| Element     | Action      | Expected Result                                    | Pass/Fail         |
+| ----------- | ----------- | ---------------------------------------------------| ----------------- |
+| Name Input | Form | Allows superuser to put the name of the course | <mark>Pass</mark> |
+| Description Input | Form | Allows superuser to put their description of the course| <mark>Pass</mark> |
+| Start Time Input | Form | Allows superuser to put the start time of the course, the time is retrieved from the calendar when clicking on it| <mark>Pass</mark> |
+| End Time Input | Form | Allows superuser to put their end time of the course, the time is retrieved from the calendar when clicking on it| <mark>Pass</mark> |
+| Location Input | Form | Allows superuser to put the location of the course| <mark>Pass</mark> |
+| Max Participants Input | Form | Allows superuser to put the maximum of participants for the course| <mark>Pass</mark> |
+| Is reccurent Input | Form | Allows superuser to make the course reccurent over the next 4 weeks| <mark>Pass</mark> |
+| Add Button (Form Valid) | Form | Form is submitted and sent to the database| <mark>Pass</mark> |
+| Add Button (Form Invalid) | Form | Error messages appears , asking the user to fill out the missing fields of the form| <mark>Pass</mark> |
+
+
+### Update Course Page
+
+| Element     | Action      | Expected Result                                    | Pass/Fail         |
+| ----------- | ----------- | ---------------------------------------------------| ----------------- |
+| Name Input | Form | Allows superuser to update the name of the course | <mark>Pass</mark> |
+| Description Input | Form | Allows superuser to update their description of the course| <mark>Pass</mark> |
+| Start Time Input | Form | Allows superuser to update the start time of the course, the time is retrieved from the calendar when clicking on it| <mark>Pass</mark> |
+| End Time Input | Form | Allows superuser to update their end time of the course, the time is retrieved from the calendar when clicking on it| <mark>Pass</mark> |
+| Location Input | Form | Allows superuser to  update the location of the course| <mark>Pass</mark> |
+| Max Participants Input | Form | Allows superuser to update the maximum of participants for the course| <mark>Pass</mark> |
+| Add Button (Form Valid) | Form | Form is submitted and sent to the database| <mark>Pass</mark> |
+| Add Button (Form Invalid) | Form | Error messages appears , asking the user to fill out the missing fields of the form| <mark>Pass</mark> |
+
+### Add Unavailable Period Page
+
+| Element     | Action      | Expected Result                                    | Pass/Fail         |
+| ----------- | ----------- | ---------------------------------------------------| ----------------- |
+| Start Time Input | Form | Allows superuser to put the start time of the unavailable period they want off.The time is retrieved from the calendar when clicking on it| <mark>Pass</mark> |
+| End Time Input | Form | Allows superuser to put their end time of the unavailable period they want off.The time is retrieved from the calendar when clicking on it| <mark>Pass</mark> |
+| Add Button (Form Valid) | Form | Form is submitted and sent to the database| <mark>Pass</mark> |
+| Add Button (Form Invalid) | Form | Error messages appears , asking the user to fill out the missing fields of the form| <mark>Pass</mark> |
+
+### Add Private Session Page
+
+| Element     | Action      | Expected Result                                    | Pass/Fail         |
+| ----------- | ----------- | ---------------------------------------------------| ----------------- |
+| Name Input | Form | Allows regular user to put the name of their private session | <mark>Pass</mark> |
+| Description Input | Form | Allows regular user to put their description of their private session| <mark>Pass</mark> |
+| Start Time Input | Form | Allows regular user to put the start time of their private session, the time is retrieved from the calendar when clicking on it| <mark>Pass</mark> |
+| End Time Input | Form | Allows regular user to put their end time of their private session, the time is retrieved from the calendar when clicking on it| <mark>Pass</mark> |
+| Location Input | Form | Allows regular user to put the location of their private session| <mark>Pass</mark> |
+| Type Input | Form | Allows regular user to put the type of focus they want to have for their private session| <mark>Pass</mark> |
+| Add Button (Form Valid) | Form | Form is submitted and sent to the database| <mark>Pass</mark> |
+| Add Button (Form Invalid) | Form | Error messages appears , asking the user to fill out the missing fields of the form| <mark>Pass</mark> |
 
 ### Event Details Page
 
@@ -268,133 +335,24 @@ Lighthouse validation was run on all pages (both mobile and desktop) in order to
 | Update Button               | Click    | Displayed only for superusers,Redirect to the Update Course Page | <mark>Pass</mark> |
 | Delete Button               | Click    | Displayed only for superusers,Open a modal to delete the course | <mark>Pass</mark> |
 | Modal               | Display    | Displayed only for superusers, display two buttons Delete, and Cancel | <mark>Pass</mark> |
-| Delete Button Modal              | Click    | Displayed only for superusers,Delete a course and automatically send an email to users who joined the course | <mark>Pass</mark> |
-| Cancel Button Modal              | Click    | Displayed only for superusers, close the modal  | <mark>Pass</mark> |
+| Modal Delete Button               | Click    | Displayed only for superusers,Delete a course and automatically send an email to users who joined the course | <mark>Pass</mark> |
+| Modal Cancel Button               | Click    | Displayed only for superusers, close the modal  | <mark>Pass</mark> |
 | Join Button            | Click    | Displayed only for regular users, allow users to join the course  | <mark>Pass</mark> |
 | Participants list            | Display    | Allow every users to see the participants of a course  | <mark>Pass</mark> |
 
+### Private session from someone else
 
+| Element               | Action      | Expected Result                                     | Pass/Fail         |
+| --------------------- | ----------- | --------------------------------------------------- | ----------------- |
+| Error message         | Display     | The user is not allowed to see private informations | <mark>Pass</mark> |
+| Return to Bookings Buttton         | Click     | Redirect the user to the bookings page | <mark>Pass</mark> |
 
-### Comment
+### Unavailable
 
 | Element       | Action      | Expected Result                             | Pass/Fail         |
 | ------------- | ----------- | ------------------------------------------- | ----------------- |
-| Comment       | Display     | Render the comment content, author and date | <mark>Pass</mark> |
-| Author Link   | Click       | Redirect to authors profile page            | <mark>Pass</mark> |
-| Author Icon   | Click       | Redirect to authors profile page            | <mark>Pass</mark> |
-| Delete Button | Display     | Render if authenticated author              | <mark>Pass</mark> |
-| Delete Button | Click       | Delete Confirmation Modal appears           | <mark>Pass</mark> |
-| Author Link   | Hover/Focus | Darken Text                                 | <mark>Pass</mark> |
-| Delete Button | Hover/Focus | Darken Background                           | <mark>Pass</mark> |
+| Dates       | Display     | Render the start time and end time of the unavailability | <mark>Pass</mark> |
 
-### Add Post Page
-
-| Element               | Action         | Expected Result                                    | Pass/Fail         |
-| --------------------- | -------------- | -------------------------------------------------- | ----------------- |
-| Page                  | Authentication | Unauthneticated users routed to sign in page       | <mark>Pass</mark> |
-| Text Input Required   | None           | On Submit: Warning appears, form won't submit      | <mark>Pass</mark> |
-| Image Input           | Click          | Open device file storage                           | <mark>Pass</mark> |
-| Image Input           | Selected       | Display selected image name                        | <mark>Pass</mark> |
-| Image Input           | None           | Placeholder image selected                         | <mark>Pass</mark> |
-| Submit Input(Invalid) | Click          | Form is not submitted and error messages appear    | <mark>Pass</mark> |
-| Submit Input(Invalid) | Click          | Toast notification error message appears           | <mark>Pass</mark> |
-| Submit Input(Valid)   | Click          | Form is submitted and notification message appears | <mark>Pass</mark> |
-| Submit Input(Valid)   | Click          | User is redirected to home page                    | <mark>Pass</mark> |
-| Submit Input(Valid)   | Submit         | Post sent to DB for approval                       | <mark>Pass</mark> |
-| Post Title            | Submit         | No duplicated titles are allowed                   | <mark>Pass</mark> |
-| Error Context         | Submit         | If user forces submit error contexts are displayed | <mark>Pass</mark> |
-| Submit Button         | Hover/Focus    | Darken Background                                  | <mark>Pass</mark> |
-
-### Edit Post Page
-
-| Element               | Action         | Expected Result                                    | Pass/Fail         |
-| --------------------- | -------------- | -------------------------------------------------- | ----------------- |
-| Page                  | Authentication | Unauthneticated users routed to sign in page       | <mark>Pass</mark> |
-| Page                  | Authentication | Non Authour users show 403 page                    | <mark>Pass</mark> |
-| Page                  | Display        | Post content is rendered to the UI                 | <mark>Pass</mark> |
-| Text Input Required   | None           | On Submit: Warning appears, form won't submit      | <mark>Pass</mark> |
-| Image Input           | Click          | Open device file storage                           | <mark>Pass</mark> |
-| Image Input           | Selected       | Display selected image name                        | <mark>Pass</mark> |
-| Image Input           | None           | Current image selected                             | <mark>Pass</mark> |
-| Current Image         | None           | Current image link is displayed                    | <mark>Pass</mark> |
-| Current Image         | Click          | Redirected to image display                        | <mark>Pass</mark> |
-| Submit Input(Invalid) | Click          | Form is not submitted and error messages appear    | <mark>Pass</mark> |
-| Submit Input(Invalid) | Click          | Toast notification error message appears           | <mark>Pass</mark> |
-| Submit Input(Valid)   | Click          | Form is submitted and notification message appears | <mark>Pass</mark> |
-| Submit Input(Valid)   | Click          | User is redirected to home page                    | <mark>Pass</mark> |
-| Submit Input(Valid)   | Submit         | Post sent to DB for approval                       | <mark>Pass</mark> |
-| Delete Button         | Click          | Delete Confirmation Modal appears                  | <mark>Pass</mark> |
-| Post Title            | Submit         | No duplicated titles are allowed                   | <mark>Pass</mark> |
-| Error Context         | Submit         | If user forces submit error contexts are displayed | <mark>Pass</mark> |
-| Submit Button         | Hover/Focus    | Darken Background                                  | <mark>Pass</mark> |
-| Delete Button         | Hover/Focus    | Darken Background                                  | <mark>Pass</mark> |
-
-### Delete Confirmation Modal
-
-| Element               | Action      | Expected Result                       | Pass/Fail         |
-| --------------------- | ----------- | ------------------------------------- | ----------------- |
-| Close Button          | Click       | Modal and opacic background disappear | <mark>Pass</mark> |
-| Confirm Delete Button | Click       | Context item is delete from database  | <mark>Pass</mark> |
-| Close Button          | Hover/Focus | Darken Background                     | <mark>Pass</mark> |
-| Confirm Delete Button | Hover/Focus | Darken Background                     | <mark>Pass</mark> |
-
-### Profile Page
-
-| Element               | Action      | Expected Result                                               | Pass/Fail         |
-| --------------------- | ----------- | ------------------------------------------------------------- | ----------------- |
-| Page                  | Display     | All User Profile Details Rendered                             | <mark>Pass</mark> |
-| Settings Button       | Click       | Redirect to update profile page                               | <mark>Pass</mark> |
-| Settings Button       | Display     | Render only if authenticated user is the profile page owner   | <mark>Pass</mark> |
-| Settings Button       | Hover/Focus | Lighten Background                                            | <mark>Pass</mark> |
-| Add Post Button       | Click       | Redirect to add post page                                     | <mark>Pass</mark> |
-| Add Post Button       | Display     | Render only if authenticated user is the profile page owner   | <mark>Pass</mark> |
-| Add Post Button       | Display     | Render only if no posts                                       | <mark>Pass</mark> |
-| Add Post Button       | Hover/Focus | Lighten Background                                            | <mark>Pass</mark> |
-| Add Favourites Button | Click       | Redirect to home page                                         | <mark>Pass</mark> |
-| Add Favourites Button | Display     | Render only if authenticated user is the profile page owner   | <mark>Pass</mark> |
-| Add Favourites Button | Display     | Render only if no favourites                                  | <mark>Pass</mark> |
-| Add Favourites Button | Hover/Focus | Lighten Background                                            | <mark>Pass</mark> |
-| Statistics            | Display     | All User Statisitics Details Rendered                         | <mark>Pass</mark> |
-| Pending Posts         | Display     | Render all pending posts if authneticated author              | <mark>Pass</mark> |
-| User Posts            | Display     | All User Posts Rendered                                       | <mark>Pass</mark> |
-| User Favourites       | Display     | All User Favourites Rendered                                  | <mark>Pass</mark> |
-| User Posts            | Pagination  | Pagination occurs on over 4 cards to a list                   | <mark>Pass</mark> |
-| User Favourites       | Pagination  | Pagination occurs on over 4 cards to a list                   | <mark>Pass</mark> |
-| Posts Paginator       | Click       | All navigations buttons redirect to correct paginated results | <mark>Pass</mark> |
-| Favourites Paginator  | Click       | All navigations buttons redirect to correct paginated results | <mark>Pass</mark> |
-| Posts                 | Display     | If no post render No Posts UI                                 | <mark>Pass</mark> |
-| Favourites            | Display     | If no favourites render No Favourites UI                      | <mark>Pass</mark> |
-| Article Cards         | Links       | All rendered Article Cards are correctly linked               | <mark>Pass</mark> |
-| Pending Cards Edit    | Links       | All rendered Pending Cards Edit buttons are correctly linked  | <mark>Pass</mark> |
-
-### Update Profile Page
-
-| Element                   | Action         | Expected Result                               | Pass/Fail         |
-| ------------------------- | -------------- | --------------------------------------------- | ----------------- |
-| Page                      | Authentication | Unauthneticated users routed to sign in page  | <mark>Pass</mark> |
-| Page                      | Display        | User Information Rendered to Inputs           | <mark>Pass</mark> |
-| Text Input Required       | None           | On Submit: Warning appears, form won't submit | <mark>Pass</mark> |
-| Username Title            | Submit         | No duplicated usernames are allowed           | <mark>Pass</mark> |
-| User Submit (Valid)       | Submit         | Information updated in database               | <mark>Pass</mark> |
-| User Submit (Valid)       | Submit         | Toast notification message received           | <mark>Pass</mark> |
-| User Submit (Valid)       | Submit         | Redirected to profile page                    | <mark>Pass</mark> |
-| User Submit (Invalid)     | Submit         | Error context rendered to UI                  | <mark>Pass</mark> |
-| User Submit (Invalid)     | Submit         | Toast notification error message received     | <mark>Pass</mark> |
-| Bio Submit (Valid)        | Submit         | Information updated in database               | <mark>Pass</mark> |
-| Bio Submit (Valid)        | Submit         | Toast notification message received           | <mark>Pass</mark> |
-| Bio Submit (Valid)        | Submit         | Redirected to profile page                    | <mark>Pass</mark> |
-| Bio Submit (Invalid)      | Submit         | Error context rendered to UI                  | <mark>Pass</mark> |
-| Bio Submit (Invalid)      | Submit         | Toast notification error message received     | <mark>Pass</mark> |
-| Password Submit (Valid)   | Submit         | Information updated in database               | <mark>Pass</mark> |
-| Password Submit (Valid)   | Submit         | Toast notification message received           | <mark>Pass</mark> |
-| Password Submit (Valid)   | Submit         | Redirected to profile page                    | <mark>Pass</mark> |
-| Password Submit (Invalid) | Submit         | Error context rendered to UI                  | <mark>Pass</mark> |
-| Password Submit (Invalid) | Submit         | Toast notification error message received     | <mark>Pass</mark> |
-| Delete Account Button     | Click          | Delete confirmation modal displayed           | <mark>Pass</mark> |
-| Update User Button        | Hover/Focus    | Darken Background                             | <mark>Pass</mark> |
-| Update Bio Button         | Hover/Focus    | Darken Background                             | <mark>Pass</mark> |
-| Update Password Button    | Hover/Focus    | Darken Background                             | <mark>Pass</mark> |
-| Delete Account Button     | Hover/Focus    | Darken Background                             | <mark>Pass</mark> |
 
 ### Sign Up Page
 
@@ -406,8 +364,6 @@ Lighthouse validation was run on all pages (both mobile and desktop) in order to
 | Form(Invalid) | Submit         | Error Context rendered to UI                | <mark>Pass</mark> |
 | Form(Invalid) | Submit         | Error Notification received                 | <mark>Pass</mark> |
 | Login Link    | Click          | Redirect to Login Page                      | <mark>Pass</mark> |
-| Form Button   | Hover/Focus    | Darken Background                           | <mark>Pass</mark> |
-| Login Link    | Hover/Focus    | Darken Text                                 | <mark>Pass</mark> |
 
 ### Sign In Page
 
@@ -419,8 +375,7 @@ Lighthouse validation was run on all pages (both mobile and desktop) in order to
 | Form(Invalid) | Submit         | Error Context rendered to UI                | <mark>Pass</mark> |
 | Form(Invalid) | Submit         | Error Notification received                 | <mark>Pass</mark> |
 | Register Link | Click          | Redirect to Sign In Page                    | <mark>Pass</mark> |
-| Form Button   | Hover/Focus    | Darken Background                           | <mark>Pass</mark> |
-| Register Link | Hover/Focus    | Darken Text                                 | <mark>Pass</mark> |
+
 
 ### Log Out Page
 
@@ -429,25 +384,5 @@ Lighthouse validation was run on all pages (both mobile and desktop) in order to
 | Page          | Authentication | Un-authenticated users redirected to Home page | <mark>Pass</mark> |
 | Logout Button | Click          | User session is Logged out                     | <mark>Pass</mark> |
 | Logout Button | Click          | Redirected to Home page                        | <mark>Pass</mark> |
-| Form Button   | Hover/Focus    | Darken Background                              | <mark>Pass</mark> |
 
-### Code of Conduct Page
 
-| Element | Action | Expected Result                                   | Pass/Fail         |
-| ------- | ------ | ------------------------------------------------- | ----------------- |
-| Page    | Dispay | All context is displayed correctly and responsive | <mark>Pass</mark> |
-
-## Bugs
-
-| Bug                                                                                                                        | Status |
-| -------------------------------------------------------------------------------------------------------------------------- | ------ |
-| [Profile routing based on slug errors #31](https://github.com/DarrachBarneveld/CoolCoders-PP4/issues/31)                   | Closed |
-| [UpdateView Profile throwing errors with multiple forms #32](https://github.com/DarrachBarneveld/CoolCoders-PP4/issues/32) | Closed |
-| [Content creating widget not responsive #37](https://github.com/DarrachBarneveld/CoolCoders-PP4/issues/37)                 | Closed |
-| [Pagination on profile page renders only first results #38](https://github.com/DarrachBarneveld/CoolCoders-PP4/issues/38)  | Closed |
-| [Lighthouse Performance Scores #41](https://github.com/DarrachBarneveld/CoolCoders-PP4/issues/41)                          | Closed |
-| [User Edit Profile Form Autofocus #42](https://github.com/DarrachBarneveld/CoolCoders-PP4/issues/42)                       | Closed |
-| [UX/UI Final Sweep #44](https://github.com/DarrachBarneveld/CoolCoders-PP4/issues/44)                                      | Closed |
-| [Refresh Routing on changed Username #47](https://github.com/DarrachBarneveld/CoolCoders-PP4/issues/47)                    | Open   |
-| [Env File not properly ignored #54](https://github.com/DarrachBarneveld/CoolCoders-PP4/issues/54)                          | Open   |
-| [User Account Updated #55](https://github.com/DarrachBarneveld/CoolCoders-PP4/issues/55)                                   | Closed |
