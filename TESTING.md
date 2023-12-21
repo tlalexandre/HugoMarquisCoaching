@@ -14,15 +14,17 @@
 
   - [Site Navigation](#site-navigation)
   - [Home Page](#home-page)
-  - [Category Page](#category-page)
-  - [Article Preview Card](#article-preview-card)
-  - [Post Detail Page](#post-detail-page)
-  - [Comment](#comment)
-  - [Add Post Page](#add-post-page)
-  - [Edit Post Page](#edit-post-page)
-  - [Delete Confirmation Modal](#delete-confirmation-modal)
-  - [Profile Page](#profile-page)
-  - [Update Profile Page](#update-profile-page)
+  - [News Page](#news-page)
+  - [News Details Card](#news-details-page)
+  - [Add News Page](#add-news-page)
+  - [Bookings Page](#bookings-page)
+  - [Add Course Page](#add-course-page)
+  - [Update Course Page](#update-course-page)
+  - [Add Unavailable Period Page](#add-unavailable-period-page)
+  - [Add Private Session Page](#add-private-session-page)
+  - [Event Details Page](#event-details-page)
+  - [Private Session from someone else Page](#private-session-from-someone-else-page)
+  - [Unavailable Page](#unavailable)
   - [Sign Up Page](#sign-up-page)
   - [Sign In Page](#sign-in-page)
   - [Log Out Page](#log-out-page)
@@ -347,7 +349,7 @@ Lighthouse validation was run on all pages (both mobile and desktop) in order to
 | Error message         | Display     | The user is not allowed to see private informations | <mark>Pass</mark> |
 | Return to Bookings Buttton         | Click     | Redirect the user to the bookings page | <mark>Pass</mark> |
 
-### Unavailable
+### Unavailable Page
 
 | Element       | Action      | Expected Result                             | Pass/Fail         |
 | ------------- | ----------- | ------------------------------------------- | ----------------- |
