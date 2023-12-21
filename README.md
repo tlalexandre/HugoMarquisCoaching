@@ -503,7 +503,6 @@ In depth testing documentation can be found [here.](./TESTING.md)
 - [Google Chrome Developer Tools](https://developer.chrome.com/docs/devtools/overview/) was used during testing, debugging and making the website responsive.
 - [W3C HTML Validator](https://validator.w3.org/) was used to check for errors in the HTML code.
 - [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) was used to check for errors in the CSS code
-- [Wave Accessibility Tool](https://wave.webaim.org/) was used during testing to check accessibility
 - [WebAim Contrast Checker](https://webaim.org/resources/contrastchecker/) was used to ensure proper contrast guidelines where adhered to.
 - [Pylance Validator](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance) was used as a linter to enhance best practice in the Python code.
 - [CI Python Pep8 Checker](https://pep8ci.herokuapp.com/) was used to validate the Python code.
