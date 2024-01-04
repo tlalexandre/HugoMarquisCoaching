@@ -8,11 +8,9 @@
 {% block content %}
 <div class="mt-5 row">
     <img src="{% static 'images/SignIn.svg' %}" class="img-fluid mt-5 col-md-6" alt="">
-    <div class="d-flex flex-column justify-content-center col-md-6">
+    <div class="d-flex flex-column justify-content-center outfit col-md-6">
         
-        {% element h1 %}
-        {% trans "Sign In" %}
-        {% endelement %}
+        <h1 class="outfit-bold">{% trans "Sign In" %}</h1>
         <p>
             {% blocktrans %}If you have not created an account yet, then please
             <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}
@@ -30,9 +28,9 @@
         {% endif %}
         {% endslot %}
         {% slot actions %}
-        {% element button type="submit" tags="prominent,login" %}
-        {% trans "Sign In" %}
-        {% endelement %}
+        <button type="submit" class="rounded bg-dark text-warning">
+            {% trans 'Sign In' %}
+        </button>
         {% endslot %}
         {% endelement %}
         {% include "socialaccount/snippets/login.html" with page_layout="entrance" %}

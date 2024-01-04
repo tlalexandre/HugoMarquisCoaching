@@ -7,12 +7,10 @@
 {% block content %}
 <div class="row mt-5">
     <img src="{% static 'images/SignOut.svg' %}" class="img-fluid mt-5 col-md-6" alt="">
-    <div class="d-flex flex-column justify-content-center col-md-6">
+    <div class="d-flex flex-column justify-content-center pl-5 col-md-6">
 
-        {% element h1 %}
-        {% trans "Sign Out" %}
-        {% endelement %}
-        <p>{% trans 'Are you sure you want to sign out?' %}</p>
+        <h1 class="outfit-bold">{% trans "Sign Out" %}</h1>
+        <p class="outfit-bold">{% trans 'Are you sure you want to sign out?' %}</p>
         {% url 'account_logout' as action_url %}
         {% element form method="post" action=action_url no_visible_fields=True %}
         {% slot body %}
@@ -24,9 +22,9 @@
         {% endif %}
         {% endslot %}
         {% slot actions %}
-        {% element button type="submit" %}
-        {% trans 'Sign Out' %}
-        {% endelement %}
+        <button type="submit" class="rounded bg-dark text-warning">
+            {% trans 'Sign Out' %}
+        </button>
         {% endslot %}
         {% endelement %}
     </div>
