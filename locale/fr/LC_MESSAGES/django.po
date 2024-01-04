@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-19 08:58+0000\n"
+"POT-Creation-Date: 2024-01-04 10:54+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,19 +18,19 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: .\HugoMarquisCoaching\settings.py:156
+#: .\HugoMarquisCoaching\settings.py:157
 msgid "English"
 msgstr ""
 
-#: .\HugoMarquisCoaching\settings.py:157
+#: .\HugoMarquisCoaching\settings.py:158
 msgid "French"
 msgstr ""
 
-#: .\HugoMarquisCoaching\views.py:16
+#: .\HugoMarquisCoaching\views.py:26
 msgid "Your message was successfully sent."
 msgstr "Votre message a été envoyé avec succès."
 
-#: .\blog\views.py:28
+#: .\blog\views.py:36
 msgid "Your news item was successfully added."
 msgstr "Votre article a été ajouté avec succès."
 
@@ -62,210 +62,83 @@ msgstr "Outside"
 msgid "Autre"
 msgstr "Other"
 
-#: .\calendarapp\views.py:38 .\calendarapp\views.py:75
-#: .\calendarapp\views.py:159
+#: .\calendarapp\views.py:41 .\calendarapp\views.py:84
+#: .\calendarapp\views.py:166
 msgid "An event already exists within this time period."
 msgstr "Un évènement existe déja durant cette période."
 
-#: .\calendarapp\views.py:43
+#: .\calendarapp\views.py:47
 msgid "Your unavailable period was successfully added."
 msgstr "Votre indisponibilité a été ajouté avec succès."
 
-#: .\calendarapp\views.py:54
+#: .\calendarapp\views.py:60
 msgid "You have already joined this course."
 msgstr "Vous avez déja rejoint ce cours."
 
-#: .\calendarapp\views.py:58
+#: .\calendarapp\views.py:65
 msgid "You have successfully joined the course."
 msgstr "Vous avez rejoint le cours avec succès."
 
-#: .\calendarapp\views.py:61
+#: .\calendarapp\views.py:68
 msgid "This course is full."
 msgstr "Le cours est déja plein."
 
-#: .\calendarapp\views.py:78
+#: .\calendarapp\views.py:88
 msgid "The course has been successfully updated."
 msgstr "Le cours a été modifié avec succès."
 
-#: .\calendarapp\views.py:84
+#: .\calendarapp\views.py:92
 msgid "The course you joined has been updated."
 msgstr "Le cours que vous avez rejoint a été modifié."
 
-#: .\calendarapp\views.py:89
+#: .\calendarapp\views.py:98
 #, fuzzy, python-brace-format
 #| msgid "Course {course_name} Updated"
 msgid "Course {course.name} Updated"
 msgstr "Cours {course_name} modifié"
 
-#: .\calendarapp\views.py:115
+#: .\calendarapp\views.py:123
 #, python-brace-format
 msgid "Course {course_name} Deleted"
 msgstr "Cours {course_name} supprimé"
 
-#: .\calendarapp\views.py:116
+#: .\calendarapp\views.py:124
 msgid "The course you joined has been deleted."
 msgstr "Le cours que vous avez rejoint a été supprimé."
 
-#: .\calendarapp\views.py:125
+#: .\calendarapp\views.py:133
 msgid "The course has been successfully deleted."
 msgstr "Le cours a été supprimé avec succès."
 
-#: .\calendarapp\views.py:213 .\calendarapp\views.py:229
+#: .\calendarapp\views.py:204 .\calendarapp\views.py:221
 msgid "Your course has been created."
 msgstr "Votre cours a été crée."
 
-#: .\calendarapp\views.py:227
+#: .\calendarapp\views.py:216
 msgid "Your private session has been created and is pending approval."
 msgstr "Votre session privée a été créee et attend l'approbation du coach."
 
-#: .\calendarapp\views.py:312
+#: .\calendarapp\views.py:307
 msgid "Your private session has been approved"
 msgstr "Votre session privée a été approvée."
 
-#: .\calendarapp\views.py:313
+#: .\calendarapp\views.py:308
 msgid "Your private session titled \"{}\" has been approved."
 msgstr "Votre session privée intitulée \"{}\" a été approvée."
 
-#: .\calendarapp\views.py:331
+#: .\calendarapp\views.py:330
 msgid "Your private session has been deleted"
 msgstr "Votre session privée a été supprimée."
 
 #: .\calendarapp\views.py:332
 #, fuzzy
 #| msgid "Your private session titled \"{}\" has been deleted."
-msgid "Dear {}, your private session titled \"{}\" has been deleted. {}"
+msgid "Dear {},your private session titled \"{}\" has been deleted. {}"
 msgstr "Votre session privée intitulée \"{}\" a été supprimée."
 
-#: .\calendarapp\views.py:360
+#: .\calendarapp\views.py:377
 msgid "Private Session"
 msgstr "Session Privée"
-
-#: .\static\css\indexHugoStyle.html:11 .\templates\index.html:20
-msgid "Take Control, become the best version of yourself."
-msgstr "Prenez le contrôle, devenez votre meilleure version."
-
-#: .\static\css\indexHugoStyle.html:15 .\templates\index.html:14
-msgid "Sports Coach"
-msgstr "Coach Sportif"
-
-#: .\static\css\indexHugoStyle.html:38 .\templates\index.html:38
-msgid "About me"
-msgstr "A propos de moi"
-
-#: .\static\css\indexHugoStyle.html:41 .\templates\index.html:41
-msgid ""
-"Hello everyone, I am Hugo Marquis, educator, facilitator and sports coach. "
-"Based in Haute-Normandie, near Le Havre. I now practice for just over two "
-"years, I have been fortunate enough to work invarious gyms, I also work with "
-"children in extracurricular, as well as in many associations"
-msgstr ""
-"Bonjour à tous et à toutes, je suis Hugo Marquis,éducateur, animateur et "
-"coach sportif. Basé en Haute-Normandie, proche du Havre.J’exerce maintenant "
-"depuis un peu plus de deux ans, j’ai eu la chance de travailler dans "
-"diverses salles de sport, j'œuvre également avec les enfants en "
-"périscolaire, ainsi que dans de nombreuses associations"
-
-#: .\static\css\indexHugoStyle.html:48 .\templates\index.html:48
-msgid ""
-"I created my company in order to be able to accompany you at best in your "
-"projects:"
-msgstr ""
-"J’ai créé mon entreprise afin de pouvoir vous accompagner au mieux dans vos "
-"projets : "
-
-#: .\static\css\indexHugoStyle.html:50 .\templates\index.html:50
-msgid "Are you a company or an individual with a sports project?"
-msgstr "Vous êtes une entreprise ou un particulier ayant un projet sportif ?"
-
-#: .\static\css\indexHugoStyle.html:51 .\templates\index.html:51
-msgid ""
-"Imagine, create and manage a sporting event or a new course in a structure?"
-msgstr ""
-"Imaginer, créer et gérer un événement sportif ou un nouveau cours dans une "
-"structure ?"
-
-#: .\static\css\indexHugoStyle.html:53 .\templates\index.html:53
-msgid ""
-"This is possible by contacting me. Very versatile in the fieldsports, with a "
-"little work, any project can come to fruition."
-msgstr ""
-"C'est possible en prenant contact avec moi. Très polyvalent dans le domaine "
-"du sport, avec un peu de travail, n'importe quel projet peut voir le jour. "
-
-#: .\static\css\indexHugoStyle.html:59 .\templates\index.html:59
-msgid "Hundreds of goals, different courses, one coach!"
-msgstr "Des centaines d'objectifs , différents cours, un seul coach!"
-
-#: .\static\css\indexHugoStyle.html:60 .\templates\index.html:60
-msgid "You are an individual and you want to change your training? "
-msgstr "Vous êtes un particulier et vous voulez changer votre entraînement ?"
-
-#: .\static\css\indexHugoStyle.html:61 .\templates\index.html:61
-msgid ""
-"Personalized, adapted and complete sessions, with you to achieve your goals!"
-msgstr ""
-"Des séances personnalisées, adaptées et complètes, avec vous pour atteindre "
-"vos objectifs !"
-
-#: .\static\css\indexHugoStyle.html:62 .\templates\index.html:62
-msgid ""
-"Choose the length of your sessions, from 30min to 1h30, decide the amount of "
-"sessions by week, and we'll create you a programme 100%% personalized so you "
-"can reach your objectives."
-msgstr ""
-"Choisissez votre volume horaire, de 30min à 1h30, définissez votre quantité "
-"de séance par semaine, et nous établirons un programme 100% personnalisé "
-"afin d'atteindre vos objectifs."
-
-#: .\static\css\indexHugoStyle.html:70 .\templates\index.html:70
-msgid "Do you want effective and sustainable weight loss? "
-msgstr "Vous souhaitez une perte de poids efficace et durable ? "
-
-#: .\static\css\indexHugoStyle.html:71 .\templates\index.html:71
-msgid ""
-"Refine your waist or simply tone your body, opt for the loss of fat mass."
-msgstr ""
-"Affiner votre taille ou bien simplement tonifier votre corps, optez pour la "
-"perte de masse grasse."
-
-#: .\static\css\indexHugoStyle.html:77 .\templates\index.html:77
-msgid "Want to become more massive?"
-msgstr "Envie de devenir plus massif ?"
-
-#: .\static\css\indexHugoStyle.html:78 .\templates\index.html:78
-msgid ""
-"Increase your body volume, or work on the size of a muscle precise, choose "
-"the mass gain."
-msgstr ""
-"Augmenter votre volume corporel, ou travailler sur la taille d’un muscle "
-"précis, faites le choix de la prise de masse."
-
-#: .\static\css\indexHugoStyle.html:84 .\templates\index.html:84
-msgid "Did you have an operation or quit sports for a while? "
-msgstr ""
-"Vous avez subi une opération ou avez arrêté le sport pendant un moment ? "
-
-#: .\static\css\indexHugoStyle.html:85 .\templates\index.html:85
-msgid ""
-"Resume at your own pace and restart the machine, adapting to your physical "
-"constraints, reahletization is possible."
-msgstr ""
-"Reprendre à votre rythme et relancer la machine, en adaptant à vos "
-"contraintes physiques, la réathlétisation est possible."
-
-#: .\static\css\indexHugoStyle.html:90 .\templates\index.html:90
-#, fuzzy
-#| msgid " Partners "
-msgid " Partenaires "
-msgstr " Partenaires "
-
-#: .\static\css\indexHugoStyle.html:122 .\templates\index.html:122
-msgid "Last Article"
-msgstr "Dernière Actualité"
-
-#: .\static\css\indexHugoStyle.html:138 .\templates\index.html:138
-msgid "Author: "
-msgstr "Auteur:"
 
 #: .\templates\404.html:10
 msgid "404 error"
@@ -465,8 +338,8 @@ msgid ""
 "\"%(email_url)s\">issue a new email confirmation request</a>."
 msgstr ""
 
-#: .\templates\account\login.html:6 .\templates\account\login.html:14
-#: .\templates\account\login.html:34 .\templates\allauth\layouts\base.html:36
+#: .\templates\account\login.html:6 .\templates\account\login.html:13
+#: .\templates\account\login.html:32 .\templates\allauth\layouts\base.html:36
 #: .\templates\mfa\authenticate.html:5 .\templates\mfa\authenticate.html:23
 #: .\templates\openid\login.html:5 .\templates\openid\login.html:9
 #: .\templates\openid\login.html:20 .\templates\socialaccount\login.html:5
@@ -475,7 +348,7 @@ msgstr ""
 msgid "Sign In"
 msgstr "S'inscrire"
 
-#: .\templates\account\login.html:17
+#: .\templates\account\login.html:15
 #, python-format
 msgid ""
 "If you have not created an account yet, then please\n"
@@ -484,14 +357,14 @@ msgstr ""
 "Si vous n'avez pas encore créer de compte, veuillez\n"
 "            <a href=\"%(signup_url)s\">vous inscrire</a> d'abord."
 
-#: .\templates\account\logout.html:5 .\templates\account\logout.html:13
-#: .\templates\account\logout.html:28 .\templates\allauth\layouts\base.html:32
+#: .\templates\account\logout.html:5 .\templates\account\logout.html:12
+#: .\templates\account\logout.html:26 .\templates\allauth\layouts\base.html:32
 #, fuzzy
 #| msgid "Sign Up"
 msgid "Sign Out"
 msgstr "Se déconnecter"
 
-#: .\templates\account\logout.html:15
+#: .\templates\account\logout.html:13
 msgid "Are you sure you want to sign out?"
 msgstr "Etes vous sur de vouloir vous déconnecter?"
 
@@ -547,9 +420,9 @@ msgstr ""
 #: .\templates\account\password_change.html:4
 #: .\templates\account\password_change.html:8
 #: .\templates\account\password_change.html:19
-#: .\templates\account\password_reset_from_key.html:5
-#: .\templates\account\password_reset_from_key.html:12
-#: .\templates\account\password_reset_from_key.html:29
+#: .\templates\account\password_reset_from_key.html:6
+#: .\templates\account\password_reset_from_key.html:16
+#: .\templates\account\password_reset_from_key.html:33
 #: .\templates\account\password_reset_from_key_done.html:5
 #: .\templates\account\password_reset_from_key_done.html:9
 msgid "Change Password"
@@ -559,38 +432,40 @@ msgstr ""
 msgid "Forgot Password?"
 msgstr ""
 
-#: .\templates\account\password_reset.html:4
-#: .\templates\account\password_reset.html:8
-#: .\templates\account\password_reset_done.html:6
-#: .\templates\account\password_reset_done.html:10
+#: .\templates\account\password_reset.html:5
+#: .\templates\account\password_reset.html:12
+#: .\templates\account\password_reset_done.html:7
+#: .\templates\account\password_reset_done.html:14
 msgid "Password Reset"
 msgstr ""
 
-#: .\templates\account\password_reset.html:14
+#: .\templates\account\password_reset.html:17
 msgid ""
 "Forgotten your password? Enter your email address below, and we'll send you "
 "an email allowing you to reset it."
 msgstr ""
+"Vous avez oublié votre mot de passe? Entrez votre adresse email et nous vous "
+"enverrons un email pour le réinitialiser."
 
-#: .\templates\account\password_reset.html:25
+#: .\templates\account\password_reset.html:28
 msgid "Reset My Password"
 msgstr ""
 
-#: .\templates\account\password_reset.html:29
+#: .\templates\account\password_reset.html:32
 msgid "Please contact us if you have any trouble resetting your password."
 msgstr ""
 
-#: .\templates\account\password_reset_done.html:16
+#: .\templates\account\password_reset_done.html:19
 msgid ""
 "We have sent you an email. If you have not received it please check your "
 "spam folder. Otherwise contact us if you do not receive it in a few minutes."
 msgstr ""
 
-#: .\templates\account\password_reset_from_key.html:10
+#: .\templates\account\password_reset_from_key.html:14
 msgid "Bad Token"
 msgstr ""
 
-#: .\templates\account\password_reset_from_key.html:18
+#: .\templates\account\password_reset_from_key.html:22
 #, python-format
 msgid ""
 "The password reset link was invalid, possibly because it has already been "
@@ -623,14 +498,14 @@ msgstr ""
 msgid "Signup"
 msgstr "S'inscrire"
 
-#: .\templates\account\signup.html:13 .\templates\account\signup.html:32
+#: .\templates\account\signup.html:12 .\templates\account\signup.html:30
 #: .\templates\allauth\layouts\base.html:39 .\templates\layout\navbar.html:31
 #: .\templates\socialaccount\signup.html:9
 #: .\templates\socialaccount\signup.html:29
 msgid "Sign Up"
 msgstr "S'inscrire"
 
-#: .\templates\account\signup.html:16
+#: .\templates\account\signup.html:14
 #, python-format
 msgid ""
 "Already have an account? Then please <a href=\"%(login_url)s\">sign in</a>."
@@ -930,6 +805,142 @@ msgstr "Retourner aux réservations."
 #| msgid "Create a course"
 msgid "Update course"
 msgstr "Créer un cours"
+
+#: .\templates\index.html:14
+msgid "Sports Coach"
+msgstr "Coach Sportif"
+
+#: .\templates\index.html:20
+msgid "Take Control, become the best version of yourself."
+msgstr "Prenez le contrôle, devenez votre meilleure version."
+
+#: .\templates\index.html:38
+msgid "About me"
+msgstr "A propos de moi"
+
+#: .\templates\index.html:41
+msgid ""
+"Hello everyone, I am Hugo Marquis, educator, facilitator and sports coach. "
+"Based in Haute-Normandie, near Le Havre. I now practice for just over two "
+"years, I have been fortunate enough to work invarious gyms, I also work with "
+"children in extracurricular, as well as in many associations"
+msgstr ""
+"Bonjour à tous et à toutes, je suis Hugo Marquis,éducateur, animateur et "
+"coach sportif. Basé en Haute-Normandie, proche du Havre.J’exerce maintenant "
+"depuis un peu plus de deux ans, j’ai eu la chance de travailler dans "
+"diverses salles de sport, j'œuvre également avec les enfants en "
+"périscolaire, ainsi que dans de nombreuses associations"
+
+#: .\templates\index.html:48
+msgid ""
+"I created my company in order to be able to accompany you at best in your "
+"projects:"
+msgstr ""
+"J’ai créé mon entreprise afin de pouvoir vous accompagner au mieux dans vos "
+"projets : "
+
+#: .\templates\index.html:50
+msgid "Are you a company or an individual with a sports project?"
+msgstr "Vous êtes une entreprise ou un particulier ayant un projet sportif ?"
+
+#: .\templates\index.html:51
+msgid ""
+"Imagine, create and manage a sporting event or a new course in a structure?"
+msgstr ""
+"Imaginer, créer et gérer un événement sportif ou un nouveau cours dans une "
+"structure ?"
+
+#: .\templates\index.html:53
+msgid ""
+"This is possible by contacting me. Very versatile in the fieldsports, with a "
+"little work, any project can come to fruition."
+msgstr ""
+"C'est possible en prenant contact avec moi. Très polyvalent dans le domaine "
+"du sport, avec un peu de travail, n'importe quel projet peut voir le jour. "
+
+#: .\templates\index.html:59
+msgid "Hundreds of goals, different courses, one coach!"
+msgstr "Des centaines d'objectifs , différents cours, un seul coach!"
+
+#: .\templates\index.html:60
+msgid "You are an individual and you want to change your training? "
+msgstr "Vous êtes un particulier et vous voulez changer votre entraînement ?"
+
+#: .\templates\index.html:61
+msgid ""
+"Personalized, adapted and complete sessions, with you to achieve your goals!"
+msgstr ""
+"Des séances personnalisées, adaptées et complètes, avec vous pour atteindre "
+"vos objectifs !"
+
+#: .\templates\index.html:62
+#, fuzzy, python-format
+#| msgid ""
+#| "Choose the length of your sessions, from 30min to 1h30, decide the amount "
+#| "of sessions by week, and we'll create you a programme 100%% personalized "
+#| "so you can reach your objectives."
+msgid ""
+"Choose the length of your sessions, from 30min to 1h30, decide the amount of "
+"sessions by week, and we'll create you a programme 100%% personalized so you "
+"can reach your objectives."
+msgstr ""
+"Choisissez votre volume horaire, de 30min à 1h30, définissez votre quantité "
+"de séance par semaine, et nous établirons un programme 100% personnalisé "
+"afin d'atteindre vos objectifs."
+
+#: .\templates\index.html:70
+msgid "Do you want effective and sustainable weight loss? "
+msgstr "Vous souhaitez une perte de poids efficace et durable ? "
+
+#: .\templates\index.html:71
+msgid ""
+"Refine your waist or simply tone your body, opt for the loss of fat mass."
+msgstr ""
+"Affiner votre taille ou bien simplement tonifier votre corps, optez pour la "
+"perte de masse grasse."
+
+#: .\templates\index.html:77
+msgid "Want to become more massive?"
+msgstr "Envie de devenir plus massif ?"
+
+#: .\templates\index.html:78
+msgid ""
+"Increase your body volume, or work on the size of a muscle precise, choose "
+"the mass gain."
+msgstr ""
+"Augmenter votre volume corporel, ou travailler sur la taille d’un muscle "
+"précis, faites le choix de la prise de masse."
+
+#: .\templates\index.html:84
+msgid "Did you have an operation or quit sports for a while? "
+msgstr ""
+"Vous avez subi une opération ou avez arrêté le sport pendant un moment ? "
+
+#: .\templates\index.html:85
+msgid ""
+"Resume at your own pace and restart the machine, adapting to your physical "
+"constraints, reahletization is possible."
+msgstr ""
+"Reprendre à votre rythme et relancer la machine, en adaptant à vos "
+"contraintes physiques, la réathlétisation est possible."
+
+#: .\templates\index.html:90
+#, fuzzy
+#| msgid " Partners "
+msgid " Partenaires "
+msgstr " Partenaires "
+
+#: .\templates\index.html:122
+msgid "Last Article"
+msgstr "Dernière Actualité"
+
+#: .\templates\index.html:138
+msgid "Author: "
+msgstr "Auteur:"
+
+#: .\templates\layout\footer.html:4
+msgid "Follow us"
+msgstr "Suivez nous"
 
 #: .\templates\layout\navbar.html:14
 msgid "Home"
