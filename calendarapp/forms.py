@@ -12,11 +12,13 @@ description_attrs = {
 
 
 class DateTimeInput(forms.DateTimeInput):
+    """ Widget for datetime input """
     input_type = 'datetime-local'
     format = '%Y-%m-%dT%H:%M'
 
 
 class UnavailablePeriodForm(forms.ModelForm):
+    """ Form for unavailable periods """
     start_time = forms.DateTimeField(
         input_formats=['%Y-%m-%dT%H:%M'], widget=DateTimeInput())
     end_time = forms.DateTimeField(
@@ -43,6 +45,7 @@ class UnavailablePeriodForm(forms.ModelForm):
 
 
 class CourseForm(forms.ModelForm):
+    """ Form for courses """
     start_time = forms.DateTimeField(
         input_formats=['%Y-%m-%dT%H:%M'], widget=DateTimeInput())
     end_time = forms.DateTimeField(
@@ -76,6 +79,7 @@ class CourseForm(forms.ModelForm):
 
 
 class PrivateSessionForm(forms.ModelForm):
+    """ Form for private sessions """
     start_time = forms.DateTimeField(
         input_formats=['%Y-%m-%dT%H:%M'], widget=DateTimeInput())
     end_time = forms.DateTimeField(

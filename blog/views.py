@@ -5,7 +5,7 @@ from django.shortcuts import (render,
                               redirect)
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from django.urls import reverse
+
 from django.views import generic, View
 from django.utils import translation
 from django.utils.text import slugify
@@ -18,10 +18,12 @@ from .forms import CommentForm, NewsForm
 
 
 def error_404_view(request, exception):
+    """ Renders the 404 page """
     return render(request, '404.html', {}, status=404)
 
 
 def add_news(request):
+    """ View to add news items """
     if request.method == 'POST':
         form = NewsForm(request.POST, request.FILES)
         if form.is_valid():
@@ -41,6 +43,7 @@ def add_news(request):
 
 
 def set_language(request, language):
+    """ Sets the language for the site """
     translation.activate(language)
     print(f"Setting language to: {language}")
     print(f"Current Language in View: {request.LANGUAGE_CODE}")
@@ -50,6 +53,7 @@ def set_language(request, language):
 
 @login_required
 def like_post(request, pk):
+    """ View to like a post """
     post = get_object_or_404(Post, pk=pk)
     if request.user in post.likes.all():
         post.likes.remove(request.user)
@@ -62,6 +66,7 @@ def like_post(request, pk):
 
 
 class HomeView(TemplateView):
+    """ View for the home page """
     template_name = 'index.html'
 
     def get_context_data(self, **kwargs):
@@ -72,6 +77,7 @@ class HomeView(TemplateView):
 
 
 class PostList(generic.ListView):
+    """ View for the news page"""
     model = Post
     queryset = Post.objects.filter(status=1).order_by('-created_on')
     template_name = 'news.html'
@@ -79,7 +85,7 @@ class PostList(generic.ListView):
 
 
 class PostDetails(View):
-
+    """ View for the news details page """
     def get(self, request, slug, *args, **kwargs):
         queryset = Post.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
@@ -97,6 +103,7 @@ class PostDetails(View):
         return render(request, "news_details.html", context)
 
     def post(self, request, slug, *args, **kwargs):
+        """ View for posting comments """
         queryset = Post.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
         comments = post.comments.order_by('created_on')

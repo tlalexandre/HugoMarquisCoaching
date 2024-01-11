@@ -20,12 +20,14 @@ import logging
 
 
 def unavailable_period(request):
+    """ View for unavailable periods """
     superuser = User.objects.get(is_superuser=True)
     periods = UnavailablePeriod.objects.filter(user=superuser)
     return render(request, 'unavailable_periods.html', {'periods': periods})
 
 
 def add_unavailable_period(request):
+    """ View to add unavailable periods """
     superuser = User.objects.get(is_superuser=True)
     date = request.GET.get('date')
     if request.method == 'POST':
@@ -53,6 +55,7 @@ def add_unavailable_period(request):
 
 @login_required
 def join_course(request, slug):
+    """ View to join a course """
     if request.method == 'POST':
         course = get_object_or_404(Course, slug=slug)
         if course.participants.filter(id=request.user.id).exists():
@@ -70,6 +73,7 @@ def join_course(request, slug):
 
 
 def update_course(request, course_id):
+    """ View to update a course """
     course = get_object_or_404(Course, id=course_id)
     if request.method == 'POST':
         form = CourseForm(request.POST, instance=course)
@@ -113,6 +117,7 @@ def update_course(request, course_id):
 
 @login_required
 def delete_course(request, course_id):
+    """ View to delete a course """
     course = get_object_or_404(Course, id=course_id)
     if request.user.is_superuser:
         users = course.participants.all()
@@ -143,6 +148,7 @@ logger = logging.getLogger(__name__)
 
 @login_required
 def event_create(request):
+    """ View to create an event """
     logger.info(f"Received request: {request.GET}")
     event_type = request.GET.get('type')
     if event_type == 'course':
@@ -230,6 +236,7 @@ def event_create(request):
 
 
 def event_detail(request, slug):
+    """ View to show the details of an event """
     try:
         # Try to get a PrivateSession with the given slug
         private_session = PrivateSession.objects.get(slug=slug)
@@ -273,6 +280,7 @@ def event_detail(request, slug):
 
 
 def bookings_view(request):
+    """ View to show the bookings page """
     context = {
         'is_superuser': request.user.is_superuser,
     }
@@ -280,6 +288,7 @@ def bookings_view(request):
 
 
 def get_courses(request):
+    """ Get all courses """
     courses = Course.objects.all()
     course_list = []
     for course in courses:
@@ -301,6 +310,7 @@ def get_courses(request):
 
 @require_POST
 def approve_private_session(request, slug):
+    """ View to approve a private session """
     private_session = PrivateSession.objects.get(slug=slug)
     if request.user.is_superuser:
         private_session.approve()
@@ -323,6 +333,7 @@ def approve_private_session(request, slug):
 
 @require_POST
 def delete_private_session(request, slug):
+    """ View to delete a private session """
     private_session = get_object_or_404(PrivateSession, slug=slug)
     if request.user.is_superuser or request.user == private_session.user:
         custom_message = request.POST.get('message')
@@ -351,6 +362,7 @@ def delete_private_session(request, slug):
 
 
 def get_private_sessions(request):
+    """ Get all private sessions """
     private_sessions = PrivateSession.objects.all()
     private_session_list = []
     for private_session in private_sessions:
@@ -383,6 +395,7 @@ def get_private_sessions(request):
 
 
 def get_unavailable_periods(request):
+    """ Get all unavailable periods  """
     superuser = User.objects.get(is_superuser=True)
     periods = UnavailablePeriod.objects.filter(user=superuser)
     period_list = []
@@ -398,6 +411,7 @@ def get_unavailable_periods(request):
 
 
 def get_all_events(request):
+    """ Get all events """
     courses = get_courses(request)
     private_sessions = get_private_sessions(request)
     unavailable_periods = get_unavailable_periods(request)

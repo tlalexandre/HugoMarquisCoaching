@@ -29,6 +29,7 @@ LOCATION_CHOICES = [
 
 
 class UnavailablePeriod(models.Model):
+    """ Model for unavailable periods """
     user = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="unavailable_periods"
     )
@@ -56,6 +57,7 @@ class UnavailablePeriod(models.Model):
 
 
 class Course(models.Model):
+    """ Model for courses """
     name = models.CharField(max_length=100)
     slug = models.SlugField(max_length=255, unique=True)
     description = models.TextField()
@@ -111,6 +113,7 @@ class Course(models.Model):
 
 
 class PrivateSession(models.Model):
+    """ Model for private sessions """
     name = models.CharField(max_length=200)
     slug = models.SlugField(max_length=255, unique=True)
     start_time = models.DateTimeField()
