@@ -71,7 +71,7 @@ def join_course(request, slug):
             messages.error(request, gettext('This course is full.'))
             return redirect('event_detail', slug=course.slug)
 
-
+@login_required
 def update_course(request, course_id):
     """ View to update a course """
     course = get_object_or_404(Course, id=course_id)
